@@ -1,0 +1,330 @@
+<title>EduInsight Data Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f6f8; --surface:#ffffff; --surface-2:#eef0f3;
+    --ink:#0b0e14; --ink-2:#52585f; --muted:#8a9099; --hairline:#e1e3e8;
+    --border:rgba(11,14,20,0.10);
+    --accent:#2a78d6; --accent-ink:#ffffff;
+    --series-1:#2a78d6; --series-2:#eb6834; --series-3:#1baf7a;
+    --good:#0ca30c; --good-bg:#e6f6e6; --warn:#c98500; --warn-bg:#fcefd6; --planned-bg:#eef0f3;
+    --shadow: 0 1px 2px rgba(11,14,20,0.04), 0 8px 24px -12px rgba(11,14,20,0.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+      --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+      --border:rgba(255,255,255,0.10);
+      --accent:#3987e5; --accent-ink:#ffffff;
+      --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70;
+      --good:#1fc21f; --good-bg:#123a16; --warn:#e0a52c; --warn-bg:#3a2f10; --planned-bg:#1b1f25;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+    --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+    --border:rgba(255,255,255,0.10);
+    --accent:#3987e5; --accent-ink:#ffffff;
+    --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70;
+    --good:#1fc21f; --good-bg:#123a16; --warn:#e0a52c; --warn-bg:#3a2f10; --planned-bg:#1b1f25;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+  *{box-sizing:border-box;}
+  body{ background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; padding:0 20px; line-height:1.5; }
+  .cjk{ font-family:"Noto Sans SC","IBM Plex Sans",system-ui,sans-serif; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .tab-nums{ font-variant-numeric: tabular-nums; }
+  .wrap{ max-width:1180px; margin:0 auto; }
+
+  .topbar{ position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom:1px solid var(--hairline); margin:0 -20px; padding:0 20px; }
+  .topbar-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:18px; padding:14px 0; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:baseline; gap:8px; font-weight:700; font-size:16px; white-space:nowrap; }
+  .brand small{ font-weight:500; color:var(--muted); font-size:12px; }
+  nav.site{ display:flex; flex-wrap:wrap; gap:2px; margin-left:auto; }
+  nav.site a{ color:var(--ink-2); text-decoration:none; font-size:13px; font-weight:600; padding:8px 12px; border-radius:8px; white-space:nowrap; }
+  nav.site a:hover{ background:var(--surface-2); color:var(--ink); }
+  nav.site a.active{ background:var(--accent); color:var(--accent-ink); }
+  .subbar{ border-bottom:1px solid var(--hairline); margin:0 -20px 0; padding:0 20px; }
+  .subbar-inner{ max-width:1180px; margin:0 auto; display:flex; gap:2px; flex-wrap:wrap; padding:10px 0; }
+  .subbar-inner a{ color:var(--ink-2); text-decoration:none; font-size:12.5px; font-weight:500; padding:6px 10px; border-radius:7px; white-space:nowrap; }
+  .subbar-inner a:hover{ background:var(--surface-2); color:var(--ink); }
+
+  .hero{ padding:36px 0 8px; }
+  .eyebrow{ text-transform:uppercase; letter-spacing:.08em; font-size:11.5px; font-weight:600; color:var(--accent); margin:0 0 10px; }
+  h1{ font-size:clamp(26px,4vw,38px); margin:0 0 10px; text-wrap:balance; letter-spacing:-0.01em; }
+  .sub{ color:var(--ink-2); max-width:70ch; font-size:15.5px; margin:0 0 26px; }
+  .stat-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--hairline); border:1px solid var(--hairline); border-radius:14px; overflow:hidden; margin-bottom:14px; }
+  .stat{ background:var(--surface); padding:18px 16px; }
+  .stat .v{ font-family:"IBM Plex Mono",monospace; font-size:26px; font-weight:600; letter-spacing:-0.01em; }
+  .stat .l{ color:var(--ink-2); font-size:12.5px; margin-top:4px; }
+  .hero-note{ font-size:12.5px; color:var(--muted); margin:0 0 30px; }
+
+  section{ padding:34px 0; border-top:1px solid var(--hairline); scroll-margin-top:110px; }
+  h2{ font-size:20px; margin:0 0 4px; letter-spacing:-0.01em; }
+  .section-desc{ color:var(--ink-2); font-size:14px; margin:0 0 22px; max-width:75ch; }
+  .card{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:20px; box-shadow:var(--shadow); }
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:820px){ .grid-2{ grid-template-columns:1fr; } }
+  .card h3{ font-size:14px; margin:0 0 2px; }
+  .card .cap{ font-size:12px; color:var(--muted); margin:0 0 14px; }
+
+  .bars{ display:flex; flex-direction:column; gap:9px; }
+  .bar-row{ display:grid; grid-template-columns:150px 1fr 62px; align-items:center; gap:10px; }
+  .bar-row .lab{ font-size:12.5px; color:var(--ink-2); text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-track{ position:relative; height:16px; background:var(--surface-2); border-radius:4px; overflow:hidden; }
+  .bar-fill{ position:absolute; left:0; top:0; height:100%; border-radius:4px; min-width:3px; }
+  .bar-row .val{ font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-2); text-align:right; }
+  .legend{ display:flex; gap:16px; margin-bottom:12px; flex-wrap:wrap; }
+  .legend .item{ display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--ink-2); }
+  .legend .sw{ width:10px; height:10px; border-radius:3px; }
+  .note{ font-size:12.5px; color:var(--ink-2); background:var(--surface-2); border-radius:8px; padding:10px 12px; margin-top:14px; }
+  .note b{ color:var(--ink); }
+
+  .diagram-scroll{ overflow-x:auto; }
+  .diagram-scroll svg{ min-width:820px; }
+  .node-box{ fill:var(--surface); stroke:var(--hairline); stroke-width:1.5; }
+  .node-box.highlight{ stroke:var(--accent); stroke-width:2; }
+  .node-title{ font:600 13px "IBM Plex Sans",sans-serif; fill:var(--ink); }
+  .node-sub{ font:500 10.5px "IBM Plex Mono",monospace; fill:var(--muted); }
+  .edge-line{ stroke:var(--muted); stroke-width:1.4; fill:none; }
+  .edge-label{ font:500 10.5px "IBM Plex Mono",monospace; fill:var(--ink-2); }
+  .edge-label-bg{ fill:var(--bg); }
+  .badge-found{ fill:var(--accent); }
+  .badge-found-text{ font:600 9.5px "IBM Plex Sans",sans-serif; fill:#fff; }
+
+  .tabs{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+  .tab-btn{ font-family:inherit; font-size:12.5px; font-weight:600; color:var(--ink-2); background:var(--surface-2); border:1px solid transparent; border-radius:8px; padding:7px 11px; cursor:pointer; }
+  .tab-btn[aria-selected="true"]{ background:var(--accent); color:var(--accent-ink); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+  pre.code{ background:var(--surface-2); border-radius:10px; padding:14px 16px; font-family:"IBM Plex Mono",monospace; font-size:12px; line-height:1.65; overflow-x:auto; margin:0 0 10px; white-space:pre-wrap; word-break:break-word; }
+  .field-note{ font-size:12.5px; color:var(--ink-2); margin:0 0 10px; }
+  .field-note b{ color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:600;}
+
+  footer{ padding:26px 0 40px; color:var(--muted); font-size:12px; }
+  #tooltip{ position:fixed; pointer-events:none; z-index:50; background:var(--ink); color:var(--bg); font-family:"IBM Plex Mono",monospace; font-size:11.5px; padding:6px 9px; border-radius:6px; transform:translate(-50%,-130%); white-space:nowrap; opacity:0; transition:opacity .1s; }
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">EduInsight <small>Dataset &amp; Pipeline Overview</small></div>
+    <nav class="site">
+      <a href="index.html" class="active">Dataset Overview</a>
+      <a href="proposal.html">Proposal &amp; Literature</a>
+      <a href="pipeline.html">Pipeline &amp; Modules</a>
+      <a href="subset.html">CS Subset &amp; EDA</a>
+    </nav>
+  </div>
+</div>
+<div class="subbar"><div class="subbar-inner">
+  <a href="#hero">Scale</a><a href="#variety">Variety</a><a href="#schema">Schema</a><a href="#samples">Raw Samples</a>
+</div></div>
+
+<div class="wrap">
+
+  <section id="hero" class="hero" style="border-top:none;">
+    <p class="eyebrow">Hadoop-Based Lecture Analytics &amp; Recommendation System</p>
+    <h1>MOOCCubeX: the corpus behind EduInsight</h1>
+    <p class="sub">A Tsinghua University (THU-KEG) dataset of Chinese MOOC lecture videos, transcribed captions,
+      and machine-extracted concepts — chosen over AVLectures (451GB, impractical for a semester project).
+      Every number on this page comes from files actually downloaded and verified, not documentation claims.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="v tab-nums">3,781</div><div class="l">Courses</div></div>
+      <div class="stat"><div class="v tab-nums">59,581</div><div class="l">Captioned lecture videos</div></div>
+      <div class="stat"><div class="v tab-nums">10,543</div><div class="l">Hours of lecture content</div></div>
+      <div class="stat"><div class="v tab-nums">637,572</div><div class="l">Extracted concepts</div></div>
+      <div class="stat"><div class="v tab-nums">11.36M</div><div class="l">Caption segments</div></div>
+      <div class="stat"><div class="v tab-nums">82</div><div class="l">Academic disciplines</div></div>
+      <div class="stat"><div class="v tab-nums">~949 MB</div><div class="l">Raw data, 7 files</div></div>
+    </div>
+    <p class="hero-note">10,543 hours ≈ 439 continuous days of lecture footage — this is why the project needs Hadoop/Spark, not a single script.</p>
+  </section>
+
+  <section id="variety">
+    <h2>Variety: what's actually in this corpus</h2>
+    <p class="section-desc">The dataset spans 82 disciplines, not just Computer Science, and is Chinese-native — both facts shape the pipeline design (multilingual embeddings, not translation).</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Top 15 disciplines by course count</h3>
+        <p class="cap">of 632 courses that carry a discipline label · 74 are Computer Science</p>
+        <div class="bars" id="chart-fields"></div>
+      </div>
+      <div class="card">
+        <h3>Course title language</h3>
+        <p class="cap">3,781 total courses — checked character-by-character, not assumed</p>
+        <div class="legend">
+          <div class="item"><span class="sw" style="background:var(--series-1)"></span>Chinese-character titles</div>
+          <div class="item"><span class="sw" style="background:var(--series-2)"></span>Non-Chinese titles</div>
+        </div>
+        <div class="bars" id="chart-lang"></div>
+        <div class="note">The platform (XuetangX) is Chinese-native. The 10.1% non-Chinese-titled courses are mostly Tsinghua's international/English-taught offerings — not enough to be the primary corpus. <b>Design decision:</b> jieba tokenization + a multilingual sentence-transformer, so an English query like "dynamic programming" matches Chinese lecture content directly — no full-corpus translation needed.</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <h3>Raw file sizes (full corpus)</h3>
+      <p class="cap">what's actually sitting on disk right now</p>
+      <div class="bars" id="chart-files"></div>
+    </div>
+  </section>
+
+  <section id="schema">
+    <h2>How the 7 files actually join together</h2>
+    <p class="section-desc">The public documentation only showed the top chain (course → resource → captions is broken without the bridge file). We found and verified the missing link ourselves.</p>
+    <div class="card diagram-scroll">
+      <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema diagram showing how the seven MOOCCubeX files join">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"></path>
+          </marker>
+        </defs>
+        <line class="edge-line" x1="200" y1="65" x2="270" y2="65" marker-end="url(#arrow)"></line>
+        <line class="edge-line" x1="470" y1="65" x2="540" y2="65" marker-end="url(#arrow)"></line>
+        <line class="edge-line" x1="740" y1="65" x2="810" y2="65" marker-end="url(#arrow)"></line>
+        <line class="edge-line" x1="365" y1="100" x2="245" y2="255" marker-end="url(#arrow)"></line>
+        <line class="edge-line" x1="875" y1="100" x2="775" y2="255" marker-end="url(#arrow)"></line>
+        <line class="edge-line" x1="390" y1="290" x2="460" y2="290" marker-end="url(#arrow)"></line>
+        <line class="edge-line" x1="660" y1="290" x2="590" y2="290" marker-end="url(#arrow)"></line>
+        <g><rect class="edge-label-bg" x="205" y="52" width="62" height="16" rx="3"></rect><text class="edge-label" x="210" y="64">course_id</text></g>
+        <g><rect class="edge-label-bg" x="472" y="52" width="90" height="16" rx="3"></rect><text class="edge-label" x="477" y="64">resource_id (V_x)</text></g>
+        <g><rect class="edge-label-bg" x="742" y="52" width="42" height="16" rx="3"></rect><text class="edge-label" x="747" y="64">ccid</text></g>
+        <g><rect class="edge-label-bg" x="255" y="168" width="66" height="16" rx="3"></rect><text class="edge-label" x="260" y="180">course_id</text></g>
+        <g><rect class="edge-label-bg" x="770" y="168" width="42" height="16" rx="3"></rect><text class="edge-label" x="775" y="180">ccid</text></g>
+        <g><rect class="edge-label-bg" x="398" y="277" width="52" height="16" rx="3"></rect><text class="edge-label" x="403" y="289">concept</text></g>
+        <g><rect class="edge-label-bg" x="598" y="277" width="52" height="16" rx="3"></rect><text class="edge-label" x="603" y="289">concept</text></g>
+        <g><rect class="node-box" x="20" y="30" width="180" height="70" rx="10"></rect><text class="node-title" x="34" y="58">course-field.json</text><text class="node-sub" x="34" y="76">632 rows · 82 fields</text></g>
+        <g><rect class="node-box" x="270" y="30" width="200" height="70" rx="10"></rect><text class="node-title" x="284" y="58">course.json</text><text class="node-sub" x="284" y="76">3,781 courses</text></g>
+        <g>
+          <rect class="node-box highlight" x="540" y="30" width="200" height="70" rx="10"></rect>
+          <text class="node-title" x="554" y="58">video_id-ccid.txt</text>
+          <text class="node-sub" x="554" y="76">2.8M rows · the bridge</text>
+          <rect class="badge-found" x="554" y="10" width="172" height="17" rx="8.5"></rect>
+          <text class="badge-found-text" x="562" y="22">FOUND VIA GITHUB ISSUE</text>
+        </g>
+        <g><rect class="node-box" x="810" y="30" width="170" height="70" rx="10"></rect><text class="node-title" x="824" y="58">video.json</text><text class="node-sub" x="824" y="76">59,581 videos</text></g>
+        <g><rect class="node-box" x="120" y="255" width="200" height="70" rx="10"></rect><text class="node-title" x="134" y="283">concept-course.txt</text><text class="node-sub" x="134" y="301">451,078 links</text></g>
+        <g><rect class="node-box" x="460" y="255" width="130" height="70" rx="10"></rect><text class="node-title" x="474" y="283">concept.json</text><text class="node-sub" x="474" y="301">637,572 concepts</text></g>
+        <g><rect class="node-box" x="660" y="255" width="200" height="70" rx="10"></rect><text class="node-title" x="674" y="283">concept-video.txt</text><text class="node-sub" x="674" y="301">624,683 links</text></g>
+      </svg>
+    </div>
+  </section>
+
+  <section id="samples">
+    <h2>Raw data samples</h2>
+    <p class="section-desc">Real records pulled directly from the downloaded files — exactly what a professor should see to understand the data's actual shape.</p>
+    <div class="card">
+      <div class="tabs" role="tablist" id="tab-buttons"></div>
+      <div id="tab-panels"></div>
+    </div>
+  </section>
+
+  <footer>
+    EduInsight — Hadoop-Based Large-Scale Lecture Analytics and Recommendation System · Team: Aryan Bhutani, Tanmay Sangwan, Tanmay Kandwal · Dataset: MOOCCubeX (THU-KEG, Tsinghua University)
+  </footer>
+</div>
+<div id="tooltip"></div>
+
+<script>
+(function(){
+  var tt = document.getElementById('tooltip');
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  function renderBars(containerId, items, opts){
+    opts = opts || {};
+    var color = opts.color || 'var(--series-1)';
+    var suffix = opts.suffix || '';
+    var el = document.getElementById(containerId);
+    var max = Math.max.apply(null, items.map(function(d){ return d.value; }));
+    items.forEach(function(d){
+      var row = document.createElement('div'); row.className = 'bar-row';
+      var lab = document.createElement('div'); lab.className = 'lab'; lab.textContent = d.label; lab.title = d.title || d.label;
+      var track = document.createElement('div'); track.className = 'bar-track';
+      var fill = document.createElement('div'); fill.className = 'bar-fill';
+      var pct = Math.max((d.value / max) * 100, 2);
+      fill.style.width = pct + '%'; fill.style.background = d.color || color;
+      track.appendChild(fill);
+      track.addEventListener('mousemove', function(e){
+        tt.style.opacity = 1; tt.style.left = e.clientX + 'px'; tt.style.top = e.clientY + 'px';
+        tt.textContent = (d.title || d.label) + ': ' + fmt(d.value) + suffix;
+      });
+      track.addEventListener('mouseleave', function(){ tt.style.opacity = 0; });
+      var val = document.createElement('div'); val.className = 'val tab-nums'; val.textContent = fmt(d.value) + suffix;
+      row.appendChild(lab); row.appendChild(track); row.appendChild(val);
+      el.appendChild(row);
+    });
+  }
+
+  renderBars('chart-fields', [
+    {label:'Computer Science & Tech', title:'计算机科学与技术', value:75},
+    {label:'Foreign Languages & Lit.', title:'外国语言文学', value:43},
+    {label:'Art Studies', title:'艺术学', value:38},
+    {label:'Chinese Language & Lit.', title:'中国语言文学', value:26},
+    {label:'Management Sci. & Eng.', title:'管理科学与工程', value:25},
+    {label:'History', title:'历史学', value:23},
+    {label:'Clinical Medicine', title:'临床医学', value:22},
+    {label:'Physics', title:'物理学', value:22},
+    {label:'Mathematics', title:'数学', value:22},
+    {label:'Applied Economics', title:'应用经济学', value:21},
+    {label:'Psychology', title:'心理学', value:20},
+    {label:'Business Admin.', title:'工商管理', value:20},
+    {label:'Biology', title:'生物学', value:20},
+    {label:'Political Science', title:'政治学', value:17},
+    {label:'Education', title:'教育学', value:16}
+  ]);
+  renderBars('chart-lang', [
+    {label:'Chinese titles', value:3398, color:'var(--series-1)'},
+    {label:'Non-Chinese titles', value:383, color:'var(--series-2)'}
+  ]);
+  renderBars('chart-files', [
+    {label:'video.json', title:'Lecture videos + captions', value:579.9},
+    {label:'concept.json', title:'Extracted concepts', value:155.4},
+    {label:'video_id-ccid.txt', title:'Video ID bridge (found via issue)', value:114.2},
+    {label:'course.json', title:'Course structure', value:42.6},
+    {label:'concept-video.txt', title:'Concept↔video links', value:38.5},
+    {label:'concept-course.txt', title:'Concept↔course links', value:18.6},
+    {label:'course-field.json', title:'Course↔discipline labels', value:0.1}
+  ], {suffix:' MB'});
+
+  var samples = [
+    { id:'course', name:'course.json',
+      note:'One real course record. Field: <b>id, name, field[], prerequisites, about, resource[]</b> — each resource has a resource_id in the V_xxx / Ex_xxx space (bridged to video.json via video_id-ccid.txt).',
+      code:'{\n  "id": "C_584313",\n  "name": "《资治通鉴》导读",        // "Zizhi Tongjian: A Guided Reading"\n  "field": ["历史学", "中国语言文学"], // ["History", "Chinese Language & Literature"]\n  "prerequisites": "",\n  "about": "通过老师导读...",        // "Guided by the instructor, students explore this classic text..."\n  "resource": [\n    {"titles": ["第一课 导论与三家分晋","导论","导论"], "resource_id": "V_849", "chapter": "1.1.1"},\n    {"titles": ["第一课 导论与三家分晋","智伯的覆亡",""], "resource_id": "V_850", "chapter": "1.2.1"}\n    // ... more resources\n  ]\n}' },
+    { id:'video', name:'video.json',
+      note:'One real captioned lecture, from the CS course "数据结构(上)" (Data Structures, Pt.1). Fields: <b>ccid, name, start[], end[], text[]</b> — timestamped ASR captions.',
+      code:'{\n  "ccid": "AC1E9080F4785AB99C33DC5901307461",\n  "name": "01-A-1: 计算",     // "01-A-1: Computation"\n  "start": [4.8, 7.9, 13.1, ...],\n  "end":   [7.7, 11.7, 19.1, ...],\n  "text": [\n    "下面就进入这门课程的第一章第一节",   // "Now we move to Chapter 1, Section 1"\n    "我们首先来讨论所谓的计算",          // "First, let\'s discuss what is meant by computation"\n    "计算首先是我们这门课程的直接研究对象和内容"\n    // ... 25 segments total for this video\n  ]\n}' },
+    { id:'concept', name:'concept.json',
+      note:'A real concept record — one of the "noisy" short concepts flagged in the CS Subset EDA. Fields: <b>id (K_&lt;name&gt;_&lt;field&gt;), name, context[]</b>.',
+      code:'{\n  "id": "K_行_计算机科学与技术",   // concept "行" (row/line) tagged to Computer Science\n  "name": "行",\n  "context": [\n    "...现代深度学习架构通常是通过组合参数化功能块来构建，并使用梯度反向传播进行端到端的训练..."\n  ]\n}' },
+    { id:'cv', name:'concept-video.txt',
+      note:'Tab-separated: <b>concept_id</b> → <b>ccid</b>. Notice the field name is embedded in the concept_id itself — this is how we filter videos by discipline without touching course.json at all.',
+      code:'K_001定时器得电_控制科学与工程\t6EE6CD9AA5B407709C33DC5901307461\n// concept "001 timer powered" (Control Science & Engineering) -> video ccid' },
+    { id:'cc', name:'concept-course.txt',
+      note:'Tab-separated: <b>concept_id</b> → <b>course_id</b>. Same structure as concept-video.txt, one level up.',
+      code:'K_n号计数器_控制科学与工程\tC_681460\n// concept "counter n" (Control Science & Engineering) -> course C_681460' },
+    { id:'cf', name:'course-field.json',
+      note:'Human-annotated discipline labels. Fields: <b>course_id (int, no "C_" prefix), course_name, field[]</b>.',
+      code:'{"course_id": 681692, "course_name": "5G与人工智能", "field": ["计算机科学与技术"]}\n// "5G and Artificial Intelligence" -> ["Computer Science & Technology"]' },
+    { id:'bridge', name:'video_id-ccid.txt',
+      note:'The file we found via GitHub Issue #23. Tab-separated: <b>V_id (course resource_id)</b> → <b>ccid</b>. Many-to-one: the same physical video is often reused across multiple course placements.',
+      code:'V_234845\t0000363DB5B6E0869C33DC5901307461\n// this is the missing link between course.json and video.json' }
+  ];
+  var btnWrap = document.getElementById('tab-buttons');
+  var panelWrap = document.getElementById('tab-panels');
+  samples.forEach(function(s, i){
+    var btn = document.createElement('button'); btn.className = 'tab-btn'; btn.textContent = s.name;
+    btn.setAttribute('role','tab'); btn.setAttribute('aria-selected', i===0 ? 'true':'false');
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.setAttribute('aria-selected','true');
+      document.getElementById('panel-'+s.id).classList.add('active');
+    });
+    btnWrap.appendChild(btn);
+    var panel = document.createElement('div'); panel.className = 'tab-panel' + (i===0 ? ' active':''); panel.id = 'panel-'+s.id;
+    panel.innerHTML = '<p class="field-note">'+s.note+'</p><pre class="code cjk">'+s.code.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</pre>';
+    panelWrap.appendChild(panel);
+  });
+})();
+</script>

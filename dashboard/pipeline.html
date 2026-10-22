@@ -1,0 +1,285 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EduInsight Build Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f6f8; --surface:#ffffff; --surface-2:#eef0f3;
+    --ink:#0b0e14; --ink-2:#52585f; --muted:#8a9099; --hairline:#e1e3e8;
+    --border:rgba(11,14,20,0.10);
+    --accent:#2a78d6; --accent-ink:#ffffff;
+    --series-2:#eb6834; --series-3:#1baf7a;
+    --good:#0ca30c; --good-bg:#e6f6e6; --warn:#c98500; --warn-bg:#fcefd6; --planned-bg:#eef0f3;
+    --shadow: 0 1px 2px rgba(11,14,20,0.04), 0 8px 24px -12px rgba(11,14,20,0.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+      --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+      --border:rgba(255,255,255,0.10);
+      --accent:#3987e5; --accent-ink:#ffffff;
+      --series-2:#d95926; --series-3:#199e70;
+      --good:#1fc21f; --good-bg:#123a16; --warn:#e0a52c; --warn-bg:#3a2f10; --planned-bg:#1b1f25;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+    --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+    --border:rgba(255,255,255,0.10);
+    --accent:#3987e5; --accent-ink:#ffffff;
+    --series-2:#d95926; --series-3:#199e70;
+    --good:#1fc21f; --good-bg:#123a16; --warn:#e0a52c; --warn-bg:#3a2f10; --planned-bg:#1b1f25;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; padding:0 20px; line-height:1.5; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .wrap{ max-width:1080px; margin:0 auto; }
+
+  .topbar{ position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom:1px solid var(--hairline); margin:0 -20px; padding:0 20px; }
+  .topbar-inner{ max-width:1080px; margin:0 auto; display:flex; align-items:center; gap:18px; padding:14px 0; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:baseline; gap:8px; font-weight:700; font-size:16px; white-space:nowrap; }
+  .brand small{ font-weight:500; color:var(--muted); font-size:12px; }
+  nav.site{ display:flex; flex-wrap:wrap; gap:2px; margin-left:auto; }
+  nav.site a{ color:var(--ink-2); text-decoration:none; font-size:13px; font-weight:600; padding:8px 12px; border-radius:8px; white-space:nowrap; }
+  nav.site a:hover{ background:var(--surface-2); color:var(--ink); }
+  nav.site a.active{ background:var(--accent); color:var(--accent-ink); }
+  .subbar{ border-bottom:1px solid var(--hairline); margin:0 -20px 0; padding:0 20px; }
+  .subbar-inner{ max-width:1080px; margin:0 auto; display:flex; gap:2px; flex-wrap:wrap; padding:10px 0; }
+  .subbar-inner a{ color:var(--ink-2); text-decoration:none; font-size:12.5px; font-weight:500; padding:6px 10px; border-radius:7px; white-space:nowrap; }
+  .subbar-inner a:hover{ background:var(--surface-2); color:var(--ink); }
+
+  .hero{ padding:36px 0 8px; }
+  .eyebrow{ text-transform:uppercase; letter-spacing:.08em; font-size:11.5px; font-weight:600; color:var(--accent); margin:0 0 10px; }
+  h1{ font-size:clamp(26px,4vw,36px); margin:0 0 10px; text-wrap:balance; letter-spacing:-0.01em; }
+  .sub{ color:var(--ink-2); max-width:72ch; font-size:15.5px; margin:0 0 10px; }
+
+  section{ padding:34px 0; border-top:1px solid var(--hairline); scroll-margin-top:110px; }
+  h2{ font-size:20px; margin:0 0 4px; letter-spacing:-0.01em; }
+  .section-desc{ color:var(--ink-2); font-size:14px; margin:0 0 24px; max-width:75ch; }
+
+  /* architecture flow */
+  .flow{ display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; }
+  .flow-node{ background:var(--surface); border:1px solid var(--hairline); border-radius:12px; padding:13px 14px; box-shadow:var(--shadow); flex:1 1 150px; min-width:150px; display:flex; flex-direction:column; gap:7px; position:relative; }
+  .flow-arrow{ display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:18px; flex:0 0 auto; padding:0 2px; }
+  .flow-num{ font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--muted); }
+  .flow-title{ font-size:13px; font-weight:600; line-height:1.3; }
+  .chip{ display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:600; padding:3px 8px; border-radius:100px; width:fit-content; }
+  .chip.done{ background:var(--good-bg); color:var(--good); }
+  .chip.today{ background:var(--warn-bg); color:var(--warn); }
+  .chip.planned{ background:var(--planned-bg); color:var(--muted); }
+
+  /* timeline */
+  .timeline{ position:relative; }
+  .tl-item{ display:grid; grid-template-columns:64px 1fr; gap:20px; position:relative; padding-bottom:28px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{ content:""; position:absolute; left:31px; top:64px; bottom:0; width:2px; background:var(--hairline); }
+  .tl-item:last-child::before{ display:none; }
+  .tl-marker{ width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:1; font-family:"IBM Plex Mono",monospace; }
+  .tl-marker .w{ font-size:9.5px; text-transform:uppercase; letter-spacing:.05em; opacity:.75; }
+  .tl-marker .n{ font-size:20px; font-weight:700; line-height:1; }
+  .tl-marker.done{ background:var(--good-bg); color:var(--good); }
+  .tl-marker.todo{ background:var(--surface-2); color:var(--ink-2); border:1px solid var(--hairline); }
+  .tl-card{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow); }
+  .tl-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+  .tl-title{ font-size:16px; font-weight:700; }
+  .tl-owner{ font-size:11.5px; font-weight:600; color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); padding:4px 10px; border-radius:100px; white-space:nowrap; }
+  .tl-tasks{ margin:10px 0 12px; padding-left:20px; font-size:13.5px; color:var(--ink-2); }
+  .tl-tasks li{ margin-bottom:4px; }
+  .tl-deliverable{ font-size:13px; margin-bottom:10px; }
+  .tl-deliverable b{ color:var(--ink); }
+  .tl-demo{ font-size:12.5px; background:var(--surface-2); border-radius:8px; padding:9px 12px; color:var(--ink-2); }
+  .tl-demo b{ color:var(--ink); }
+
+  table.modtable{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  table.modtable th{ text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); padding:8px 12px; border-bottom:1px solid var(--hairline); }
+  table.modtable td{ padding:11px 12px; border-bottom:1px solid var(--hairline); color:var(--ink-2); }
+  table.modtable td:first-child{ color:var(--ink); font-weight:600; }
+  table.modtable tr:last-child td{ border-bottom:none; }
+  .card{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:20px; box-shadow:var(--shadow); overflow-x:auto; }
+
+  footer{ padding:26px 0 40px; color:var(--muted); font-size:12px; }
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">EduInsight <small>Build Roadmap</small></div>
+    <nav class="site">
+      <a href="index.html">Dataset Overview</a>
+      <a href="proposal.html">Proposal &amp; Literature</a>
+      <a href="pipeline.html" class="active">Pipeline &amp; Modules</a>
+      <a href="subset.html">CS Subset &amp; EDA</a>
+    </nav>
+  </div>
+</div>
+<div class="subbar"><div class="subbar-inner">
+  <a href="#architecture">Architecture</a><a href="#weeks">6-Week Plan</a><a href="#modules">Module Map</a>
+</div></div>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <p class="eyebrow">EduInsight · Big Data Analytics Project</p>
+    <h1>Project pipeline &amp; the 6-week build plan</h1>
+    <p class="sub">Six modules, one per stage of the pipeline, built sequentially so something demoable exists at the end of every week. Foundation work, Module 1 (HDFS + Spark) and Module 2 (distributed preprocessing) are done — this plan continues from Module 3.</p>
+  </section>
+
+  <section id="architecture">
+    <h2>System architecture</h2>
+    <p class="section-desc">The end-to-end flow, from raw files to a student-facing recommendation. Status shows what's actually built vs. planned.</p>
+    <div class="flow">
+      <div class="flow-node"><div class="flow-num">01</div><div class="flow-title">Raw MOOCCubeX files</div><span class="chip done">✓ Done</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">02</div><div class="flow-title">Course↔video bridge</div><span class="chip done">✓ Done</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">03</div><div class="flow-title">CS subset + EDA</div><span class="chip done">✓ Done</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">04</div><div class="flow-title">HDFS ingestion</div><span class="chip done">✓ Done</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">05</div><div class="flow-title">Spark preprocessing</div><span class="chip done">✓ Done</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">06</div><div class="flow-title">Embeddings</div><span class="chip planned">Planned</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">07</div><div class="flow-title">Clustering &amp; similarity</div><span class="chip planned">Planned</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">08</div><div class="flow-title">Ranking engine</div><span class="chip planned">Planned</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="flow-num">09</div><div class="flow-title">Query demo</div><span class="chip planned">Planned</span></div>
+    </div>
+  </section>
+
+  <section id="weeks">
+    <h2>6-week build plan</h2>
+    <p class="section-desc">Each week is one module, owned by one team member, ending in something you can put in front of your professor.</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-marker done"><div class="w">Done</div><div class="n">0</div></div>
+        <div class="tl-card">
+          <div class="tl-head"><div class="tl-title">Foundation</div><div class="tl-owner">Whole team</div></div>
+          <ul class="tl-tasks">
+            <li>Selected &amp; verified MOOCCubeX; fixed the undocumented course↔video bridge</li>
+            <li>Built the CS development subset (59 courses, 4,071 videos)</li>
+            <li>Ran EDA, found the concept-noise data-quality issue</li>
+            <li>Published the dataset overview dashboard</li>
+          </ul>
+          <div class="tl-deliverable">Deliverable: <b>verified data + working dashboard</b> (already shipped)</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-marker done"><div class="w">Done</div><div class="n">1</div></div>
+        <div class="tl-card">
+          <div class="tl-head"><div class="tl-title">Module 1 — Ingestion &amp; HDFS Storage</div><div class="tl-owner">Aryan</div></div>
+          <ul class="tl-tasks">
+            <li>Installed WSL2 + Ubuntu 22.04, Java 11, Hadoop 3.3.6, Spark 3.5.9 on the Lenovo LOQ</li>
+            <li>Configured HDFS in pseudo-distributed mode (NameNode, DataNode, SecondaryNameNode)</li>
+            <li>Loaded <span class="mono">subset_cs/</span> (7 files, 69.2 MB) into <span class="mono">/eduinsight/subset_cs/</span> on HDFS</li>
+            <li>Ran a PySpark job reading directly from HDFS to verify the whole chain end-to-end</li>
+          </ul>
+          <div class="tl-deliverable">Deliverable: <b>working HDFS + Spark environment</b>, subset ingested and verified</div>
+          <div class="tl-demo"><b>Verified via spark-submit reading from HDFS:</b> 4,071 videos read (exact match), 59 courses read (exact match), 725,841 total caption segments, 178.3 avg segments/video — consistent with the CS Subset EDA page</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-marker done"><div class="w">Done</div><div class="n">2</div></div>
+        <div class="tl-card">
+          <div class="tl-head"><div class="tl-title">Module 2 — Distributed Preprocessing</div><div class="tl-owner">Tanmay Kandwal</div></div>
+          <ul class="tl-tasks">
+            <li>Spark job (8 partitions): jieba tokenization + 794-word Chinese stopword list + a reviewed spoken-lecture filler list over every caption</li>
+            <li>Concept-noise filter as a Spark transform: 786 generic ≤2-character concepts dropped, 26,766 kept</li>
+            <li>Distributed concept↔video join and a corpus term-statistics aggregation (tf, df, idf, tf-idf)</li>
+            <li>All outputs written back to HDFS as Parquet under <span class="mono">/eduinsight/processed/</span></li>
+          </ul>
+          <div class="tl-deliverable">Deliverable: <b>preprocessing module</b>, run end to end in 29 s on the CS subset</div>
+          <div class="tl-demo"><b>Verified:</b> 5.94M raw tokens → 1.80M kept (69.6% removed), 61,094-term vocabulary (49% appear in only one video), 3,938 of 4,071 videos linked to clean concepts. Before/after examples and the TF-IDF term chart are on the CS Subset &amp; EDA page.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-marker todo"><div class="w">Week</div><div class="n">3</div></div>
+        <div class="tl-card">
+          <div class="tl-head"><div class="tl-title">Module 3 — Embedding &amp; Feature Engineering</div><div class="tl-owner">Tanmay Sangwan</div></div>
+          <ul class="tl-tasks">
+            <li>Generate <span class="mono">paraphrase-multilingual-mpnet-base-v2</span> embeddings per video</li>
+            <li>Spark orchestrates batching; GPU (Lenovo LOQ) does the encoding</li>
+            <li>Store one vector per video back to HDFS</li>
+          </ul>
+          <div class="tl-deliverable">Deliverable: <b>embedding module</b> — a vector per video in the subset</div>
+          <div class="tl-demo"><b>Demo:</b> two related videos (e.g. both on Data Structures) show high cosine similarity; an unrelated one doesn't</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-marker todo"><div class="w">Week</div><div class="n">4</div></div>
+        <div class="tl-card">
+          <div class="tl-head"><div class="tl-title">Module 4 — Similarity &amp; Clustering</div><div class="tl-owner">Tanmay Sangwan</div></div>
+          <ul class="tl-tasks">
+            <li>Spark MLlib KMeans over embeddings to form topic clusters</li>
+            <li>Identify redundant/overlapping lectures across different courses</li>
+            <li>Visualize clusters with a PCA/t-SNE 2D plot</li>
+          </ul>
+          <div class="tl-deliverable">Deliverable: <b>clustering module</b> with a cluster visualization</div>
+          <div class="tl-demo"><b>Demo:</b> cluster plot + 2-3 concrete "these lectures are redundant" examples, with numbers</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-marker todo"><div class="w">Week</div><div class="n">5</div></div>
+        <div class="tl-card">
+          <div class="tl-head"><div class="tl-title">Module 5 — Ranking &amp; Recommendation Engine</div><div class="tl-owner">Aryan</div></div>
+          <ul class="tl-tasks">
+            <li>Embed a student query the same way as videos (e.g. "dynamic programming")</li>
+            <li>Rank videos by embedding similarity, boosted by concept overlap with the query</li>
+            <li>Output ranked results with measurable scores — never "best teacher," always "best content match"</li>
+          </ul>
+          <div class="tl-deliverable">Deliverable: <b>ranking engine</b> — query in, scored ranked list out</div>
+          <div class="tl-demo"><b>Demo:</b> live query → top 5 ranked lectures with similarity % and concept-overlap count shown</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-marker todo"><div class="w">Week</div><div class="n">6</div></div>
+        <div class="tl-card">
+          <div class="tl-head"><div class="tl-title">Module 6 — Integration, Scale-Up &amp; Demo</div><div class="tl-owner">Tanmay Kandwal</div></div>
+          <ul class="tl-tasks">
+            <li>Wire Modules 1–5 into one callable end-to-end pipeline</li>
+            <li>Extend the dashboard into a real query interface (type a topic, see ranked results)</li>
+            <li>Re-run the pipeline on a larger slice (2-3 more disciplines) to prove genuine distributed scaling</li>
+            <li>Final report + presentation rehearsal</li>
+          </ul>
+          <div class="tl-deliverable">Deliverable: <b>full working demo</b> + final report</div>
+          <div class="tl-demo"><b>Demo:</b> the whole thing, live, end to end — this is the presentation</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="modules">
+    <h2>Module ownership map</h2>
+    <p class="section-desc">Quick reference — redistribute if the team's split changes.</p>
+    <div class="card">
+      <table class="modtable">
+        <thead><tr><th>#</th><th>Module</th><th>Owner</th><th>Week</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ingestion &amp; HDFS Storage</td><td>Aryan</td><td>1</td></tr>
+          <tr><td>2</td><td>Distributed Preprocessing</td><td>Tanmay Kandwal</td><td>2</td></tr>
+          <tr><td>3</td><td>Embedding &amp; Feature Engineering</td><td>Tanmay Sangwan</td><td>3</td></tr>
+          <tr><td>4</td><td>Similarity &amp; Clustering</td><td>Tanmay Sangwan</td><td>4</td></tr>
+          <tr><td>5</td><td>Ranking &amp; Recommendation Engine</td><td>Aryan</td><td>5</td></tr>
+          <tr><td>6</td><td>Integration, Scale-Up &amp; Demo</td><td>Tanmay Kandwal</td><td>6</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    EduInsight — Hadoop-Based Large-Scale Lecture Analytics and Recommendation System · Team: Aryan Bhutani, Tanmay Sangwan, Tanmay Kandwal
+  </footer>
+</div>

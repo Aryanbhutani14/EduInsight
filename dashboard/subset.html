@@ -1,0 +1,405 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EduInsight CS Subset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f6f8; --surface:#ffffff; --surface-2:#eef0f3;
+    --ink:#0b0e14; --ink-2:#52585f; --muted:#8a9099; --hairline:#e1e3e8;
+    --border:rgba(11,14,20,0.10);
+    --accent:#2a78d6; --accent-ink:#ffffff;
+    --series-1:#2a78d6; --series-3:#1baf7a;
+    --shadow: 0 1px 2px rgba(11,14,20,0.04), 0 8px 24px -12px rgba(11,14,20,0.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+      --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+      --border:rgba(255,255,255,0.10);
+      --accent:#3987e5; --accent-ink:#ffffff;
+      --series-1:#3987e5; --series-3:#199e70;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+    --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+    --border:rgba(255,255,255,0.10);
+    --accent:#3987e5; --accent-ink:#ffffff;
+    --series-1:#3987e5; --series-3:#199e70;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; padding:0 20px; line-height:1.5; }
+  .cjk{ font-family:"Noto Sans SC","IBM Plex Sans",system-ui,sans-serif; }
+  .tab-nums{ font-variant-numeric: tabular-nums; }
+  .wrap{ max-width:1180px; margin:0 auto; }
+
+  .topbar{ position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom:1px solid var(--hairline); margin:0 -20px; padding:0 20px; }
+  .topbar-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:18px; padding:14px 0; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:baseline; gap:8px; font-weight:700; font-size:16px; white-space:nowrap; }
+  .brand small{ font-weight:500; color:var(--muted); font-size:12px; }
+  nav.site{ display:flex; flex-wrap:wrap; gap:2px; margin-left:auto; }
+  nav.site a{ color:var(--ink-2); text-decoration:none; font-size:13px; font-weight:600; padding:8px 12px; border-radius:8px; white-space:nowrap; }
+  nav.site a:hover{ background:var(--surface-2); color:var(--ink); }
+  nav.site a.active{ background:var(--accent); color:var(--accent-ink); }
+  .subbar{ border-bottom:1px solid var(--hairline); margin:0 -20px 0; padding:0 20px; }
+  .subbar-inner{ max-width:1180px; margin:0 auto; display:flex; gap:2px; flex-wrap:wrap; padding:10px 0; }
+  .subbar-inner a{ color:var(--ink-2); text-decoration:none; font-size:12.5px; font-weight:500; padding:6px 10px; border-radius:7px; white-space:nowrap; }
+  .subbar-inner a:hover{ background:var(--surface-2); color:var(--ink); }
+
+  .hero{ padding:36px 0 8px; }
+  .eyebrow{ text-transform:uppercase; letter-spacing:.08em; font-size:11.5px; font-weight:600; color:var(--accent); margin:0 0 10px; }
+  h1{ font-size:clamp(26px,4vw,36px); margin:0 0 10px; text-wrap:balance; letter-spacing:-0.01em; }
+  .sub{ color:var(--ink-2); max-width:72ch; font-size:15.5px; margin:0 0 26px; }
+
+  .stat-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--hairline); border:1px solid var(--hairline); border-radius:14px; overflow:hidden; margin-bottom:14px; }
+  .stat{ background:var(--surface); padding:18px 16px; }
+  .stat .v{ font-family:"IBM Plex Mono",monospace; font-size:26px; font-weight:600; letter-spacing:-0.01em; }
+  .stat .l{ color:var(--ink-2); font-size:12.5px; margin-top:4px; }
+
+  section{ padding:34px 0; border-top:1px solid var(--hairline); scroll-margin-top:110px; }
+  h2{ font-size:20px; margin:0 0 4px; letter-spacing:-0.01em; }
+  .section-desc{ color:var(--ink-2); font-size:14px; margin:0 0 22px; max-width:75ch; }
+  .card{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:20px; box-shadow:var(--shadow); }
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:820px){ .grid-2{ grid-template-columns:1fr; } }
+  .card h3{ font-size:14px; margin:0 0 2px; }
+  .card .cap{ font-size:12px; color:var(--muted); margin:0 0 14px; }
+
+  .bars{ display:flex; flex-direction:column; gap:9px; }
+  .bar-row{ display:grid; grid-template-columns:150px 1fr 62px; align-items:center; gap:10px; }
+  .bar-row .lab{ font-size:12.5px; color:var(--ink-2); text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-track{ position:relative; height:16px; background:var(--surface-2); border-radius:4px; overflow:hidden; }
+  .bar-fill{ position:absolute; left:0; top:0; height:100%; border-radius:4px; min-width:3px; }
+  .bar-row .val{ font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-2); text-align:right; }
+  .legend{ display:flex; gap:16px; margin-bottom:12px; flex-wrap:wrap; }
+  .legend .item{ display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--ink-2); }
+  .legend .sw{ width:10px; height:10px; border-radius:3px; }
+  .note{ font-size:12.5px; color:var(--ink-2); background:var(--surface-2); border-radius:8px; padding:10px 12px; margin-top:14px; }
+  .note b{ color:var(--ink); }
+
+  .clean-list{ counter-reset:step; list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+  .clean-list li{ counter-increment:step; display:grid; grid-template-columns:34px 1fr; gap:14px; padding:14px 0; border-bottom:1px solid var(--hairline); font-size:13.5px; color:var(--ink-2); }
+  .clean-list li:last-child{ border-bottom:none; }
+  .clean-list li::before{ content:counter(step); font-family:"IBM Plex Mono",monospace; font-weight:700; color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); width:26px; height:26px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:12px; }
+  .clean-list b{ color:var(--ink); }
+  .clean-list .arrow-stat{ font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink); margin-top:3px; }
+
+  .hist-svg{ width:100%; height:auto; overflow:visible; }
+  .hist-bar{ rx:3; }
+  .hist-axis{ stroke:var(--hairline); stroke-width:1; }
+  .hist-grid{ stroke:var(--hairline); stroke-width:1; }
+  .hist-label{ font:500 10px "IBM Plex Mono",monospace; fill:var(--muted); }
+  .hist-value{ font:600 10px "IBM Plex Mono",monospace; fill:var(--ink-2); }
+  .hist-ytick{ font:500 10px "IBM Plex Mono",monospace; fill:var(--muted); }
+
+  .tok-demo{ display:flex; flex-direction:column; gap:14px; }
+  .tok-seg{ border:1px solid var(--hairline); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; gap:6px; }
+  .tok-text{ font-size:13.5px; font-weight:600; color:var(--ink); }
+  .tok-line{ display:flex; gap:10px; align-items:baseline; font-size:13px; color:var(--ink-2); }
+  .tok-tag{ flex:0 0 38px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; text-transform:uppercase; color:var(--muted); }
+  .tok-tag.keep{ color:var(--series-3); }
+
+  footer{ padding:26px 0 40px; color:var(--muted); font-size:12px; }
+  #tooltip{ position:fixed; pointer-events:none; z-index:50; background:var(--ink); color:var(--bg); font-family:"IBM Plex Mono",monospace; font-size:11.5px; padding:6px 9px; border-radius:6px; transform:translate(-50%,-130%); white-space:nowrap; opacity:0; transition:opacity .1s; }
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">EduInsight <small>CS Development Subset</small></div>
+    <nav class="site">
+      <a href="index.html">Dataset Overview</a>
+      <a href="proposal.html">Proposal &amp; Literature</a>
+      <a href="pipeline.html">Pipeline &amp; Modules</a>
+      <a href="subset.html" class="active">CS Subset &amp; EDA</a>
+    </nav>
+  </div>
+</div>
+<div class="subbar"><div class="subbar-inner">
+  <a href="#overview">Overview</a><a href="#eda">EDA</a><a href="#cleaning">Data Cleaning</a><a href="#preprocessing">Preprocessing</a>
+</div></div>
+
+<div class="wrap">
+
+  <section id="overview" class="hero" style="border-top:none;">
+    <p class="eyebrow">Development Sandbox — Not the Final Deliverable</p>
+    <h1>The Computer Science subset</h1>
+    <p class="sub">A small, fast-to-iterate slice of the full corpus, used to build and debug the pipeline before it runs on Hadoop/Spark against the full 59,581-video corpus. 59 of 74 CS-tagged courses survive a ≥10-captioned-video quality filter.</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="v tab-nums">59</div><div class="l">CS courses (of 74)</div></div>
+      <div class="stat"><div class="v tab-nums">4,071</div><div class="l">Captioned videos</div></div>
+      <div class="stat"><div class="v tab-nums">590.9</div><div class="l">Hours of lecture</div></div>
+      <div class="stat"><div class="v tab-nums">27,552</div><div class="l">Concepts touched</div></div>
+      <div class="stat"><div class="v tab-nums">136,532</div><div class="l">Concept↔video links</div></div>
+      <div class="stat"><div class="v tab-nums">51,919</div><div class="l">Concept↔course links</div></div>
+    </div>
+  </section>
+
+  <section id="eda">
+    <h2>Exploratory data analysis</h2>
+    <p class="section-desc">Computed directly from <span class="mono">subset_cs/</span> — not the full corpus (the dataset overview page's numbers are full-corpus scale counts only, not a full EDA pass).</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Top 10 CS courses by video count</h3>
+        <p class="cap">one course alone — Data Structures — accounts for 499 of 4,071 videos</p>
+        <div class="bars" id="chart-courses"></div>
+      </div>
+      <div class="card">
+        <h3>Corpus shape</h3>
+        <p class="cap">videos per course, concept coverage, and lecture length across the 59 courses</p>
+        <div class="stat-grid" style="margin-bottom:0;">
+          <div class="stat"><div class="v tab-nums">14–499</div><div class="l">Videos/course (median 59)</div></div>
+          <div class="stat"><div class="v tab-nums">42–2,046</div><div class="l">Concepts/course (mean 880)</div></div>
+          <div class="stat"><div class="v tab-nums">455s</div><div class="l">Median video length</div></div>
+          <div class="stat"><div class="v tab-nums">3s–52m</div><div class="l">Video length range</div></div>
+          <div class="stat"><div class="v tab-nums">178</div><div class="l">Median segments/video</div></div>
+          <div class="stat"><div class="v tab-nums">1,145</div><div class="l">Max segments (1 video)</div></div>
+        </div>
+        <div class="note">Caption density (median 178 segments/video) is high enough per video to support embedding-based similarity in Module 3 — this was checked before committing to that approach.</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>Video duration distribution</h3>
+        <p class="cap">all 4,071 videos, bucketed by length — most lectures run 4–10 minutes</p>
+        <div id="hist-duration"></div>
+      </div>
+      <div class="card">
+        <h3>Concepts per course distribution</h3>
+        <p class="cap">all 59 courses, bucketed by unique concept count</p>
+        <div id="hist-concepts"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cleaning">
+    <h2>Data cleaning</h2>
+    <p class="section-desc">What actually happened between the raw MOOCCubeX files and this subset — every step traceable to a real transformation, not a black box.</p>
+    <div class="card">
+      <ol class="clean-list">
+        <li><div><b>Bridged resource_id ↔ ccid</b> using the found <span class="mono">video_id-ccid.txt</span> file<div class="arrow-stat">2,798,892 mapping rows applied</div></div></li>
+        <li><div><b>Restricted to Computer-Science-tagged courses</b> via course-field.json<div class="arrow-stat">3,781 courses → 74 CS-tagged</div></div></li>
+        <li><div><b>Filtered to courses with ≥10 captioned videos</b> — dropped courses with too little usable text<div class="arrow-stat">74 → 59 courses kept (15 dropped)</div></div></li>
+        <li><div><b>Restricted video.json to only ccids referenced by kept courses</b>, deduplicating shared videos<div class="arrow-stat">59,581 → 4,071 videos</div></div></li>
+        <li><div><b>Restricted concept files to entries touching kept videos/courses</b><div class="arrow-stat">637,572 → 27,552 concepts</div></div></li>
+        <li><div><b>Flagged (not silently removed) generic/noisy concepts</b> — ≤2-character terms like "行" (row) or "类" (class) — for stopword-style filtering in the NLP stage, not deleted from the record<div class="arrow-stat">786 of 27,552 concepts flagged (2.9%)</div></div></li>
+      </ol>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Concept quality: raw frequency vs. after filtering</h3>
+      <p class="cap">why step 6 above is necessary — confirmed by inspecting raw source records, not assumed</p>
+      <div class="grid-2">
+        <div>
+          <div class="legend"><div class="item"><span class="sw" style="background:var(--muted)"></span>Raw top concepts — mostly generic filler words</div></div>
+          <div class="bars" id="chart-concepts-raw"></div>
+        </div>
+        <div>
+          <div class="legend"><div class="item"><span class="sw" style="background:var(--series-3)"></span>After removing 1–2 character terms — real CS topics</div></div>
+          <div class="bars" id="chart-concepts-clean"></div>
+        </div>
+      </div>
+      <div class="note">Only 2.9% of the 27,552 concepts are short generic words — but they dominate raw frequency rankings because common words appear everywhere. 97.1% are genuine multi-character technical terms (e.g. 伪多项式时间算法 = "pseudo-polynomial time algorithm"). Two items above (marked *) are themselves raw extraction artifacts from MOOCCubeX's own concept-extraction pipeline — "程序运*" is a truncated "程序运行" (program runtime), and "寄存器，*" carries a stray trailing comma — left unedited to show the data as-is.</div>
+    </div>
+  </section>
+
+  <section id="preprocessing">
+    <h2>Preprocessing results (Module 2)</h2>
+    <p class="section-desc">Output of the Spark job that tokenized every caption with jieba, removed stopwords, and filtered noisy concepts. Read from and written back to HDFS as Parquet; 8 parallel partitions, 29 s end to end on this subset.</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="v tab-nums">5.94M</div><div class="l">Raw tokens (jieba)</div></div>
+      <div class="stat"><div class="v tab-nums">1.80M</div><div class="l">Tokens kept (69.6% removed)</div></div>
+      <div class="stat"><div class="v tab-nums">443</div><div class="l">Avg kept tokens / video</div></div>
+      <div class="stat"><div class="v tab-nums">61,094</div><div class="l">Vocabulary size</div></div>
+      <div class="stat"><div class="v tab-nums">26,766</div><div class="l">Clean concepts (786 dropped)</div></div>
+      <div class="stat"><div class="v tab-nums">3,938</div><div class="l">Videos with clean concepts (of 4,071)</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Most distinctive terms (TF-IDF)</h3>
+        <p class="cap">term frequency × inverse document frequency, terms in at least 5 videos. Generic spoken words score low; real CS vocabulary rises to the top.</p>
+        <div class="bars" id="chart-tfidf"></div>
+        <div class="note">49% of the vocabulary (29,753 terms) appears in exactly one video, mostly speech-recognition errors and rare names, which is why TF-IDF (not raw frequency) is used for keyword scoring.</div>
+      </div>
+      <div class="card">
+        <h3>Before and after, on a real lecture</h3>
+        <p class="cap">video "01-A-1: 计算" (Computation), first three caption segments</p>
+        <div class="tok-demo">
+          <div class="tok-seg">
+            <div class="tok-text cjk">下面就进入这门课程的第一章第一节</div>
+            <div class="tok-line"><span class="tok-tag">raw</span><span class="cjk">下面 就 进入 这门 课程 的 第一章 第一节</span></div>
+            <div class="tok-line"><span class="tok-tag keep">kept</span><span class="cjk">进入 这门 课程 第一章 第一节</span></div>
+          </div>
+          <div class="tok-seg">
+            <div class="tok-text cjk">我们首先来讨论所谓的计算</div>
+            <div class="tok-line"><span class="tok-tag">raw</span><span class="cjk">我们 首先 来 讨论 所谓 的 计算</span></div>
+            <div class="tok-line"><span class="tok-tag keep">kept</span><span class="cjk">讨论 所谓 计算</span></div>
+          </div>
+          <div class="tok-seg">
+            <div class="tok-text cjk">计算首先是我们这门课程的直接研究对象和内容</div>
+            <div class="tok-line"><span class="tok-tag">raw</span><span class="cjk">计算 首先 是 我们 这门 课程 的 直接 研究 对象 和 内容</span></div>
+            <div class="tok-line"><span class="tok-tag keep">kept</span><span class="cjk">计算 这门 课程 研究 对象 内容</span></div>
+          </div>
+        </div>
+        <div class="note">Stopwords come from a 794-word Chinese list plus a hand-reviewed spoken-lecture filler list. Domain words such as 算法 (algorithm) and 函数 (function) are deliberately kept; IDF down-weights them instead of deleting them.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    EduInsight — Hadoop-Based Large-Scale Lecture Analytics and Recommendation System · Team: Aryan Bhutani, Tanmay Sangwan, Tanmay Kandwal
+  </footer>
+</div>
+<div id="tooltip"></div>
+
+<script>
+(function(){
+  var tt = document.getElementById('tooltip');
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  function renderBars(containerId, items, opts){
+    opts = opts || {};
+    var color = opts.color || 'var(--series-1)';
+    var suffix = opts.suffix || '';
+    var el = document.getElementById(containerId);
+    var max = Math.max.apply(null, items.map(function(d){ return d.value; }));
+    items.forEach(function(d){
+      var row = document.createElement('div'); row.className = 'bar-row';
+      var lab = document.createElement('div'); lab.className = 'lab'; lab.textContent = d.label; lab.title = d.title || d.label;
+      var track = document.createElement('div'); track.className = 'bar-track';
+      var fill = document.createElement('div'); fill.className = 'bar-fill';
+      var pct = Math.max((d.value / max) * 100, 2);
+      fill.style.width = pct + '%'; fill.style.background = d.color || color;
+      track.appendChild(fill);
+      track.addEventListener('mousemove', function(e){
+        tt.style.opacity = 1; tt.style.left = e.clientX + 'px'; tt.style.top = e.clientY + 'px';
+        tt.textContent = (d.title || d.label) + ': ' + fmt(d.value) + suffix;
+      });
+      track.addEventListener('mouseleave', function(){ tt.style.opacity = 0; });
+      var val = document.createElement('div'); val.className = 'val tab-nums'; val.textContent = fmt(d.value) + suffix;
+      row.appendChild(lab); row.appendChild(track); row.appendChild(val);
+      el.appendChild(row);
+    });
+  }
+
+  function niceMax(v){
+    var mag = Math.pow(10, Math.floor(Math.log(v) / Math.LN10));
+    var n = v / mag;
+    var step = n <= 2 ? 2 : n <= 5 ? 5 : 10;
+    return step * mag;
+  }
+
+  function renderHistogram(containerId, bins, opts){
+    opts = opts || {};
+    var color = opts.color || 'var(--series-1)';
+    var el = document.getElementById(containerId);
+    var W = 560, H = 230;
+    var padL = 34, padR = 6, padT = 10, padB = 34;
+    var plotW = W - padL - padR, plotH = H - padT - padB;
+    var n = bins.length;
+    var maxVal = Math.max.apply(null, bins.map(function(b){ return b.value; }));
+    var axisMax = niceMax(maxVal);
+    var gap = 6;
+    var barW = (plotW - gap * (n - 1)) / n;
+
+    var svgParts = [];
+    svgParts.push('<svg class="hist-svg" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Histogram">');
+
+    // gridlines + y ticks (0, 25%, 50%, 75%, 100% of axisMax)
+    for (var g = 0; g <= 4; g++) {
+      var val = Math.round(axisMax * g / 4);
+      var y = padT + plotH - (plotH * g / 4);
+      svgParts.push('<line class="hist-grid" x1="' + padL + '" y1="' + y + '" x2="' + (W - padR) + '" y2="' + y + '"></line>');
+      svgParts.push('<text class="hist-ytick" x="' + (padL - 6) + '" y="' + (y + 3) + '" text-anchor="end">' + fmt(val) + '</text>');
+    }
+
+    bins.forEach(function(b, i){
+      var x = padL + i * (barW + gap);
+      var barH = axisMax > 0 ? (b.value / axisMax) * plotH : 0;
+      var y = padT + plotH - barH;
+      svgParts.push('<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + Math.max(barH,1).toFixed(1) + '" rx="3" fill="' + color + '"><title>' + b.label + ': ' + fmt(b.value) + '</title></rect>');
+      if (b.value > 0) {
+        svgParts.push('<text class="hist-value" x="' + (x + barW/2).toFixed(1) + '" y="' + (y - 5).toFixed(1) + '" text-anchor="middle">' + fmt(b.value) + '</text>');
+      }
+      svgParts.push('<text class="hist-label" x="' + (x + barW/2).toFixed(1) + '" y="' + (H - padB + 14) + '" text-anchor="middle">' + b.label + '</text>');
+    });
+
+    svgParts.push('<line class="hist-axis" x1="' + padL + '" y1="' + (padT + plotH) + '" x2="' + (W - padR) + '" y2="' + (padT + plotH) + '"></line>');
+    svgParts.push('</svg>');
+    el.innerHTML = svgParts.join('');
+  }
+
+  renderHistogram('hist-duration', [
+    {label:'0', value:240}, {label:'2', value:562}, {label:'4', value:725}, {label:'6', value:644},
+    {label:'8', value:532}, {label:'10', value:411}, {label:'12', value:325}, {label:'14', value:230},
+    {label:'16', value:142}, {label:'18', value:92}, {label:'20+', value:168}
+  ], {color:'var(--series-1)'});
+
+  renderHistogram('hist-concepts', [
+    {label:'0', value:3}, {label:'250', value:11}, {label:'500', value:16}, {label:'750', value:9},
+    {label:'1000', value:6}, {label:'1250', value:8}, {label:'1500', value:3}, {label:'1750', value:2},
+    {label:'2000+', value:1}
+  ], {color:'var(--series-3)'});
+
+  renderBars('chart-tfidf', [
+    {label:'function', title:'函数 · in 1,028 videos', value:15290},
+    {label:'data', title:'数据 · in 1,939 videos', value:13104},
+    {label:'address', title:'地址 · in 731 videos', value:11791},
+    {label:'instruction', title:'指令 · in 407 videos', value:11358},
+    {label:'object', title:'对象 · in 888 videos', value:10508},
+    {label:'city', title:'城市 · in 144 videos', value:10293},
+    {label:'file', title:'文件 · in 644 videos', value:9395},
+    {label:'element', title:'元素 · in 662 videos', value:9107},
+    {label:'process', title:'进程 · in 333 videos', value:8985},
+    {label:'array', title:'数组 · in 336 videos', value:8801},
+    {label:'variable', title:'变量 · in 755 videos', value:8413},
+    {label:'node', title:'节点 · in 460 videos', value:8401},
+    {label:'system', title:'系统 · in 1,278 videos', value:7838},
+    {label:'algorithm', title:'算法 · in 1,048 videos', value:7804},
+    {label:'state', title:'状态 · in 785 videos', value:7672}
+  ], {color:'var(--series-3)'});
+
+  renderBars('chart-courses', [
+    {label:'Data Structures (Pt.1)', title:'数据结构(上) · C_769293', value:499},
+    {label:'C++ on Linux', title:'基于Linux的C++ · C_682610', value:155},
+    {label:'Operating Systems', title:'操作系统 · C_697821', value:136},
+    {label:'Assembly Language', title:'汇编语言程序设计 · C_676953', value:130},
+    {label:'Computer Networks', title:'计算机网络 · C_677218', value:128},
+    {label:'Network Tech & Apps', title:'网络技术与应用 · C_682360', value:111},
+    {label:'Big Data & ML', title:'大数据机器学习 · C_696922', value:110},
+    {label:'Intro to CS & Python', title:'计算机科学和Python编程导论 · C_697616', value:104},
+    {label:'C++ Fundamentals', title:'C++语言程序设计基础 · C_697791', value:102},
+    {label:'Combinatorial Math (2020)', title:'Combinatorial Mathematics(2020) · C_1749733', value:99}
+  ]);
+
+  renderBars('chart-concepts-raw', [
+    {label:'"行" (row/line)', value:2962, color:'var(--muted)'},
+    {label:'"类" (class)', value:1715, color:'var(--muted)'},
+    {label:'"实现" (implement)', value:1585, color:'var(--muted)'},
+    {label:'"写" (write)', value:1549, color:'var(--muted)'},
+    {label:'"根" (root)', value:1478, color:'var(--muted)'},
+    {label:'"图" (diagram)', value:1421, color:'var(--muted)'},
+    {label:'"方法" (method)', value:1414, color:'var(--muted)'},
+    {label:'"步" (step)', value:1341, color:'var(--muted)'},
+    {label:'"程序" (program)', value:1323, color:'var(--muted)'},
+    {label:'"度" (degree)', value:1164, color:'var(--muted)'}
+  ]);
+
+  renderBars('chart-concepts-clean', [
+    {label:'Initialization', title:'初始化', value:408, color:'var(--series-3)'},
+    {label:'String', title:'字符串', value:332, color:'var(--series-3)'},
+    {label:'Data Structure', title:'数据结构', value:269, color:'var(--series-3)'},
+    {label:'C Language', title:'C语言', value:230, color:'var(--series-3)'},
+    {label:'Compiler', title:'编译器', value:205, color:'var(--series-3)'},
+    {label:'Program Runtime*', title:'程序运* (truncated: 程序运行)', value:165, color:'var(--series-3)'},
+    {label:'C++ Programming', title:'C++语言程序设计', value:151, color:'var(--series-3)'},
+    {label:'Register', title:'寄存器', value:146, color:'var(--series-3)'},
+    {label:'Main Function', title:'主函数', value:126, color:'var(--series-3)'},
+    {label:'IP Address', title:'IP地址', value:125, color:'var(--series-3)'}
+  ]);
+})();
+</script>
