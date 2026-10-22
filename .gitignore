@@ -1,0 +1,22 @@
+# MOOCCubeX dataset files and the subset derived from them (large; obtain from the dataset authors)
+/course.json
+/video.json
+/concept.json
+/concept-course.txt
+/concept-video.txt
+/course-field.json
+/video_id-ccid.txt
+/subset_cs/
+
+# Publisher PDFs of the literature we read
+/Reasearch Papers/
+
+# Python / OS / editor
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.claude/

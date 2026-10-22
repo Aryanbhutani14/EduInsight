@@ -1,0 +1,76 @@
+=== EDA: CS Subset (subset_cs/) ===
+
+Courses: 59
+Videos (captioned): 4071
+Concept-video links: 136532
+Concept-course links: 51919
+
+Videos per course: min=14, max=499, mean=69.1, median=59
+
+Top 10 courses by captioned video count:
+   499  C_769293  数据结构(上)
+   155  C_682610  基于Linux的C++
+   136  C_697821  操作系统
+   130  C_676953  汇编语言程序设计
+   128  C_677218  计算机网络
+   111  C_682360  网络技术与应用
+   110  C_696922  大数据机器学习
+   104  C_697616  计算机科学和Python编程导论（课程迁移）
+   102  C_697791  C++语言程序设计基础
+    99  C_1749733  Combinatorial Mathematics（2020）
+
+Total lecture duration in subset: 590.9 hours
+Video duration (seconds): min=3, max=3153, mean=523, median=455
+Caption segments per video: min=1, max=1145, mean=178.3
+
+Top 20 concepts by raw frequency (includes generic short words):
+  2962  行
+  1715  类
+  1585  实现
+  1549  写
+  1478  根
+  1421  图
+  1414  方法
+  1341  步
+  1323  程序
+  1164  度
+  1104  操作
+  1030  位
+   962  时间
+   940  计算
+   908  执行
+   865  继续
+   763  区
+   755  用户
+   657  方面
+   654  类型
+
+Concepts with name length <=2 chars (generic/noisy): 786 (2.9% of 27552 unique concepts in video links)
+
+Top 20 concepts after filtering out length<=2 generic terms (real CS topics):
+   408  初始化
+   332  字符串
+   269  数据结构
+   230  C语言
+   205  编译器
+   165  程序运
+   151  C++语言程序设计
+   146  寄存器
+   126  主函数
+   125  IP地址
+   125  存储空间
+   125  寄存器，
+   124  优先级
+   122  存储器
+   109  处理器
+   101  程序设计
+   101  源代码
+    95  函数调用
+    93  main函数
+    93  类的对象
+
+Unique concepts per course: min=42, max=2046, mean=880.0
+
+Unique concepts (video-linked): 27552
+Unique concepts (course-linked): 27552
+Overlap: 27552

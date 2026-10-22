@@ -1,0 +1,85 @@
+{
+  "file_sizes_mb": {
+    "course.json": 42.6,
+    "video.json": 579.9,
+    "concept.json": 155.4,
+    "concept-course.txt": 18.6,
+    "concept-video.txt": 38.5,
+    "course-field.json": 0.1,
+    "video_id-ccid.txt": 114.2
+  },
+  "total_courses": 3781,
+  "courses_with_chinese_name": 3398,
+  "courses_with_non_chinese_name": 383,
+  "total_videos": 59581,
+  "total_duration_hours": 10542.6,
+  "total_caption_segments": 11361479,
+  "total_concepts": 637572,
+  "concept_course_links": 451078,
+  "concept_video_links": 624683,
+  "bridge_rows": 2798892,
+  "total_field_tagged_courses": 632,
+  "distinct_fields": 82,
+  "top_fields": [
+    [
+      "计算机科学与技术",
+      75
+    ],
+    [
+      "外国语言文学",
+      43
+    ],
+    [
+      "艺术学",
+      38
+    ],
+    [
+      "中国语言文学",
+      26
+    ],
+    [
+      "管理科学与工程",
+      25
+    ],
+    [
+      "历史学",
+      23
+    ],
+    [
+      "临床医学",
+      22
+    ],
+    [
+      "物理学",
+      22
+    ],
+    [
+      "数学",
+      22
+    ],
+    [
+      "应用经济学",
+      21
+    ],
+    [
+      "心理学",
+      20
+    ],
+    [
+      "工商管理",
+      20
+    ],
+    [
+      "生物学",
+      20
+    ],
+    [
+      "政治学",
+      17
+    ],
+    [
+      "教育学",
+      16
+    ]
+  ]
+}
