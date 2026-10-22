@@ -103,6 +103,13 @@
   .tok-line{ display:flex; gap:10px; align-items:baseline; font-size:13px; color:var(--ink-2); }
   .tok-tag{ flex:0 0 38px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; text-transform:uppercase; color:var(--muted); }
   .tok-tag.keep{ color:var(--series-3); }
+  .qres{ display:flex; flex-direction:column; gap:14px; }
+  .qblock{ border:1px solid var(--hairline); border-radius:10px; padding:10px 12px; }
+  .qq{ font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600; color:var(--accent); margin-bottom:6px; }
+  .qrow{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) auto; gap:10px; align-items:baseline; font-size:12.5px; padding:3px 0; color:var(--ink); }
+  .qrow em{ font-style:normal; color:var(--muted); font-size:12px; }
+  .qrow b{ font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--ink-2); }
+  @media (max-width:520px){ .qrow{ grid-template-columns:1fr auto; } .qrow em{ grid-column:1 / -1; } }
 
   footer{ padding:26px 0 40px; color:var(--muted); font-size:12px; }
   #tooltip{ position:fixed; pointer-events:none; z-index:50; background:var(--ink); color:var(--bg); font-family:"IBM Plex Mono",monospace; font-size:11.5px; padding:6px 9px; border-radius:6px; transform:translate(-50%,-130%); white-space:nowrap; opacity:0; transition:opacity .1s; }
@@ -120,7 +127,7 @@
   </div>
 </div>
 <div class="subbar"><div class="subbar-inner">
-  <a href="#overview">Overview</a><a href="#eda">EDA</a><a href="#cleaning">Data Cleaning</a><a href="#preprocessing">Preprocessing</a>
+  <a href="#overview">Overview</a><a href="#eda">EDA</a><a href="#cleaning">Data Cleaning</a><a href="#preprocessing">Preprocessing</a><a href="#embeddings">Embeddings</a>
 </div></div>
 
 <div class="wrap">
@@ -251,6 +258,46 @@
     </div>
   </section>
 
+  <section id="embeddings">
+    <h2>Embeddings (Module 3)</h2>
+    <p class="section-desc">Each lecture's captions are split into chunks that fit the model's 128-token limit, encoded on the GPU with <span class="mono">paraphrase-multilingual-mpnet-base-v2</span>, and averaged into one 768-dimensional vector per video. Run as a Spark job reading and writing HDFS Parquet.</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="v tab-nums">4,071</div><div class="l">Video vectors (768-d)</div></div>
+      <div class="stat"><div class="v tab-nums">48,944</div><div class="l">Caption chunks encoded (12 per video)</div></div>
+      <div class="stat"><div class="v tab-nums">489/s</div><div class="l">Encoding speed, RTX 4050 (fp16)</div></div>
+      <div class="stat"><div class="v tab-nums">123 s</div><div class="l">Whole job, end to end</div></div>
+      <div class="stat"><div class="v tab-nums">72.9%</div><div class="l">Nearest neighbour is in the same course</div></div>
+      <div class="stat"><div class="v tab-nums">+0.155</div><div class="l">Same-course vs different-course cosine gap</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Do the vectors capture content?</h3>
+        <p class="cap">mean cosine similarity between pairs of videos (higher = more similar)</p>
+        <div class="bars" id="chart-cosine"></div>
+        <div class="note">Videos in the same course are clearly closer than videos from different courses. Part of that gap is shared lecturer style and vocabulary, not only topic, so this is evidence the vectors are meaningful, not a full accuracy measure. The 27% of nearest neighbours in a <i>different</i> course are exactly the cross-course similarity Module 4 will analyse.</div>
+      </div>
+      <div class="card">
+        <h3>English queries against Chinese lectures</h3>
+        <p class="cap">top 3 videos by cosine similarity to the query, no translation step</p>
+        <div class="qres">
+          <div class="qblock"><div class="qq">"process scheduling in an operating system"</div>
+            <div class="qrow"><span class="cjk">2.10 进程的管理</span><em>Process management</em><b>0.686</b></div>
+            <div class="qrow"><span class="cjk">11.3 进程状态</span><em>Process states · Operating Systems</em><b>0.670</b></div>
+            <div class="qrow"><span>Video</span><em>untitled · course C_681678</em><b>0.660</b></div></div>
+          <div class="qblock"><div class="qq">"TCP congestion control"</div>
+            <div class="qrow"><span class="cjk">TCP拥塞控制机制</span><em>TCP congestion control mechanism</em><b>0.753</b></div>
+            <div class="qrow"><span class="cjk">TCP的几点说明</span><em>Some notes on TCP</em><b>0.697</b></div>
+            <div class="qrow"><span class="cjk">TCP特点和格式</span><em>TCP features and format</em><b>0.684</b></div></div>
+          <div class="qblock"><div class="qq">"sorting algorithms"</div>
+            <div class="qrow"><span>Lecture 10 Introduction</span><em>Intro to CS &amp; Python</em><b>0.655</b></div>
+            <div class="qrow"><span class="cjk">02F-1 归并排序：构思</span><em>Merge sort: the idea · Data Structures</em><b>0.646</b></div>
+            <div class="qrow"><span class="cjk">常用算法</span><em>Common algorithms</em><b>0.628</b></div></div>
+        </div>
+        <div class="note"><b>Known weak spots:</b> "dynamic programming" (top hits come from a C++-on-Linux course, 0.54–0.59) and "linked list" (best score only 0.48) did not return convincing results. Whether that is missing coverage in this subset or a limit of averaging chunks into one vector will be tested in Module 5 (chunk-level ranking) rather than assumed. About 20% of videos are titled just "Video", so results will be shown with course name and a matching text snippet.</div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     EduInsight — Hadoop-Based Large-Scale Lecture Analytics and Recommendation System · Team: Aryan Bhutani, Tanmay Sangwan, Tanmay Kandwal
   </footer>
@@ -362,6 +409,11 @@
     {label:'algorithm', title:'算法 · in 1,048 videos', value:7804},
     {label:'state', title:'状态 · in 785 videos', value:7672}
   ], {color:'var(--series-3)'});
+
+  renderBars('chart-cosine', [
+    {label:'Same course', title:'mean cosine, pairs in the same course', value:0.638, color:'var(--series-3)'},
+    {label:'Different course', title:'mean cosine, pairs in different courses', value:0.483, color:'var(--muted)'}
+  ]);
 
   renderBars('chart-courses', [
     {label:'Data Structures (Pt.1)', title:'数据结构(上) · C_769293', value:499},
