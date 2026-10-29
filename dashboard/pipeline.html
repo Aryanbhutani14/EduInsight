@@ -125,7 +125,7 @@
   <section class="hero" style="border-top:none;">
     <p class="eyebrow">EduInsight · Big Data Analytics Project</p>
     <h1>Project pipeline &amp; the 6-week build plan</h1>
-    <p class="sub">Six modules, one per stage of the pipeline, built sequentially so something demoable exists at the end of every week. Foundation work and Modules 1–3 (HDFS + Spark, distributed preprocessing, embeddings) are done — this plan continues from Module 4.</p>
+    <p class="sub">Six modules, one per stage of the pipeline, built sequentially so something demoable exists at the end of every week. Foundation work and Modules 1–4 (HDFS + Spark, distributed preprocessing, embeddings, clustering) are done — this plan continues from Module 5.</p>
   </section>
 
   <section id="architecture">
@@ -144,7 +144,7 @@
       <div class="flow-arrow">→</div>
       <div class="flow-node"><div class="flow-num">06</div><div class="flow-title">Embeddings</div><span class="chip done">✓ Done</span></div>
       <div class="flow-arrow">→</div>
-      <div class="flow-node"><div class="flow-num">07</div><div class="flow-title">Clustering &amp; similarity</div><span class="chip planned">Planned</span></div>
+      <div class="flow-node"><div class="flow-num">07</div><div class="flow-title">Clustering &amp; similarity</div><span class="chip done">✓ Done</span></div>
       <div class="flow-arrow">→</div>
       <div class="flow-node"><div class="flow-num">08</div><div class="flow-title">Ranking engine</div><span class="chip planned">Planned</span></div>
       <div class="flow-arrow">→</div>
@@ -216,16 +216,17 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-marker todo"><div class="w">Week</div><div class="n">4</div></div>
+        <div class="tl-marker done"><div class="w">Done</div><div class="n">4</div></div>
         <div class="tl-card">
           <div class="tl-head"><div class="tl-title">Module 4 — Similarity &amp; Clustering</div><div class="tl-owner">Tanmay Sangwan</div></div>
           <ul class="tl-tasks">
-            <li>Spark MLlib KMeans over embeddings to form topic clusters</li>
-            <li>Identify redundant/overlapping lectures across different courses</li>
-            <li>Visualize clusters with a PCA/t-SNE 2D plot</li>
+            <li>Spark MLlib K-means (cosine distance) over the video vectors; k=12 chosen from a sweep of 9 values by silhouette score</li>
+            <li>Distributed Spark job (broadcast + mapPartitions) finds the 10 most similar videos for every video</li>
+            <li>Cross-course redundancy: candidate pairs checked against real word overlap and read by hand</li>
+            <li>t-SNE 2-D map of all 4,071 videos; results written to HDFS as Parquet</li>
           </ul>
-          <div class="tl-deliverable">Deliverable: <b>clustering module</b> with a cluster visualization</div>
-          <div class="tl-demo"><b>Demo:</b> cluster plot + 2-3 concrete "these lectures are redundant" examples, with numbers</div>
+          <div class="tl-deliverable">Deliverable: <b>clustering module</b> — 12 topic clusters, a similarity table, and redundancy findings, in 52 s</div>
+          <div class="tl-demo"><b>Verified:</b> every cluster mixes at least 9 courses (topics, not course boundaries). 447 cross-course video pairs score ≥0.90 and are the same topic taught by different lecturers (e.g. IP addressing in two networking courses). Limits: silhouette is low (~0.11) and clusters from other random seeds agree only moderately (ARI 0.57–0.65). Details and the cluster map are on the CS Subset &amp; EDA page.</div>
         </div>
       </div>
 

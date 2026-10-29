@@ -14,7 +14,7 @@ Dataset: [MOOCCubeX](https://github.com/THU-KEG/MOOCCubeX) (THU-KEG, Tsinghua) â
 | Module 1: HDFS + Spark environment, subset ingested | Done |
 | Module 2: Spark preprocessing (jieba, stopwords, concept filtering, term statistics) | Done |
 | Module 3: Multilingual embeddings | Done |
-| Module 4: Similarity and clustering | Planned |
+| Module 4: Similarity and clustering | Done |
 | Module 5: Ranking and recommendation engine | Planned |
 | Module 6: Integration and query demo | Planned |
 
@@ -25,6 +25,7 @@ Dataset: [MOOCCubeX](https://github.com/THU-KEG/MOOCCubeX) (THU-KEG, Tsinghua) â
 - **EDA finding:** 2.9% of concepts are 1â€“2 character generic words that dominate raw frequency rankings; they are filtered in Module 2.
 - **Module 2 (Spark, 29 s on the subset):** 5.94M raw tokens reduced to 1.80M, 61,094-term vocabulary, 26,766 clean concepts, 3,938 of 4,071 videos linked to clean concepts. Outputs are Parquet files in HDFS under `/eduinsight/processed/`.
 - **Module 3 (Spark + GPU, 123 s):** captions are split into chunks that fit the model's 128-token limit and encoded with `paraphrase-multilingual-mpnet-base-v2`; chunk vectors are averaged into one 768-d vector per video (4,071 videos, 48,944 chunks). Videos in the same course are closer than videos in different courses (mean cosine 0.638 vs 0.483), and English queries retrieve relevant Chinese lectures for topics such as TCP congestion control and process scheduling. Known weak queries: "dynamic programming" and "linked list". Statistics are in `eda/module3_stats.json`.
+- **Module 4 (Spark MLlib, 52 s):** K-means on the video vectors (cosine distance, k=12 chosen from a sweep by silhouette score) gives 12 topic clusters, each mixing at least 9 courses. A distributed Spark job finds the 10 nearest neighbours of every video. 447 cross-course video pairs have cosine similarity of at least 0.90 (458 videos); reading them shows the same topic taught by different lecturers, not copied lectures. Limits: silhouette is low (about 0.11) and other random seeds agree only moderately (ARI 0.57â€“0.65). Statistics are in `eda/module4_stats.json`.
 
 HDFS runs single-node (pseudo-distributed, replication 1) and Spark runs in `local[*]` mode on one machine.
 
@@ -38,6 +39,7 @@ HDFS runs single-node (pseudo-distributed, replication 1) and Spark runs in `loc
 | `scripts/spark_smoke_test.py` | Module 1 check: Spark reading from HDFS |
 | `scripts/spark_module2_preprocess.py` | Module 2 Spark job |
 | `scripts/spark_module3_embed.py`, `scripts/m3_model_check.py`, `scripts/wsl_install_m3_deps.sh`, `scripts/wsl_run_module3.sh` | Module 3: embedding job, model check, dependency install, runner |
+| `scripts/spark_module4_cluster.py`, `scripts/wsl_run_module4.sh`, `scripts/inject_map_data.py` | Module 4: clustering and similarity job, runner, and the script that puts the cluster map data into the dashboard page |
 | `eda/` | Generated charts and statistics (JSON) |
 | `dashboard/` | Source of the project dashboard pages (HTML) |
 | `docs/` | Project log, literature review, evaluation report |
@@ -51,6 +53,7 @@ The dataset is **not included** in this repository. Download `course.json`, `vid
 3. `scripts/wsl_run_smoke_test.sh` verifies Spark can read the data from HDFS.
 4. `pip install jieba stopwordsiso`, then `scripts/wsl_run_module2.sh`.
 5. Module 3 needs an NVIDIA GPU visible inside WSL: run `scripts/wsl_install_m3_deps.sh` (PyTorch, sentence-transformers; several GB), then `scripts/wsl_run_module3.sh check` and `scripts/wsl_run_module3.sh embed`.
+6. `scripts/wsl_run_module4.sh` runs Module 4 (needs the Module 3 output in HDFS). `python scripts/inject_map_data.py` then refreshes the cluster map in `dashboard/subset.html`.
 
 The shell scripts were written for the author's machine (WSL user `aryan`, project under `C:\Users\ARYAN BHUTANI\Desktop\BDA-Project`); adjust the paths for your setup. Note that WSL stops the Hadoop daemons when no terminal session is open, so use the runner scripts, which start HDFS if needed.
 
