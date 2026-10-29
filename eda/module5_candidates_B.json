@@ -1,0 +1,1074 @@
+{
+ "B01": {
+  "query": "dynamic programming",
+  "candidates": [
+   {
+    "ccid": "97C01B540B7F63D09C33DC5901307461",
+    "video": "LinuxCPP1211",
+    "course": "基于Linux的C++",
+    "snippet": "动态库里的函数用的函数 叫 dlsym()　它带两个参数 一个参数是哑型指针 handle 一个参数是字符串 symbol 第一个参数 handle 就表示你要装载的那个动态库 返回的那个哑型指针 你不是要查一个函数吗 这个函数不是在这个动态库里吗 好吧　你就在那个动态库里查 那哪一个动态库呢 当然就用这个哑型指针表示的那个动态库 当然就",
+    "ranks": {
+     "video_en": 1
+    }
+   },
+   {
+    "ccid": "2C52B7881E570F1E9C33DC5901307461",
+    "video": "LinuxCPP0812",
+    "course": "基于Linux的C++",
+    "snippet": "来操纵动态数组 那里我们仅仅给出了动态数组 结构体的基本架构 现在就要同学们实现动态数组库 同学们可以回去编程 好好琢磨琢磨 当我们只有C的程序代码规范的时候 我们实现的动态数组库的功能 是不够强大的 同时使用是比较麻烦的 有了C++概念之后 一旦我们学会了操作符重载 我们重新回过头来实现动态数组库 那个时候你就会发现 它的使用是多么得灵",
+    "ranks": {
+     "video_en": 2,
+     "chunk_en": 4
+    }
+   },
+   {
+    "ccid": "AF8AAA81C33896FB9C33DC5901307461",
+    "video": "Video",
+    "course": "“做中学”Java程序设计",
+    "snippet": "这里简要介绍一下静态变量  与实例变量属于某个特定的对象不同 静态变量 它与具体的对象无关 你也可以理解为就是类的变量 要定义静态变量  你必须在number变量声明之前  加上static修饰符 这样它就成了静态变量了 定义好静态方法之后 标准的调用静态方法的方式  就是通过类名点方法名的形式来调用 就像这样写 好了  我们来运行一下程",
+    "ranks": {
+     "video_en": 3
+    }
+   },
+   {
+    "ccid": "729A0900DA08F1169C33DC5901307461",
+    "video": "LinuxCPP1409",
+    "course": "基于Linux的C++",
+    "snippet": "你可以定义一个函子Functor 在这里边你重载了函数调用操作符 OK 没有问题 这个函数调用操作符有没有参数 随意 随便你 看你程序需要 有参数就写 没参数就不用写 然后你构造这个线程对象的时候 第一个参数就传那个Functor() 我们构造这个函子的一个匿名对象传进去 传一个函子进去 OK 它就会调用那个函子重载的 函数调用操作符 把",
+    "ranks": {
+     "video_en": 4
+    }
+   },
+   {
+    "ccid": "A124C3D2A1389FEE9C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "in the user-defined function is changed from auto to static. in the user-defined function is changed from auto to static. Step 2: move the remaining plate from tower A to",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "F8C0A6D5BCA30C339C33DC5901307461",
+    "video": "LinuxCPP1115",
+    "course": "基于Linux的C++",
+    "snippet": "就是在执行期间运行我们的程序代码 这段代码　我们称它为动态代码 程序运行了　我就执行你的代码 然后我就得到结果　这叫动态代码 还有一层就是它的顶层 它执行的是静态代码 这些代码　编译你的程序的时候替你算 算完了以后得到这个结果　就这个意思 就是执行编译期计算的代码 我们称它为静态代码 执行运行期计算的代码 那就叫动态代码 而 C++　它是",
+    "ranks": {
+     "chunk_en": 1,
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "1E593DFE41869B779C33DC5901307461",
+    "video": "LinuxCPP0702",
+    "course": "基于Linux的C++",
+    "snippet": "用这个结构体作为函数的返回值 它就可以把这个同时都带回来 还有一种方案 指针作为函数参数 它就可以把这个结果带回来 第二个指针的使用场合 作为构造复杂数据结构的手段 使用指针构造数据对象之间的关联 可以形成一个极其复杂的数据结构 第三个作为动态的 内存分配和管理的手段 可以在程序的执行期间 动态构造数据对象之间的关联 第四个是作为执行特定",
+    "ranks": {
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "5F774A2583520FC49C33DC5901307461",
+    "video": "Video",
+    "course": "JAVA程序设计进阶",
+    "snippet": "new Dynamic Subject rs 实际上是说 我的生成一个动态的代理 那我这个动态代理 我所代表的是哪个真实对象呢 是代表的rs这个真实对象 那所以我这个动态的代理 它的这个调用的处理器 invocationHandler 就用ds来进行表示 进行表示了 那再往下Class cls=rs.get Class 这是我们得到这个代",
+    "ranks": {
+     "chunk_en": 3
+    }
+   },
+   {
+    "ccid": "2AF5C21690F1A1EE9C33DC5901307461",
+    "video": "申请和释放动态数组（二）",
+    "course": "C++语言程序设计基础",
+    "snippet": "大家好 欢迎回来继续学习 C++语言程序设计 我们看到动态分配数组 然后在不用的时候释放 这个过程挺繁琐的 所以我们想到 如果能将这个动态数组 封装到一个类里面 这样使用起来就方便 管理起来也方便 而且在访问数组元素的时候 我们还可以主动地 进行下标越界的检查 那接下来这个例子呢 我们就在类里面 封装了一个动态数组 在这个题目中呢 我们要",
+    "ranks": {
+     "chunk_en": 5,
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "9C8DAB2BC7AF45CC9C33DC5901307461",
+    "video": "申请和释放动态数组（一）",
+    "course": "C++语言程序设计基础",
+    "snippet": "如果我们在写程序的时候 不能确定运行时 要处理的数据规模有多大 可能我们就需要 用动态申请内存和释放操作 来申请动态数组 用完了以后呢 我们自己主动释放 申请动态数组的语法是什么呢 我们来看一下 这里还是要用到这个new操作 后面不仅要有类型名 还要在括号里面给出 数组的元素个数 也就是数组的长度 这个数组长度呢 可以是任何表达式 可以是",
+    "ranks": {
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "D03E5083278D3F829C33DC5901307461",
+    "video": "动态分配与释放内存",
+    "course": "C++语言程序设计基础",
+    "snippet": "如何动态的创建一个对象 现在我们来看 我们想动态创建 这个点类的对象 点类的定义 跟我们以前的例子中看到的 仍然是一样的 那接下来我们看在主函数中呢 定义指向点类的Point类的指针 ptr1 然后呢用new运算 在运行时 动态申请内存用于构造 一个点对象 这个点对象的需要内存空间 申请好了  构造好了 就将它的地址赋给 或者初始化给这个",
+    "ranks": {
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "423861DC550C7B189C33DC5901307461",
+    "video": "LinuxCPP1102",
+    "course": "基于Linux的C++",
+    "snippet": "动态数据库 ... Bla bla bla 一串 这多少是个头啊　没够的 你这个动态数组想存什么 你就得定义这样相对应的动态数组类 非常非常麻烦　你定义像这样的一个类 一个是不够的　因为它要针对特定的型 做特定的处理 所以要定义很多个相似的动态数组类 那么这些代码 要维护起来肯定是非常困难的 所以我们也需要一种机制 能够在语法层面解决我们",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B02": {
+  "query": "linked list",
+  "candidates": [
+   {
+    "ccid": "C30FCD037EB741DD9C33DC5901307461",
+    "video": "Video",
+    "course": "Linux系统管理",
+    "snippet": "最后找到文件的数据 弄懂了这两个概念后 我们就可以解释硬链接这个东西了 硬链接其实很简单 就是在目录这张表中 让一个inode-number对应了多个文件名 文件inode和数据还是一份 没变 只不过文件多个一个名字 这个名字就被称为硬链接 创建硬链接同样使用ln命令 参数也一样 前一个参数是源文件 也即链接要指向的文件 后一个参数是要创",
+    "ranks": {
+     "video_en": 1,
+     "chunk_en": 3,
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "A6DA7BCB3FF25F2B9C33DC5901307461",
+    "video": "03A-4\t 实现",
+    "course": "数据结构(上)",
+    "snippet": "使它们真实的存在 接下来 要将它们的后继以及前驱引用 分别指向对方 从而实现这样一个互联的效果 当然逻辑上看 这个时候 我们所谓对外可见的那个列表 实际上是没有任何元素的 对应的就是一个空列表 而在接下来的几节里 我们将会看到 我们可能会在其中插入一些元素 以及再插入一些元素 也可能时不常地从中删除 或者是修改某一个元素 总而言之 这个列",
+    "ranks": {
+     "video_en": 2
+    }
+   },
+   {
+    "ccid": "3F77F7D3035284939C33DC5901307461",
+    "video": "Video",
+    "course": "数据结构（Data Structures）",
+    "snippet": "我们把它定义为类中的属性成员element 而另外一个部分 就是一个指向其他结点的指针next 这里element和next 共同构成了一个结点的核心要素 此外结点类它的构造函数是比较简单的 就是对element以及next分别进行赋值 那么基于结点类 我们可以去构造链表类LList LList类继承了List抽象类 并且实现了相应的列表",
+    "ranks": {
+     "video_en": 3
+    }
+   },
+   {
+    "ccid": "75893B0B39E519109C33DC5901307461",
+    "video": "7-5-1",
+    "course": "VC++面向对象与可视化程序设计（下）：MFC编程基础 (自主模式)",
+    "snippet": "也是在CWnd下面的 列表框一般具有如下特点 首先可以提供大量的可选项 需要时可以自动显示滚动条 关于滚动条的问题已经给大家介绍过了 此外还可以设置单选（单个选项） 或多选（多个选项）的功能 单选是，单击列表项 被选的项以“反相”的形式显示被选中 再次单击时恢复为非选中状态 列表框的样式有这些 比如说，LBS就是列表框的缩写 样式DISA",
+    "ranks": {
+     "video_en": 4
+    }
+   },
+   {
+    "ccid": "5E0613C405B376B29C33DC5901307461",
+    "video": "6.2-主要接口及常用的实现类",
+    "course": "Java程序设计",
+    "snippet": "除此而外还有这里列出了 一些实现List接口的类 Queue是队列 我们知道队列 它是一种先进先出 或者叫先来先服务的 这样一种数据结构 Queue接口其中除了包含 从Collection继承过来的 这些操作以外 它还包括插入删除和查看 实现这个队列接口的类 有LinkedList LinkedList它同时也实现了List 它实现的是先",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "53099B29EAA3A0C09C33DC5901307461",
+    "video": "Video",
+    "course": "JAVA程序设计进阶",
+    "snippet": "这一节我们来介绍一下 java集合框架当中的LinkedList类 中文简称为列表 LinkedList 它是把List接口中的列表 这个形式来实现的 那它实现了所有可选的一些列表操作 并且允许有空元素的存在 那LinkedList 它也实现了Deque接口 为add poll提供了一种 先进先出的队列操作 以及其他堆栈和双端队列的操作 ",
+    "ranks": {
+     "chunk_en": 1
+    }
+   },
+   {
+    "ccid": "0C315E89010052159C33DC5901307461",
+    "video": "2.6 ucore部分编程技巧",
+    "course": "操作系统",
+    "snippet": "我们把page这个结构也是这么定义的 它自己一些比如reference 其它一些自己特定域在里面 成员变量在里面 但是它最后一个page_link page_link也是一样也是list_entry数据结构 有了这两个之后 这个page_link 和free_list可以建立相应的链接关系 就通过prev和next来建立双向链接关系 这里",
+    "ranks": {
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "90703F07A27D1A839C33DC5901307461",
+    "video": "Classes: User-defined Types",
+    "course": "计算机科学和Python编程导论（课程迁移）",
+    "snippet": "新的元素。 然后，我还得回去更改 列表长度的数值。 这个方法可行，但十分麻烦。 另一种表示方式是使用我们称为链表(linked list)的东西。 这里，为了创建一个列表，每个元素事实上都有两个部分。 一个是真正的数据——那个元素的值。 另一个是指针，指向列表中下一个单元——一个指向内存中 下一位置的指针。 这里，我们的列表就仅仅是一个指",
+    "ranks": {
+     "chunk_en": 4
+    }
+   },
+   {
+    "ccid": "7A1596ABFE156C449C33DC5901307461",
+    "video": "MIPS32指令集与编程-2",
+    "course": "汇编语言程序设计",
+    "snippet": "Link就是这个意思 后面还有呢 还有什么BLTZAL就是Link 就是这个东西 再往下就是Jump Jump就是无条件跳转 Jump Link相当于就是CALL JALR就是Jump and Link Register 相当于就是说我Link寄存器默认是32位 不写就是31号寄存器 另外要写的话呢 我的Link寄存器可以换一个 JR呢就",
+    "ranks": {
+     "chunk_en": 5,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "BD1AD0131B8E3B619C33DC5901307461",
+    "video": "第8讲 聚类的基本概念",
+    "course": "互联网大规模数据分析技术",
+    "snippet": "典型方法包括p-cluster 第七种，用户指导的或者是基于约束的方法 通过考虑用户指定的 或者是特定的约束来进行聚类 典型方法包括COD等 第八种，基于链接的聚类 很多数据对象通过各种方式相互联系 可以考虑这些link来进行聚类 典型方法包括SimRank和LinkClus等 本节课的内容到此结束 感谢同学们的观看",
+    "ranks": {
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "45D9ECF0459048E29C33DC5901307461",
+    "video": "LinuxCPP1210",
+    "course": "基于Linux的C++",
+    "snippet": "就会链接所有已经解析出来的 我们引用了但是还没有被实现的函数 我们引用了但是还没有被实现的函数 就会从静态库里把那个代码抽出来 放到我们的可执行文件里 这就是静态库 在链接静态库的时候 同学们要注意 静态库的链接本身 应该放置在我们链接命令的末尾 当我要编译我们的程序 要使用到别人已经实现好的这个静态库 我想链接它 那么这个静态库的链接 ",
+    "ranks": {
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "D693C6097287811D9C33DC5901307461",
+    "video": "第18讲 Web搜索之链接分析",
+    "course": "互联网大规模数据分析技术",
+    "snippet": "比较好 同样大家看一下这样一个例子 斯坦福学校的主页 有23400个被别人链接的记录 但是这样一个网址 它只有一个连接记录 显然我们认为 斯坦福的可信度要高 所以我们把in-link 作为一个打分的标准 这个例子当中 大家看一下A这个节点有一个 入度为1 有一个in-link 所以它的打分为1 B这个节点它有1个，2个，3个 4个，5个，",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B03": {
+  "query": "binary search tree",
+  "candidates": [
+   {
+    "ccid": "E674420FEE1D5C239C33DC5901307461",
+    "video": "Video",
+    "course": "数据结构（Data Structures）",
+    "snippet": "在这节课中我们将学习到一种 支持高效数据查找操作的二叉树 二叉查找树 英文叫做Binary Search Tree 我们先来看一下二叉查找树它的定义 二叉查找树简称为BST 它是一种特殊的二叉树 对树上的值等于K的每个结点来说 它的左子树上的所有结点的值都会小于K 而右子树上所有结点的值都会大于等于K 比如在这个例子里面根结点它的值是37",
+    "ranks": {
+     "video_en": 1,
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "79C4318915B920489C33DC5901307461",
+    "video": "07B1-4 查找：实现",
+    "course": "数据结构(上)",
+    "snippet": "以下我们就给出BST查找算法的 一种实现方式 可以看到 对外的标准search接口 实际上在内部是调用了 名为SearchIn的一个功能来实现的 而作为一个更为基本的算法 SearchIn可以实现如下 具体来说 也就是在以v为根的当前子树中 去查找某一个特定的关键码e 作为一个递归函数 首先给出了递归基 比如 如果当前子树已经为空 就可以",
+    "ranks": {
+     "video_en": 2
+    }
+   },
+   {
+    "ccid": "08A6895AD30815DA9C33DC5901307461",
+    "video": "Video",
+    "course": "数据结构（Data Structures）",
+    "snippet": "在这节课中我们将学习 在二叉查找树上面的查找操作 我们这里定义 find的函数 来去实现这样的一个查找操作 函数有两个参数 一个是指向树根的指针 root 一个是我们要查找的元素 e 这个查找的过程 我们首先要去判断树根是否为空的 如果我们遇到空的树根 那么就要返回false 表示查找失败 否则我们要把查找的元素e 和树根进行比较 如果e",
+    "ranks": {
+     "video_en": 3
+    }
+   },
+   {
+    "ccid": "45F82F60341D50769C33DC5901307461",
+    "video": "Video",
+    "course": "数据结构（Data Structures）",
+    "snippet": "类似于在2-3树上的查找过程 都是从树根出发 然后通过和树根进行比较 去决定下面接下来在哪个子树里面 继续递归的进行查找 在这个例子中 我们看到的是一棵四阶的B树 我们要查找关键字47 所以首先和树根的关键字进行比较 因为47大于24 所以我们将在第二个子树中继续查找 我们继续和子树的树根结点进行比较 因为47大于45而小于48 所以我们",
+    "ranks": {
+     "video_en": 4
+    }
+   },
+   {
+    "ccid": "57092D8845E85E679C33DC5901307461",
+    "video": "1-3 B+树索引（1）",
+    "course": "高级数据库系统",
+    "snippet": "B+树它可以支持范围查询，也可以支持随机查询 支持范围查询，比如说它可以支持某一个搜索码值大于A小于B 这样的一种查询，那么针对这样的一种查询 我们只要找到A和B所在的叶节点 在这棵树的叶节点它的范围，那么A和B之间的所有叶节点 这些记录都是我们要寻找的结果，所以它支持范围查询是没有问题的 那么当然，它也支持随机查询 比如要支持一个搜索码",
+    "ranks": {
+     "video_en": 5,
+     "chunk_en": 3
+    }
+   },
+   {
+    "ccid": "87B4D00E28CF32449C33DC5901307461",
+    "video": "Decision Trees",
+    "course": "计算机科学和Python编程导论（课程迁移）",
+    "snippet": "ERIC GRIMSON: We've now seen how to search through a binary tree-- depth first or breadth first, both really nice solutions. Simple changes in code lead to this different",
+    "ranks": {
+     "chunk_en": 1,
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "91032033E0D619909C33DC5901307461",
+    "video": "Searching a Tree",
+    "course": "计算机科学和Python编程导论（课程迁移）",
+    "snippet": "I'm sorry, the element is not in the tree. And I return false. It's pretty straightforward. I've got a version of the code running on my computer over here. Let's look at",
+    "ranks": {
+     "chunk_en": 4,
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "A00C81DF6C0DDFA59C33DC5901307461",
+    "video": "07A-3 有序性",
+    "course": "数据结构(上)",
+    "snippet": "在接下来的讨论中 为了简洁起见 我们都将二叉搜索树 Binary Search Tree 简称作BST 那么既然二叉搜索树 首先是二叉树 其中的基本组成单位 也就是节点 而且每个节点中都各自存有 一个词条 另外我们刚才也讲过 每一个词条 也都唯一的对应于某一个关键码 因此同样是为了便于叙述和讲解 在此后只要不致引起混淆 我们往往会将节点 ",
+    "ranks": {
+     "chunk_en": 5,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "933A0C970B8389E49C33DC5901307461",
+    "video": "A Different Approach To Optimal Solutions",
+    "course": "计算思维和数据科学导论",
+    "snippet": "to an algorithm like this. For this we're going to use the idea of a binary tree, in fact, what we call a rooted binary tree. And that's just an acyclic directed graph. A",
+    "ranks": {
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "777689DF602417649C33DC5901307461",
+    "video": "07D1-1 AVL=BBST",
+    "course": "数据结构(上)",
+    "snippet": "平衡二叉搜索树 Balanced Binary Search Tree BBST 比如我们这一节将要介绍的AVL树 就是在这种意义下的一种BBST 以AVL树为代表的这些BBST 首先并没有放弃渐近意义 logn的复杂度底线 同时正因为它已经适度地 放松了平衡的标准 所以通过精巧地设计 它们都可以具有这样一种属性 具体来说 对于任何一棵这",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B04": {
+  "query": "recursion",
+  "candidates": [
+   {
+    "ccid": "7DE1F864175360389C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "How simple and efficient it is! This is exactly what the picture depicts: ants can shake big trees too! So, what is a recursive function? In mathematics and computer scie",
+    "ranks": {
+     "video_en": 1
+    }
+   },
+   {
+    "ccid": "0EA02104624588239C33DC5901307461",
+    "video": "02D1-2\t 唯一化（低效版）",
+    "course": "数据结构(上)",
+    "snippet": "此前我们介绍过 无序向量的去重操作 现在我们希望把这种去重操作呢 推广到有序向量 也就是说 将一个有序向量中的重复元素 如果确实存在的话 全部剔除掉 同样地 每一组重复元素只保留一个副本 那么稍加观察我们会发现 有序向量 其实相对于无序向量而言 具有更好的规范性 这种规范性用文字来叙述的话 就是说 在有序向量中 彼此重复的元素必然会依次相",
+    "ranks": {
+     "video_en": 2,
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "C21CEFA11B17941F9C33DC5901307461",
+    "video": "02D1-3\t 复杂度（低效版）",
+    "course": "数据结构(上)",
+    "snippet": "每一次将它和后继的元素进行比较 答案都是一样的 都是发现一个重复 所以我们要调用一次remove 好 后面的元素接替上来 但是接下来 我们下一次比对 依然是发现一个重复 又要执行一次remove 然后呢 再要、再要、再要一直到最后 只剩唯一的一个元素 那结果不出我们的意料 但是这个过程是值得推敲的 因为在整个这个过程中 我们每一次remo",
+    "ranks": {
+     "video_en": 3
+    }
+   },
+   {
+    "ccid": "0BB2011228E9D5A49C33DC5901307461",
+    "video": "Using Environments to Understand Recursion",
+    "course": "计算机科学和Python编程导论（课程迁移）",
+    "snippet": "那么我将把另外一次递归调用的数值累加到变量a上， 而这次recurMul调用所用的则是不同的变量。 现在，以直线思维思考一下， 这是Python。 这是一个解释器。 那是一个表达式。 它表示对那个表达式进行求值， 那我需要做什么？ 你需要获取recurMul的值，哦， 它就在那儿呢。 好。 现在，我需要获得a的值。 而且记住，这些都在这个",
+    "ranks": {
+     "video_en": 4,
+     "chunk_en": 1
+    }
+   },
+   {
+    "ccid": "9FDF9DF354EF9C779C33DC5901307461",
+    "video": "LinuxCPP0206",
+    "course": "基于Linux的C++",
+    "snippet": "使用递增递减操作符 因为它有可能给我们带来错误的结果 基本的架构就是for小括号对 里边由分号分割开的三个表达式 俩分号 三个表达式 第一个初始化表达式 第二个条件表达式 第三个步进表达式 这就是for循环的头部 紧跟在后边的就是它的循环体 我们这个程序怎么做呢 它就从一个单入口进来 然后去做它的初始化表达式 做完这个初始化表达式以后 它",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "939BCC1FC8421A529C33DC5901307461",
+    "video": "What Can We Do With Generating Function",
+    "course": "Combinatorial Mathematics（2020）",
+    "snippet": "which can calculate the complexity of recurrence, it will be very useful for us. Then can we use the generating function to help us for solving Recurrence Relation?",
+    "ranks": {
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "288E038DF7C2D00A9C33DC5901307461",
+    "video": "2.2-3-方法成员",
+    "course": "Java程序设计",
+    "snippet": "增强型的for循环 或者叫基于范围的for循环 我在这定一个rectangle的引用 冒号后面就是这个数组名 rec 它的作用就是在循环的每一次 都从这个数组中 依次取出一个元素来 用来附给这个R 然后通过R 你就可以访问这个元素 用这样的办法 不管数组有多少个元素 这个for循环 都能恰恰好的遍历完这些元素 这也是我们使用这个 可变长参",
+    "ranks": {
+     "chunk_en": 3
+    }
+   },
+   {
+    "ccid": "2C0EC8E8557132D89C33DC5901307461",
+    "video": "串操作指令说明",
+    "course": "微机原理与接口技术",
+    "snippet": "如果它加了前缀的话 这一条指令就是一个循环程序 或者说一个循环结构 下边我们来看一下什么是重复前缀 重复前缀有两种大的类型 一种我们称为无条件重复 无条件重复前缀呢 它的助记符是REP 这个前缀的含义是 当CX不等于零 也就说 串的操作没有结束 或者说串的长度值没有被减到零的时候 那么当然就意味着串的操作没结束了 那么这个时候它会控制 重",
+    "ranks": {
+     "chunk_en": 4,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "3480996DCF44492C9C33DC5901307461",
+    "video": "2-2. 关系操作的基础算法(1)",
+    "course": "高级数据库系统",
+    "snippet": "我们拿消除重复元组这样一种运算来进行说明 那么消除重复元组运算呢和选择运算不同 它是在归并算法的框架之内来进行实现的 也就是说首先呢，我们对这个数据表来进行一个归并 生成它的若干个有序子表，也就说第一个生成归并段 然后接下来我对归并段进行最后归并的过程当中 直接执行消除重复元组的运算，如果用一张图来表示呢 基本上就是这样，我拿到一个关系R",
+    "ranks": {
+     "chunk_en": 5
+    }
+   },
+   {
+    "ccid": "278FCBF29BFF6DCB9C33DC5901307461",
+    "video": "LinuxCPP0405",
+    "course": "基于Linux的C++",
+    "snippet": "第三个 循环的重复 是在当前迭代执行完毕以后 递归的重复在发现到它对同名的函数 也就是它自身的一次函数调用的时候 第四个 循环也好 递归也好 都可能在程序中藏着程序错误 所以你检查的时候都是需要特别小心的 最后一个 同学们要特别记得 理论上任何一个递归程序代码 都可以使用循环来重新实现 这都没有问题 但是我要跟同学们特别强调 一 大部分程",
+    "ranks": {
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "46D57350599150829C33DC5901307461",
+    "video": "03B-5\t 唯一化",
+    "course": "数据结构(上)",
+    "snippet": "我们将这两个重复元素中的一个 具体来说 也就是这个q删除掉 否则的话呢 如果q是一个null呢？ 那就意味着查找失败 换而言之 在这样的一个前缀中根本就不存在 语义相同的元素 所以在这个时候 p这个节点 可以归入这样的一个前缀中去 使得这个前缀拓展一个单位 在这种情况下 我们就可以将r加1 也就是说 前缀的长度 增加一个单位 同时p转入它",
+    "ranks": {
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "3B805736CC754B2A9C33DC5901307461",
+    "video": "LinuxCPP0202",
+    "course": "基于Linux的C++",
+    "snippet": "如果是假 结束 如果是真 就做语句块A 做完语句块A以后 重新去做条件表达式 看它的值是真或者假 如果是假 还是退出 如果是真 继续重复做语句块A 按照这样一个过程不断重复 这种循环称它为while循环",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B05": {
+  "query": "deadlock in operating systems",
+  "candidates": [
+   {
+    "ccid": "0650D447B44441CF9C33DC5901307461",
+    "video": "Managing the CUPS Daemon",
+    "course": "Linux导论",
+    "snippet": "but it means when it reboots, it won&#39;t run again and I probably should restore it to enabled, so that it starts up again when the system restarts. So that&#39;s all t",
+    "ranks": {
+     "video_en": 1
+    }
+   },
+   {
+    "ccid": "20300FEF39D346789C33DC5901307461",
+    "video": "Video",
+    "course": "Linux 内核分析与应用",
+    "snippet": "维持中断标志位不变 也就是说它是不关中断的 而中断门呢是关中断的 第三种呢叫系统门 这是Linux内核特别设置的 是用来让用户态的进程访问intel的陷阱门 因此门描述符的DPL就为3 那么系统调用呢就是通过系统门而进入内核的 通过前边的介绍 我们对中断的一些基础概念 进行了概要的说明 那么本节课以后呢大家还需要动手实践 在我们Linux",
+    "ranks": {
+     "video_en": 2
+    }
+   },
+   {
+    "ccid": "BC01A69F9263EAAD9C33DC5901307461",
+    "video": "2.3 中断",
+    "course": "计算机操作系统",
+    "snippet": "但是中断最初是形成在 CPU与外围设备协同工作上 所以最初的中断是 来源于处理器之外的外围设备 最简单的例子我要把计算机系统关了 显然我们是通过键盘或者鼠标 发出了一个信号 操作系统接收到这个信号 来执行关机的过程 这些来源于外部的中断 我们称之为狭义的中断 你没有访问你自己的内存 你访问别人的内存 这是一个非常严重的地址异常 再比如说某",
+    "ranks": {
+     "video_en": 3
+    }
+   },
+   {
+    "ccid": "4E2A72EB4EB049599C33DC5901307461",
+    "video": "Video",
+    "course": "嵌入式系统设计",
+    "snippet": "与Linux驱动设备中断处理的相关API函数有request_irq()和free_irq() 我们重点关心的request中的有个参数 就是这一个，handler 这个回调函数实际上就是我们的中断处理程序 下面看一下并发控制的概念 并发指的两个以上执行单元同时、并行地执行 驱动程序里面往往它资源只有一个，而要两个同时去访问它的话 这个时",
+    "ranks": {
+     "video_en": 4
+    }
+   },
+   {
+    "ccid": "0DF7143A4611DBFD9C33DC5901307461",
+    "video": "3.3 中断、异常和系统调用比较",
+    "course": "操作系统",
+    "snippet": "这个是同步的 也就是说必须处理完 当前这条异常所产生的指令所导致的问题 我才可以继续下去 那当然他们之间的处理呢 会都在内核里头来做 但他们的处理也会有一些区别 中断会持续的进行 而系统调用它会是用户提出之后会处理 等待然后再继续 而异常呢 是会处理当前所出现的问题 那具体说起来 中断的处理 那这个中断实际上我们把它理解为 系统调用异常和",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "A57AC39F236551D89C33DC5901307461",
+    "video": "Video",
+    "course": "Linux 内核分析与应用",
+    "snippet": "刚才我们介绍的那两个函数都只能禁止和开启本地CPU内的中断 并不能解决多处理器引发的竞争状态 在中断屏蔽期间所有的中断都无法得到处理 因此长时间的屏蔽中断是很危险的 有可能造成数据的丢失 甚至系统的崩溃 那么下面呢 我们来介绍下自旋锁 自旋锁是专为防止多处理器并发而引入的一种锁 它在内核中大量应用于中断处理的部分 而对于单处理器来说呢 可",
+    "ranks": {
+     "chunk_en": 1
+    }
+   },
+   {
+    "ccid": "5A0097FD0CBED79D9C33DC5901307461",
+    "video": "5.3.2 并发控制-2",
+    "course": "数据库系统原理与开发",
+    "snippet": "即这些并发调度执行结果可以保证数据库一致性 四、死锁问题解决 1.事务死锁 在基于锁机制的并发事务执行中 如果这些事务同时锁定两个以及以上资源时 可能会出现彼此都不能继续执行的状态 即事务死锁状态 例如, 假定两个事务T1和T2 它们都需要加锁访问数据库表Table1和Table2 其事务程序见图6-20a所示 当这两个事务程序调度执行时",
+    "ranks": {
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "7AF4DA8D6743B6F89C33DC5901307461",
+    "video": "16.2 调度算法支撑框架",
+    "course": "操作系统",
+    "snippet": "没有就绪进程的时候 这时候idle_thread就会执行 它会不停的轮询 然后去调用schedule来查找 是否有处于就绪态的进程存在 一旦有的时候 它就会完成一个进程切换 第五个是lock 第五lock这一块呢主要是 跟我们的lab7相关 就是同步互斥相关 这里面我们稍微讲一下 它也是说想得到一个lock资源得不到之后 它会调sched",
+    "ranks": {
+     "chunk_en": 3
+    }
+   },
+   {
+    "ccid": "CFEB0D3553644AAA9C33DC5901307461",
+    "video": "LinuxCPP1408",
+    "course": "基于Linux的C++",
+    "snippet": "你如果资源是被进程占用的 且没有办法释放 那么在多线程编程的时候 就非常容易导致死锁的问题 那么怎么处理这个死锁问题呢 那么你就可以更改互斥类型 把这个互斥属性对象 把它的类型从普通锁 给改成递归锁和检错锁 就能够避免死锁的发生 第二个线程同步机制是信号量 我们现在就有一个问题啊 如何确保我们的任务队列中 有任务可以做 怎么保证这一点呢 ",
+    "ranks": {
+     "chunk_en": 4
+    }
+   },
+   {
+    "ccid": "138970CF09DF18179C33DC5901307461",
+    "video": "17.5 高级抽象的同步方法",
+    "course": "操作系统",
+    "snippet": "那这描述一种死锁的情况是 有一个低优先级的进程 它占用了临界区资源 好 另一个请求 访问临界区的高优先级进程 由于它优先级高 那么这时候呢 它就可以占用CPU来执行 而占用CPU来执行呢 实际上它执行的那个代码是请求 如果那个地方你用的是忙等待 那么这时候呢它就一直等待 这样的话两边就相互等了 低优先级等CPU 高优先级等临界区资源 好 ",
+    "ranks": {
+     "chunk_en": 5
+    }
+   },
+   {
+    "ccid": "D26DE7FEAB8C2C899C33DC5901307461",
+    "video": "Video",
+    "course": "操作系统",
+    "snippet": "又变成是越来越关键的 而在操作系统里 必须在操作系统层面上 解决安全的问题 那上面的应用才能有一个很好的 安全基础 这是由于操作系统庞大所带来的挑战 第二个挑战 实际上操作系统里面它的关系是错综复杂的 我们说我们前面讲操作系统有并发 两个多个进程之间交替使用资源 这个时候有一些相互之间的相互影响 但实际上这个时候在操作系统里面 最复杂的一",
+    "ranks": {
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "F2159E8BDFFA8B739C33DC5901307461",
+    "video": "5-14_链路状态路由选择协议",
+    "course": "计算机网络",
+    "snippet": "所以只有Down机的时候 才可能导致超时 来看一下age是怎么解决刚才说的两个问题的 一、路由器崩溃的问题 设想一下这样的情形 路由器A发送LSP给路由器B B记录下收到的A的LSP的信息 然后A崩溃了 此时路由器B上记录下的A的LSP对应的age 已经开始倒计时 当A再次启动 通常age已经倒计时到零 A的LSP被B扔掉了 所以当重启后",
+    "ranks": {
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "37721EE165BB22249C33DC5901307461",
+    "video": "4.5 练习一",
+    "course": "操作系统",
+    "snippet": "有了中断这个管理机制之后呢 当外设发出请求之后呢 我们的CPU可以通过中断机制得到响应 第二个呢 当你产生异常 或者发出系统调用的时候 我们的软件 我们的软件由于你某种不恰当的操作 产生某种异常或者系统调用 或者是一些错误的时候呢 那通过这个中断管理机制呢 能够感知到这种现象的存在 并进行相应的处理 所以中断这个机制很重要 第三 在uCo",
+    "ranks": {
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "DF6610A34625D1659C33DC5901307461",
+    "video": "Video",
+    "course": "计算机网络",
+    "snippet": "所以只有Down机的时候 才可能导致超时 来看一下age是怎么解决刚才说的两个问题的 一  路由器崩溃的问题 设想一下这样的情形 路由器A发送LSP给路由器B B记录下收到的A的LSP的信息 然后A崩溃了 此时路由器B上记录下的A的LSP对应的age 已经开始倒计时 当A再次启动 通常age已经倒计时到零 A的LSP被B扔掉了 所以当重启",
+    "ranks": {
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "48637E3A4B6DBBDF9C33DC5901307461",
+    "video": "2.5 x86-32硬件介绍",
+    "course": "操作系统",
+    "snippet": "实模式其实就是80386机器为了 兼容早期的8086十六位机器 做的一种模式 这种模式机器加电之后 一启动就处于实模式运行状态 在这个时候它的寻址空间不超过1M 且无法发挥80386 4G内存管理机制 那么早期的Microsoft 微软的dos操作系统就运行实模式环境中 这也是一个早期很早的OS 也是微软最早一个OS 当然它这个完全不能够",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B06": {
+  "query": "TCP congestion control",
+  "candidates": [
+   {
+    "ccid": "AE1F3BE08FE005099C33DC5901307461",
+    "video": "TCP拥塞控制机制",
+    "course": "网络技术与应用",
+    "snippet": "这个时候端口4所连接的链路就发送了拥塞 从这个现象可以看出来 发生拥塞的原因主要和网络流量的分布状态有关 如果提高转发结点的性能并不能消除拥塞 解决拥塞的最简单的办法是控制发送端的发送流量 怎么样来确定网络发生拥塞了呢 网络在传输TCP报文过程当中 如果丢失报文 就说明发送了拥塞 这个和我们前面差错控制机制当中所说的 发送端要进行重传的条",
+    "ranks": {
+     "video_en": 1,
+     "chunk_en": 4,
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "618766993CA423D49C33DC5901307461",
+    "video": " TCP的几点说明",
+    "course": "网络技术与应用",
+    "snippet": "所以TCP是基于终端实现差错控制 流量控制和拥塞控制 因此TCP可以提供终端进程之间的 按序可靠的数据传输服务 由此由IP和TCP两个协议组合起来完成数以亿计的 的终端之间的互相 可靠 按序的数据传输 这是IP和TCP之间的分工 接下来看一下TCP差错控制和传输网络差错控制 之间的关系 首先 链路层担负起检错的重责 在前面学习的以太网当中",
+    "ranks": {
+     "video_en": 2,
+     "chunk_en": 3
+    }
+   },
+   {
+    "ccid": "7D3C5A038F7EB4429C33DC5901307461",
+    "video": "TCP特点和格式",
+    "course": "网络技术与应用",
+    "snippet": "它从TCP首部给出窗口字段 窗口标识接收端能够接收的最大字节数 发送端允许发送的数据的字节数的上限一是根据窗口 另外还要根据网络状态 关于网络的状态在后面再说 这是流量控制 还有建立和释放连接的过程 前面说 TCP是面向连接的服务 在数据传输之前 有一个建立连接 数据传输结束以后 有个释放连接 为了建立连接 设计一个同步位SYN 当建立连",
+    "ranks": {
+     "video_en": 3,
+     "chunk_en": 5,
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "1918F403224B02A39C33DC5901307461",
+    "video": "9.6-2 有状态分组过滤器",
+    "course": "网络技术与应用",
+    "snippet": "协议是TCP 源IP地址是192.1.1.1/32 源端口号是任意 目的IP地址是192.1.2.7/32 目的端口号是80 符合这个规则的报文就正常转发 第二条就是除第一条以外的所有IP分组全部丢弃 这是前面给出的输入方向的规则集 然后要设置一个请求报文状态检查器 这个报文状态检查器就是对输入方向的报文进行检查 输出方向设置这样一个规则",
+    "ranks": {
+     "video_en": 4
+    }
+   },
+   {
+    "ccid": "20DF3E148505F7CA9C33DC5901307461",
+    "video": "6-8 TCP拥塞控制",
+    "course": "计算机网络",
+    "snippet": "虽然网络层也试图管理拥塞 但是大多数繁重的任务 是由TCP来完成的 因为针对拥塞的真正解决方案 是减慢数据率 所以TCP拥塞控制 它遵循分组守恒的原则 即当有一个老的分组离开之后 才允许新的分组注入网络 TCP希望通过动态 维护一个窗口大小 来实现这个目标 所有的互联网TCP算法 都假定超时 是由拥塞引起的 并且通过监视超时的情况 来判断",
+    "ranks": {
+     "video_en": 5,
+     "chunk_en": 1,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "E440CB45CFFD6E5A9C33DC5901307461",
+    "video": "Video",
+    "course": "计算机网络",
+    "snippet": "虽然网络层也试图管理拥塞 但是大多数繁重的任务 是由TCP来完成的 因为针对拥塞的真正解决方案 是减慢数据率 所以TCP拥塞控制 它遵循分组守恒的原则 即当有一个老的分组离开之后 才允许新的分组注入网络 TCP希望通过动态 维护一个窗口大小 来实现这个目标 所有的互联网TCP算法 都假定超时 是由拥塞引起的 并且通过监视超时的情况 来判断",
+    "ranks": {
+     "chunk_en": 2,
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "49E8BD19B6B015DE9C33DC5901307461",
+    "video": "Video",
+    "course": "网络安全概述（自主模式）",
+    "snippet": "对进入这个子网的TCP的数据包中 这个在ACK位等于0的这些包 我们要把它过滤掉不允许它们进来 那造成的结果是什么呢 就是说不允许子网外的用户 向子网内的用户 申请创建TCP链接 但是这个只限于 子网外的用户 向子网内的用户申请 这个创建TCP连接 这样子的过程它是不被允许的 但是呢这个并不会屏蔽掉 子网内的用户想要对子网外的用户 这个发",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B07": {
+  "query": "SQL queries",
+  "candidates": [
+   {
+    "ccid": "2DE565B3A0E8EF059C33DC5901307461",
+    "video": "3.4.1单表数据查询",
+    "course": "数据库系统原理与开发",
+    "snippet": "其数据查询SQL语句如下： 数据查询SQL语句及执行结果： 将该SQL语句提交数据库服务器执行 其操作界面如下 在查询编辑页面中 输入查询SQL语句 然后点取\"运行\"按钮 若该SQL语句正确执行 则该页面的数据输出框显示结果集数据 在SQL查询Where子句中 还可以使用多个条件表达式 并通过逻辑运算符（AND、OR、NOT）连接操作 以",
+    "ranks": {
+     "video_en": 1,
+     "chunk_en": 1,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "35EA66756D973B919C33DC5901307461",
+    "video": "3.4.2 内置函数与分组统计",
+    "course": "数据库系统原理与开发",
+    "snippet": "数据查询SQL语句及执行结果： 将该SQL语句提交数据库服务器执行 其操作界面如下 在数据库管理工具查询编辑页面中 输入查询SQL语句 然后点取“运行”按钮 若该SQL语句正确执行 则该页面的数据输出框显示结果集数据 好了，本节学习结束！",
+    "ranks": {
+     "video_en": 2,
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "A57BAB88D2FF935E9C33DC5901307461",
+    "video": "3.4.3 多表关联查询",
+    "course": "数据库系统原理与开发",
+    "snippet": "子查询SQL语句基本格式如下： 例如 在选课管理系统数据库中 希望能检索出“计算机学院”的教师名单 该操作需要关联教师信息表Teacher和学院信息表College 才能获得这些数据 这里可采用子查询方法实现两表关联查询 其查询SQL语句如下 数据查询SQL语句及执行结果： 将该SQL语句提交数据库服务器执行 其操作界面如下 在数据库管理",
+    "ranks": {
+     "video_en": 3,
+     "chunk_en": 4
+    }
+   },
+   {
+    "ccid": "8FED652F7405B2639C33DC5901307461",
+    "video": "6.5 嵌入式SQL编程",
+    "course": "数据库系统原理与开发",
+    "snippet": "（1）嵌入式SQL是一个语句级接口 通过程序访问的数据库模式必须在编写程序时已知 以便构造SQL语句 例如 程序员必须知道数据表名称 列名称及它的域 （2）对于嵌入式SQL RDBMS一般采用预编译方法处理 即由关系数据库的预处理程序对源程序进行扫描 识别出嵌入的SQL语句 把它转换成主语言调用语句 以使主语言编译程序能识别它们",
+    "ranks": {
+     "video_en": 4
+    }
+   },
+   {
+    "ccid": "84FE99ADF5F470669C33DC5901307461",
+    "video": "5-4-1",
+    "course": "智能设备应用开发（基于Android平台）",
+    "snippet": "今天我们要完成的任务是 基于SQLite的用户信息存储器 程序启动后 显示如下页面 在输入框中 输入用户名和密码 点击添加按钮 会将信息添加到数据库的表中 并弹出提示框显示输入成功 输入用户名和密码 点击删除和更新按钮 会根据用户名搜索数据 并会对数据库中的数据进行删除和修改 并弹出提示框显示删除和更新成功 输入用户名 点击查询 会根据用",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "3CA5716162A6B1699C33DC5901307461",
+    "video": "6.1.1 数据库连接技术-1",
+    "course": "数据库系统原理与开发",
+    "snippet": "也就是我们要向数据源提交我们的SQL语句 第三 要对SQL请求的结果定义或者创建存储区 和定义它的数据格式 第四 从服务器端获得请求结果 根据请求结果 如果请求结果有错误 要对错误进行处理 第六 如果有需要的话 把结果返回给用户 第七 对事务进行控制 执行或回滚（回退）操作 第八 终止对数据源的连接 通过这八个过程阐释了 我们客户端的应用",
+    "ranks": {
+     "chunk_en": 3
+    }
+   },
+   {
+    "ccid": "2FEA1D400686A8329C33DC5901307461",
+    "video": "6.4 数据库游标",
+    "course": "数据库系统原理与开发",
+    "snippet": "（5）游标包括：SQL语言的查询结果 指向特定记录的指针 现在下面我们开始学习如何声明游标 二、声明游标 （1）在存储过程中游标类型的变量 例如：游标变量 关键字refcursor;  refcursor是关键字 此时 游标变量还没有绑定查询语句 因此不能访问游标变量 （2)使用游标专有的声明语法 如： 游标名  CURSOR [ ( a",
+    "ranks": {
+     "chunk_en": 5,
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "43872AC3DA9F8FB69C33DC5901307461",
+    "video": "3.6 视图SQL语句",
+    "course": "数据库系统原理与开发",
+    "snippet": "在查询编辑页面中 输入该视图创建SQL语句 然后点取“运行”按钮 若该SQL语句正确执行 则将返回创建视图成功消息 当DatabaseCourseView视图被创建完成后 外部程序就可以通过一个 简单的SELECT语句查询视图数据 其操作语句如下 SELECT * FROM DatabaseCourseView 视图查询SQL语句执行 将",
+    "ranks": {
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "720C7DA68B8FCAB49C33DC5901307461",
+    "video": "6.1.2 数据库连接技术-2",
+    "course": "数据库系统原理与开发",
+    "snippet": "我们就建立了与刚才的数据库的连接 该连接是用myuser身份连接到数据库的 也就是我们就可以访问testDB数据库 接下来我们就要执行SQL语句 就是用我们刚才创建的Statement对象来调用对应的方法 在这我们主要要掌握的(executeQuery) 和(executeUpdate)这两个方法 executeQuery：返回语句执行后",
+    "ranks": {
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "A4938ED38E00EBA79C33DC5901307461",
+    "video": "3.7 PostgreSQL数据库SQL实践",
+    "course": "数据库系统原理与开发",
+    "snippet": "和Assignment表 实现多表连接查询 才能获得所需数据 多表关联查询SQL语句执行 在PostgreSQL数据库服务器中 执行该SQL查询语句 其操作过程如下 打开编辑页面 输入查询语句 点取“运行”按钮 输出查询结果集 六、执行SQL语句实现视图创建操作 例如 在工程项目管理系统数据库ProjectDB中 管理部门希望能 查询输出",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B08": {
+  "query": "linear regression",
+  "candidates": [
+   {
+    "ccid": "B179F41AC6436DEA9C33DC5901307461",
+    "video": "5-2 课件视频与讲义",
+    "course": "大数据与城市规划",
+    "snippet": "将所有要参与线性回归的变量 都做一个相关性的分析 来更好了解你的数据 那我们因为时间关系 就直接进入线性回归的讲解 线性回归呢是一个常用的统计模型 它可以用来找到变量间的线性规律 用来预测未知的数据 左图显示的就是一个一元回归模型 蓝点的代表是单个的监测结果 斜线代表就是线性回归的模型 需要做的就是给数据找到一条 可以使蓝点到斜线距离的 ",
+    "ranks": {
+     "video_en": 1,
+     "chunk_en": 4,
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "44C1562280D42A5D9C33DC5901307461",
+    "video": "3.深度学习的正则化方法（一）",
+    "course": "大数据机器学习",
+    "snippet": "对简单的线性回归模型的影响 与分析L2正则化时一样 我们先不考虑正则化参数 然后呢再加入 我们感兴趣的是 看看L1 和L2正则化之间到底有什么差异 与L2权重衰减类似 我们也可以通过 缩放惩罚项Ω 的正的超参数 来控制L1权重衰减的强度 因此  正则化的目标函数 （见上图） 其中符号函数w只是简单地 取w 各个元素的正负号 我们很容易发现",
+    "ranks": {
+     "video_en": 2,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "65D28168E1F2C89D9C33DC5901307461",
+    "video": "12B3-6",
+    "course": "数据结构(上)",
+    "snippet": "不要忘了我们的目标是线性 而为了使得我们能够从这个递推式 解出一个线性函数 我们只需保证 那两个递归项的参数之和 严格的小于线性 也就是说1/Q与3/4的总和 必须严格的小于1 这一点并不难做到 比如我们只要将Q取作5 就能保证这一点 针对于Q等于5时的这个递推式 你不妨在课后做一细致的推导 你将会发现尽管就渐进意义而言 它的确是一个线性",
+    "ranks": {
+     "video_en": 3
+    }
+   },
+   {
+    "ccid": "13017DAC8AA41A3D9C33DC5901307461",
+    "video": "Video",
+    "course": "基于R语言的社会统计分析",
+    "snippet": "首先它会告诉你刚才你这个回归模型是什么样子啊响应变量是medv 然后你的自变量是 low socialeconomics status 然后做了一个简单的线性回归 截距项的估计值是34.55然后斜率是 -0.95结束了然后我刚刚 之前讲的那些 对于系数估计准确性的 评价还有模型准确性的评价一点没有 那怎么办呢 用summary这个命令啊 ",
+    "ranks": {
+     "video_en": 4,
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "E0569C9C1FD87B399C33DC5901307461",
+    "video": "Video",
+    "course": "基于R语言的社会统计分析",
+    "snippet": "那刚刚评价了回归系数的准确性还没完 我们实际上呢还需要 评价一下这个整个回归模型 对数据的拟合程度 所以一旦我们拒绝了原假设认为xy是有关系的 接下来很自然的就是希望知道模型对数据的拟合程度 the extent to which the model fits data 那线性回归拟合的质量呢 有两个特别典型的统计量来评价 一个叫做残差标",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "BA551B6F0B27E36B9C33DC5901307461",
+    "video": "Video",
+    "course": "数据挖掘：理论与算法",
+    "snippet": "So you don't even know this, it's equivalent to not learning linear regression. To figure out linear regression, this place is linear, not to say that its final expressio",
+    "ranks": {
+     "chunk_en": 1
+    }
+   },
+   {
+    "ccid": "586019676AD987B49C33DC5901307461",
+    "video": "Video",
+    "course": "数据挖掘：理论与算法",
+    "snippet": "So you don't even know this, it's equivalent to not learning linear regression. To figure out linear regression, this place is linear, not to say that its final expressio",
+    "ranks": {
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "45CECE37B5678B519C33DC5901307461",
+    "video": "Goodness of Fit",
+    "course": "计算思维和数据科学导论",
+    "snippet": "你们再来看看线性模型，我们之前怀疑它一点都不拟合数据， 现在可以看到所得出的r的平方值真的是非常糟糕。 在直线线性模型里，数据的偏离程度根本没有 得到体现。 然而，抛物线模型却得出来一个令人十分满意的r的平方值。 也就是说，实际上抛物线拟合模型解释了大多数 观测值的变化，所以它可以预测 那些变化。 有一小部分观测值的方差没有在程序中得到解",
+    "ranks": {
+     "chunk_en": 3,
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "6F8FAACDC142CA109C33DC5901307461",
+    "video": "Video",
+    "course": "基于R语言的社会统计分析",
+    "snippet": "a linear model拟合lm.fit它=lm 然后你的因变量y放在左边 是 median house value  medv 然后它和谁形成关系呢 低社会经济地位人群的占比lstat 然后我现在 运行它一下它就默默的 这个跑下来了啊 因为线性回归在上节课我已经讲了我就 不再给大家看它的结果了 我们这节课想讲一下什么呢 就是做完任何",
+    "ranks": {
+     "chunk_en": 5
+    }
+   },
+   {
+    "ccid": "81AEEDB93D177D5A9C33DC5901307461",
+    "video": "Video",
+    "course": "基于R语言的社会统计分析",
+    "snippet": "最多最全的 那这种情况呢我们用到的统计方法 是传说中的相关系数 correlation coefficient 非常流行的方法 很多同学一说到 统计学第一个反应呢就是 它就是一个看correlation的嘛 就是看相关系数的 然后最后 响应变量y如果是分类型的 解释变量x是定量型的 这个时候就用到了一种 相对高级的统计 方法体系啊叫做广义",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B09": {
+  "query": "pointers in C",
+  "candidates": [
+   {
+    "ccid": "E3D40709F6B33B3C9C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "and be familiar with the writing method of pointer operation. What we have learned before is all about pointers of variables Actually, various objects, such as constants ",
+    "ranks": {
+     "video_en": 1,
+     "chunk_en": 1
+    }
+   },
+   {
+    "ccid": "874787BDFADF6FCA9C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "Pointers can also be used in relational operations. Pointer variables p and q defined here , can perform operations such as ==,!=,>,<, etc. In fact, we are comparing thei",
+    "ranks": {
+     "video_en": 2,
+     "chunk_en": 3,
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "05BE939253A84C5C9C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "8.4 Pointers and Functions In C, there is a broad and deep connection between pointer and function. In this lecture, we need to master some relations between pointers and",
+    "ranks": {
+     "video_en": 3,
+     "chunk_en": 2,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "40768E77776AE9E59C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "the character pointer variable itself is a variable , and it cannot be used to store each character, but can store the head address of the string. It can also store the a",
+    "ranks": {
+     "video_en": 4,
+     "chunk_en": 5
+    }
+   },
+   {
+    "ccid": "38E639DC46F8B9149C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "As long as p is no less than a, the cycle will continue until the expecting result is obtained. Using pointer to reference an array element, you should pay attention to t",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "565D32B2EEBF8C579C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "C provides a pointing operator(->)   to access pointer members of the structure, that is, s1.age is equivalent to p->age. Of course, pointers can point to structural vari",
+    "ranks": {
+     "chunk_en": 4
+    }
+   },
+   {
+    "ccid": "71DC574135CB82789C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "used to pass a batch of pointers, to variables with the same type among functions. The pointers here can be any type, including pointers to functions. That's all for this",
+    "ranks": {
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "707982252871831D9C33DC5901307461",
+    "video": "4.7 嵌入式开发中的C语言（下）",
+    "course": "ARM微控制器与嵌入式系统",
+    "snippet": "这是我们在main函数里 用C语言 用寄存器的名称所写出来的语句 那么如果我们用刚才的东西 说它的本质是什么呢 实际上是 *((int*)400FF0D4) 这是我们PDOR寄存器的地址 我们对这个地址 生成一个指针变量 对这个指针变量做取它的值的操作 给它赋值 然后同样的 我们一系列这样的指针操作 刚才的代码写成这个形式 就是严格的C语",
+    "ranks": {
+     "hybrid_en": 4
+    }
+   },
+   {
+    "ccid": "856EDBA482A5E8C99C33DC5901307461",
+    "video": "Video",
+    "course": "C君带你玩编程",
+    "snippet": "so that the pointer fp points to the open file. Notice that the fopen() function takes two parameters, the name of the file and the way the file is used. We explain in de",
+    "ranks": {
+     "hybrid_en": 5
+    }
+   }
+  ]
+ },
+ "B10": {
+  "query": "how does a CPU execute instructions",
+  "candidates": [
+   {
+    "ccid": "3D664BCC68402DC19C33DC5901307461",
+    "video": "80C51内部结构",
+    "course": "单片机原理及应用",
+    "snippet": "一条一条的自动的 从ROM的0地址单元 顺序的读取出来 这些被读取出来的指令会通过 图中总线传递给指令寄存器暂存 然后再交给指令译码去具体的执行 指令译码器是CPU的重要核心部件 其功能就是把每条指令 翻译成对应时序的控制信号 控制和该指令相关的内外部的 具体的硬件 去具体执行该指令期望的功能操作 RAM和ROM类似 每一个存储单元 也都",
+    "ranks": {
+     "video_en": 1,
+     "hybrid_en": 5
+    }
+   },
+   {
+    "ccid": "9E37407CFBF753B09C33DC5901307461",
+    "video": "子程序的概念",
+    "course": "单片机原理及应用",
+    "snippet": "也学习过 这里面我们来看一看 调用子程序的指令有两个 一个是ACALL 一个是LCALL 在执行调用指令时 CPU会先将程序地址指针PC改变一下 具体怎么变 如果是用的是ACALL调用指令 那PC的值会加2 如果你用的是LCALL这条调用指令 PC的值的话会加3 然后cpu会把PC的值压入堆栈来保存 在这个子程序执行完之后 如果执行返回指",
+    "ranks": {
+     "video_en": 2
+    }
+   },
+   {
+    "ccid": "276085113D041F6E9C33DC5901307461",
+    "video": "第三节：指令集体系结构",
+    "course": "电子信息科学与技术导引(1)",
+    "snippet": "一条指令它的 编码一般分成两部分 一部分是操作码 一部分是 操作数地址码 操作数操作码指出的 是这条指令完成什么样的 功能做什么样的计算是 加法乘法还是 条件分支操作数地址码 指出的是操作数 它存储的位置实在 寄存器中还是 在存储器中这些操作码 和地址码被控制器 译码形成控制系统各部分 的控制信号下面 我们看一个实际的例子 mips是一种",
+    "ranks": {
+     "video_en": 3
+    }
+   },
+   {
+    "ccid": "B5621A3FD339CA159C33DC5901307461",
+    "video": "8088 CPU内部结构",
+    "course": "微机原理与接口技术",
+    "snippet": "那么CPU要通过通道到哪里去？ 无非就是要对外边进行访问 CPU能够访问的外边就是内存和接口 所以总线接口单元主要的功能 就是负责 访问内存或者访问接口的 访问内存和访问接口 我们比如访问内存 它可能干的工作 就是去读取指令 读取操作的对象 传送运算结果 访问接口 那么就是读取数据 对于这样的一个功能模块 它的 读取指令 它有一项特殊的一",
+    "ranks": {
+     "video_en": 4
+    }
+   },
+   {
+    "ccid": "DD5F9874FD8E3F2A9C33DC5901307461",
+    "video": "2.2 指令与处理器模式",
+    "course": "计算机操作系统",
+    "snippet": "那么也就意味着每个进程都能只在自己的区域当中运行 那么操作系统如何来实现 特权指令与非特权指令的一个执行的界分呢 计算机系统会有一个叫做处理器模式的概念",
+    "ranks": {
+     "video_en": 5
+    }
+   },
+   {
+    "ccid": "D2D082F03140BAB29C33DC5901307461",
+    "video": "单片机的结构框图",
+    "course": "单片机原理及应用",
+    "snippet": "如图所示 我们来详细的谈一谈 每一个部件的功能 首先看一看CPU CPU又称为中央处理器 是指令执行的场所 如算术和逻辑运算 都是由CPU来负责的 算术运算就是所谓的 加减乘除的代数运算 逻辑运算指的是 逻辑与逻辑或等逻辑运算 CPU除了负责各种运算之外 还会向单片机内的其他部件 发送相关的控制信号 其它硬件都是在CPU发出的 控制信号的",
+    "ranks": {
+     "chunk_en": 1
+    }
+   },
+   {
+    "ccid": "9E36A46A55B343F19C33DC5901307461",
+    "video": "4.5 嵌入式开发的进阶知识",
+    "course": "ARM微控制器与嵌入式系统",
+    "snippet": "加载到CPU里 于是很显然我们CPU就从我们的 程序的第一条指令开始逐条地往下执行 执行的过程当中一个时钟周期 一个时钟周期的运行 它又会访问我们的存储器 在我们的内存里读读写写去访问 我们所说的变量 数组 可能会从底部 来使用我们的堆栈 在函数调用 或者是在进行一些参数传递的时候 使用堆栈的内存 而在发挥实际的功能 要与外围发生关联的时",
+    "ranks": {
+     "chunk_en": 2
+    }
+   },
+   {
+    "ccid": "E12AF2FF28101A379C33DC5901307461",
+    "video": "第五节：处理器的工作原理",
+    "course": "电子信息科学与技术导引(1)",
+    "snippet": "处理器中是如何执行的呢 我们考虑一个非常 简单的单总线mips处理器 在这个处理器中只有 一条总线处理器内部 包括32个通用处理器 它有一个叫做pc的 程序处理器有 内存地址处理器内存数据 寄存器指令寄存器 这些都是数据通路的 组成部分在控制器中 包括指令译码器和 控制信号发生器控制器 通过对指令进行 译码由控制信号 发生器发出各种控制信",
+    "ranks": {
+     "chunk_en": 3
+    }
+   },
+   {
+    "ccid": "57E6172D63C5793D9C33DC5901307461",
+    "video": "80x86计算机系统初步",
+    "course": "汇编语言程序设计",
+    "snippet": "里面去 装载到内存里面去之后呢 就是CPU 一条一条的把这个指令读进来 处理器它就跑 HelloWorld这个程序了 一条一条的把这个 指令读进来 一边读取一边执行 我们回头 在后续的课程中讲到  什么叫程序执行 汇编程序员看来我好像占有了一个逻辑处理器 逻辑处理器有左上角这么个CPU这些东西 我从Memory里面 一条一条的取指令 这个",
+    "ranks": {
+     "chunk_en": 4,
+     "hybrid_en": 3
+    }
+   },
+   {
+    "ccid": "9EA10F85795F9CA49C33DC5901307461",
+    "video": "处理器控制指令",
+    "course": "微机原理与接口技术",
+    "snippet": "这一类指令有这么样几个特点 首先 它的控制对象或者说指令的操作对象 都不是我们一般意义上的运算的数据 而是CPU自己 也就是说这一类指令的控制对象全部都是CPU自己 就是处理器 另外 从指令的格式上 这一类指令全部是零操作数格式的指令 这个也很好理解 因为它操作的对象就是CPU 所以它没有必要再显示的给出操作数本身了 下边我们针对这样两个",
+    "ranks": {
+     "chunk_en": 5,
+     "hybrid_en": 1
+    }
+   },
+   {
+    "ccid": "431EB771FF9E838F9C33DC5901307461",
+    "video": "3.5 复位、时钟、存储器和总线",
+    "course": "ARM微控制器与嵌入式系统",
+    "snippet": "一个给CPU的堆栈指针寄存器 一个给CPU的PC指针寄存器 这样CPU在上完电的一个瞬间之后 PC指针寄存器指向了可以执行程序的 第一条指令  堆栈指针寄存器指向了 可以使用内存的堆栈的起始地址 是不是就可以开始有序的执行我们程序 所以刚才讲的这个过程 是在ARM CPU设计时候自动完成的 而我们在编写程序的时候 借助开发工具 完成这两个",
+    "ranks": {
+     "hybrid_en": 2
+    }
+   },
+   {
+    "ccid": "3567C9D383981E929C33DC5901307461",
+    "video": "实验四（上）",
+    "course": "C++语言程序设计基础",
+    "snippet": "这个对象a还没有进行初始化 运行到第一个初始化的语句 这个时候应该是去调用 CPU的构造函数 我们按下f11 跟踪到它的构造函数内部 这个时候光标停在了 CPU构造函数的第1行 我们可以看到这个时候形参 已经分别获得了实参传过来的值 要开始准备执行 构造函数的函数体了 继续按下f10 完成三个私有数据成员的赋值 最后到了cout 构造一个",
+    "ranks": {
+     "hybrid_en": 4
+    }
+   }
+  ]
+ }
+}
