@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 import time
 
@@ -12,21 +13,23 @@ from pyspark.sql.types import (ArrayType, FloatType, IntegerType, StringType,
 sys.stdout.reconfigure(encoding="utf-8")
 
 HDFS = "hdfs://localhost:9000"
-PROC = HDFS + "/eduinsight/processed"
-SUB = HDFS + "/eduinsight/subset_cs"
+# EDUINSIGHT_SCOPE=subset (default, CS development subset) or full (whole MOOCCubeX corpus)
+FULL = os.environ.get("EDUINSIGHT_SCOPE", "subset") == "full"
+PROC = HDFS + ("/eduinsight/processed_full" if FULL else "/eduinsight/processed")
+SUB = HDFS + ("/eduinsight/full" if FULL else "/eduinsight/subset_cs")
 MODEL = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
-STATS_PATH = "/home/aryan/module3_stats.json"
+STATS_PATH = "/home/aryan/module3_stats%s.json" % ("_full" if FULL else "")
 EMBED_PARTITIONS = 2
+VALIDATION_SAMPLE = 6000   # pairwise validation uses at most this many videos (a full N x N matrix would not fit in memory)
 
-spark = (SparkSession.builder.appName("EduInsight-Module3-Embeddings")
-         .master("local[*]")
-         .config("spark.driver.memory", "4g")
-         .config("spark.sql.shuffle.partitions", "8")
+spark = (SparkSession.builder.appName("EduInsight-Module3-Embeddings" + ("-full" if FULL else ""))
+         .master(os.environ.get("EDUINSIGHT_MASTER", "local[*]"))
+         .config("spark.sql.shuffle.partitions", "64" if FULL else "8")
          .config("spark.sql.execution.arrow.pyspark.enabled", "true")
          .getOrCreate())
 sc = spark.sparkContext
 sc.setLogLevel("WARN")
-stats = {}
+stats = {"scope": "full" if FULL else "subset"}
 t0 = time.time()
 
 
@@ -125,26 +128,33 @@ bridge = (sc.textFile(SUB + "/video_id-ccid.txt").map(lambda l: l.rstrip("\n").s
             .filter(lambda p: len(p) == 2).toDF(["rid", "ccid"]))
 cmap = (courses.join(bridge, "rid").groupBy("ccid").agg(F.min("course_id").alias("course_id"))
         .toPandas().set_index("ccid")["course_id"].to_dict())
-course_of = np.array([cmap.get(c, "?") for c in ccids])
+course_of = np.array([cmap.get(c, "?" + c) for c in ccids])   # videos in no course count as their own course
 
-S = E @ E.T
-same = course_of[:, None] == course_of[None, :]
+rng = np.random.default_rng(42)
+sel = np.arange(len(ccids)) if len(ccids) <= VALIDATION_SAMPLE else np.sort(rng.choice(len(ccids), VALIDATION_SAMPLE, replace=False))
+stats["validation_sample_size"] = int(len(sel))
+Es, cs = E[sel], course_of[sel]
+S = Es @ Es.T
+same = cs[:, None] == cs[None, :]
 np.fill_diagonal(same, False)
-diff = course_of[:, None] != course_of[None, :]
+diff = cs[:, None] != cs[None, :]
 stats["mean_cosine_same_course"] = round(float(S[same].mean()), 3)
 stats["mean_cosine_different_course"] = round(float(S[diff].mean()), 3)
 S2 = S.copy()
 np.fill_diagonal(S2, -1)
 nn = S2.argmax(axis=1)
-stats["nearest_neighbour_same_course_pct"] = round(100 * float((course_of[nn] == course_of).mean()), 1)
+stats["nearest_neighbour_same_course_pct"] = round(100 * float((cs[nn] == cs).mean()), 1)
+del S, S2, same, diff
 
-# nearest neighbours of a sample lecture
+# nearest neighbours of a sample lecture (searched across ALL videos)
 sample_ccid = "AC1E9080F4785AB99C33DC5901307461"
 if sample_ccid in ccids:
     i = ccids.index(sample_ccid)
-    top = np.argsort(-S2[i])[:5]
+    sims_i = E @ E[i]
+    sims_i[i] = -1
+    top = np.argsort(-sims_i)[:5]
     stats["neighbours_of_sample"] = {"video": names.get(sample_ccid),
-                                     "top5": [(names.get(ccids[j]), round(float(S2[i, j]), 3)) for j in top]}
+                                     "top5": [(names.get(ccids[j]), round(float(sims_i[j]), 3)) for j in top]}
 
 # English queries against Chinese lecture embeddings (cross-lingual retrieval preview)
 import torch
@@ -165,9 +175,9 @@ with open(STATS_PATH, "w", encoding="utf-8") as f:
     json.dump(stats, f, ensure_ascii=False, indent=2)
 
 print("=" * 60)
-print("MODULE 3 COMPLETE")
+print("MODULE 3 COMPLETE | scope:", stats["scope"])
 for k in ["videos_embedded", "chunks", "avg_chunks_per_video", "embedding_dim", "norm_check_min_max",
-          "embed_seconds", "chunks_per_second", "mean_cosine_same_course",
+          "embed_seconds", "chunks_per_second", "validation_sample_size", "mean_cosine_same_course",
           "mean_cosine_different_course", "nearest_neighbour_same_course_pct", "total_runtime_sec"]:
     print(f"{k}: {stats[k]}")
 print("neighbours of sample:", json.dumps(stats.get("neighbours_of_sample"), ensure_ascii=False))

@@ -1,0 +1,316 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EduInsight Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f6f8; --surface:#ffffff; --surface-2:#eef0f3;
+    --ink:#0b0e14; --ink-2:#52585f; --muted:#8a9099; --hairline:#e1e3e8;
+    --border:rgba(11,14,20,0.10);
+    --accent:#2a78d6; --accent-ink:#ffffff;
+    --series-2:#eb6834; --series-3:#1baf7a;
+    --good:#0ca30c; --good-bg:#e6f6e6;
+    --shadow: 0 1px 2px rgba(11,14,20,0.04), 0 8px 24px -12px rgba(11,14,20,0.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+      --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+      --border:rgba(255,255,255,0.10);
+      --accent:#3987e5; --accent-ink:#ffffff;
+      --series-2:#d95926; --series-3:#199e70;
+      --good:#1fc21f; --good-bg:#123a16;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0c0e12; --surface:#15181d; --surface-2:#1b1f25;
+    --ink:#f2f4f7; --ink-2:#c3c8d1; --muted:#868c96; --hairline:#262a31;
+    --border:rgba(255,255,255,0.10);
+    --accent:#3987e5; --accent-ink:#ffffff;
+    --series-2:#d95926; --series-3:#199e70;
+    --good:#1fc21f; --good-bg:#123a16;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif; padding:0 20px; line-height:1.6; }
+  .mono{ font-family:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .wrap{ max-width:1080px; margin:0 auto; }
+
+  .topbar{ position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom:1px solid var(--hairline); margin:0 -20px; padding:0 20px; }
+  .topbar-inner{ max-width:1080px; margin:0 auto; display:flex; align-items:center; gap:18px; padding:14px 0; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:baseline; gap:8px; font-weight:700; font-size:16px; white-space:nowrap; }
+  .brand small{ font-weight:500; color:var(--muted); font-size:12px; }
+  nav.site{ display:flex; gap:2px; margin-left:auto; flex-wrap:wrap; }
+  nav.site a{ color:var(--ink-2); text-decoration:none; font-size:13px; font-weight:600; padding:8px 12px; border-radius:8px; white-space:nowrap; }
+  nav.site a:hover{ background:var(--surface-2); color:var(--ink); }
+  nav.site a.active{ background:var(--accent); color:var(--accent-ink); }
+  .subbar{ border-bottom:1px solid var(--hairline); margin:0 -20px 0; padding:0 20px; }
+  .subbar-inner{ max-width:1080px; margin:0 auto; display:flex; gap:2px; flex-wrap:wrap; padding:10px 0; }
+  .subbar-inner a{ color:var(--ink-2); text-decoration:none; font-size:12.5px; font-weight:500; padding:6px 10px; border-radius:7px; white-space:nowrap; }
+  .subbar-inner a:hover{ background:var(--surface-2); color:var(--ink); }
+
+  .hero{ padding:36px 0 8px; }
+  .eyebrow{ text-transform:uppercase; letter-spacing:.08em; font-size:11.5px; font-weight:600; color:var(--accent); margin:0 0 10px; }
+  h1{ font-size:clamp(26px,4vw,36px); margin:0 0 10px; text-wrap:balance; letter-spacing:-0.01em; }
+  .sub{ color:var(--ink-2); max-width:75ch; font-size:15.5px; margin:0 0 10px; }
+
+  section{ padding:34px 0; border-top:1px solid var(--hairline); scroll-margin-top:110px; }
+  h2{ font-size:20px; margin:0 0 4px; letter-spacing:-0.01em; }
+  .section-desc{ color:var(--ink-2); font-size:14px; margin:0 0 20px; max-width:75ch; }
+  .card{ background:var(--surface); border:1px solid var(--hairline); border-radius:14px; padding:22px; box-shadow:var(--shadow); overflow-x:auto; }
+  .prose p{ margin:0 0 14px; color:var(--ink-2); font-size:14.5px; max-width:75ch; }
+  .prose p:last-child{ margin-bottom:0; }
+  .prose b{ color:var(--ink); }
+  .prose ul, .prose ol{ margin:0 0 14px; padding-left:22px; color:var(--ink-2); font-size:14.5px; }
+  .prose li{ margin-bottom:6px; }
+  .prose li b{ color:var(--ink); }
+
+  table.littable{ width:100%; border-collapse:collapse; font-size:13px; min-width:720px; }
+  table.littable th{ text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); padding:8px 10px; border-bottom:1px solid var(--hairline); white-space:nowrap; }
+  table.littable td{ padding:11px 10px; border-bottom:1px solid var(--hairline); color:var(--ink-2); vertical-align:top; }
+  table.littable td:first-child{ color:var(--ink); font-weight:600; white-space:nowrap; }
+  table.littable a{ color:var(--accent); text-decoration:none; }
+  table.littable a:hover{ text-decoration:underline; }
+  table.littable tr:last-child td{ border-bottom:none; }
+  .lit-note{ font-size:12.5px; color:var(--ink-2); background:var(--surface-2); border-radius:8px; padding:10px 12px; margin-top:14px; }
+  .lit-note b{ color:var(--ink); }
+
+  .meth-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:16px; align-items:start; }
+  @media (max-width:860px){ .meth-grid{ grid-template-columns:1fr; } }
+  .arch-col{ position:sticky; top:150px; }
+  @media (max-width:860px){ .arch-col{ position:static; } }
+
+  .phase-card{ margin-bottom:16px; }
+  .phase-card:last-child{ margin-bottom:0; }
+  .phase-title{ display:flex; align-items:center; gap:10px; font-size:15.5px; font-weight:700; color:var(--ink); margin:0 0 6px; }
+  .phase-num{ font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); padding:4px 9px; border-radius:100px; white-space:nowrap; }
+  .phase-intro{ font-size:13px; color:var(--muted); margin:0 0 16px; max-width:70ch; }
+
+  .steps-list{ counter-reset:step; list-style:none; margin:0; padding:0; display:flex; flex-direction:column; }
+  .steps-list li{ counter-increment:step; padding:14px 0; border-top:1px solid var(--hairline); }
+  .steps-list li:first-child{ padding-top:0; border-top:none; }
+  .steps-list li:last-child{ padding-bottom:0; }
+  .steps-list li::before{ content:counter(step); font-family:"IBM Plex Mono",monospace; font-weight:700; color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); width:22px; height:22px; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; margin-right:9px; flex:0 0 auto; vertical-align:middle; }
+  .steps-list b{ color:var(--ink); font-size:14px; }
+  .steps-list p{ margin:6px 0 0 31px; color:var(--ink-2); font-size:13.5px; max-width:64ch; }
+  .steps-list .mono{ font-size:12.5px; }
+
+  .arch-card{ padding:18px; }
+  .arch-title{ font-size:13px; font-weight:600; color:var(--ink); margin:0 0 12px; }
+  .arch-svg{ width:100%; height:auto; overflow:visible; }
+  .arch-line{ stroke:var(--muted); stroke-width:1.4; }
+  .arch-box{ stroke:var(--hairline); stroke-width:1.5; }
+  .arch-box.l1{ fill:var(--surface-2); }
+  .arch-box.l2{ fill:color-mix(in srgb, var(--accent) 14%, var(--surface)); }
+  .arch-box.l3{ fill:color-mix(in srgb, var(--accent) 22%, var(--surface)); }
+  .arch-box.l4{ fill:color-mix(in srgb, var(--series-3) 20%, var(--surface)); }
+  .arch-box.l5{ fill:var(--accent); }
+  .arch-name{ font:600 12.5px "IBM Plex Sans",sans-serif; fill:var(--ink); }
+  .arch-tool{ font:500 10.5px "IBM Plex Mono",monospace; fill:var(--ink-2); }
+  .arch-name.inverted, .arch-tool.inverted{ fill:var(--accent-ink); opacity:1; }
+  .arch-caption{ font-size:12px; color:var(--muted); margin:14px 0 0; }
+
+  footer{ padding:26px 0 40px; color:var(--muted); font-size:12px; }
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">EduInsight <small>Proposal &amp; Literature</small></div>
+    <nav class="site">
+      <a href="index.html">Dataset Overview</a>
+      <a href="proposal.html" class="active">Proposal &amp; Literature</a>
+      <a href="pipeline.html">Pipeline &amp; Modules</a>
+      <a href="subset.html">CS Subset &amp; EDA</a>
+      <a href="full.html">Full Corpus</a>
+    </nav>
+  </div>
+</div>
+<div class="subbar"><div class="subbar-inner">
+  <a href="#problem">Problem Statement</a><a href="#objectives">Objectives &amp; Outcomes</a><a href="#methodology">Methodology</a><a href="#literature">Literature Survey</a>
+</div></div>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <p class="eyebrow">EduInsight · Big Data Analytics Project</p>
+    <h1>Project Proposal &amp; Literature Survey</h1>
+    <p class="sub">The academic case for EduInsight — what gap it addresses, what it sets out to deliver, how it's built, and the prior work it builds on.</p>
+  </section>
+
+  <section id="problem">
+    <h2>Problem Statement</h2>
+    <div class="card prose">
+      <p>The rapid growth of online education has resulted in a large volume of educational content being generated and stored in the form of lengthy video lectures. Although these recordings provide students with flexible access to learning material, extracting meaningful information from large collections of lecture videos is time-consuming. Students may need to repeatedly watch lectures to locate important concepts, definitions, examples, formulas, explanations, and examination-relevant topics.</p>
+      <p>The proposed EduInsight system aims to develop a Big Data Analytics framework for processing and analyzing large collections of educational video lectures. The system will transform unstructured lecture data into structured information and perform analytics to identify important topics, concepts, lecture segments, and examination-relevant content. These analytical results will then be used to identify examination-relevant topics and probable question areas, and to rank lecture content by how closely it matches a given topic.</p>
+      <p>The primary focus of EduInsight is therefore not simply video summarization, but large-scale educational data analysis, where multiple lectures can be processed, compared, aggregated, and analyzed to discover meaningful patterns that are difficult to obtain by manually examining individual videos.</p>
+    </div>
+  </section>
+
+  <section id="objectives">
+    <h2>Objectives and Outcomes</h2>
+    <div class="card prose">
+      <ol>
+        <li><b>Ingest a large-scale lecture corpus into distributed storage</b> — load course, video-caption, and concept metadata into HDFS so downstream processing is genuinely distributed.</li>
+        <li><b>Build a distributed NLP preprocessing pipeline</b> — Chinese tokenization (jieba) and stopword removal as a Spark job over caption text, informed by a real data-quality finding.</li>
+        <li><b>Generate multilingual content embeddings</b> — one vector per lecture via a multilingual sentence-transformer, so an English query matches Chinese lecture content directly, without translating the corpus.</li>
+        <li><b>Cluster lectures and detect redundancy</b> — group lectures by topic similarity and surface concrete cases of overlapping coverage across different courses.</li>
+        <li><b>Build a measurable ranking engine</b> — given a student query (e.g. "dynamic programming"), return a ranked list of lectures scored by similarity and concept overlap, with the score shown, not hidden.</li>
+      </ol>
+      <p><b>Outcomes targeted:</b></p>
+      <ul>
+        <li>A working, reproducible Hadoop/Spark pipeline (not a single-machine script) verified against real data at each stage.</li>
+        <li>A query → ranked-results demo usable in a live presentation.</li>
+        <li>A documented, honest account of data-quality issues found and how they were handled.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="methodology">
+    <h2>Methodology</h2>
+    <p class="section-desc">Four phases, each one building on the results of the last.</p>
+    <div class="meth-grid">
+      <div>
+        <div class="card phase-card">
+          <p class="phase-title"><span class="phase-num">Phase 1</span>Data Acquisition &amp; Verification</p>
+          <p class="phase-intro">Get the raw lecture data from its source and confirm it is complete before using it.</p>
+          <ol class="steps-list">
+            <li><b>Download the source data</b><p>Course records, lecture captions, and topic tags are downloaded from <b>MOOCCubeX</b>, a Tsinghua University lecture dataset, using direct HTTPS transfer.</p></li>
+            <li><b>Validate every record</b><p>A <b>Python</b> script parses each of the 59,581 lecture records as JSON to catch missing or corrupted data before it enters the pipeline.</p></li>
+            <li><b>Bridge courses to videos</b><p>Courses and videos use separate ID systems with no official link between them; the missing mapping file is located and used to connect every video back to its course.</p></li>
+          </ol>
+        </div>
+
+        <div class="card phase-card">
+          <p class="phase-title"><span class="phase-num">Phase 2</span>Development Dataset &amp; Analysis</p>
+          <p class="phase-intro">Work on a smaller, faster slice of the data first, to design and test the system before scaling up.</p>
+          <ol class="steps-list">
+            <li><b>Build a working subset</b><p>Computer Science courses with enough usable lecture content are filtered out in <b>Python</b>, forming a ~4,000-video development set.</p></li>
+            <li><b>Explore the data</b><p>Video length, caption density, and topic coverage are analyzed with <b>Python</b> to guide every design decision that follows.</p></li>
+          </ol>
+        </div>
+
+        <div class="card phase-card">
+          <p class="phase-title"><span class="phase-num">Phase 3</span>Distributed Storage Setup</p>
+          <p class="phase-intro">Store and process lecture data at scale, using infrastructure built for large datasets, not a single machine.</p>
+          <ol class="steps-list">
+            <li><b>Set up the Linux environment</b><p><b>Ubuntu</b> (via WSL2) is installed as the operating environment, with <b>Apache Hadoop</b> and <b>Apache Spark</b> configured on top of it.</p></li>
+            <li><b>Load data into HDFS</b><p>The dataset is uploaded into <b>HDFS</b> (Hadoop Distributed File System), Hadoop's storage layer built to hold large data reliably across a cluster.</p></li>
+            <li><b>Verify with Spark</b><p><b>Apache Spark</b> reads the data directly from HDFS and confirms every record matches the source — proving storage and processing work together, not just separately.</p></li>
+          </ol>
+        </div>
+
+        <div class="card phase-card">
+          <p class="phase-title"><span class="phase-num">Phase 4</span>Content Analysis &amp; Ranking</p>
+          <p class="phase-intro">Turn raw lecture text into something searchable, comparable, and rankable by topic.</p>
+          <ol class="steps-list">
+            <li><b>Segment the text</b><p>Chinese captions are split into words using <b>jieba</b>, a Chinese language tokenizer, with filler words removed via a stopword list.</p></li>
+            <li><b>Embed each lecture's meaning</b><p>A <b>multilingual sentence-transformer model</b> converts each lecture into a numeric vector, so an English search term can match Chinese content directly.</p></li>
+            <li><b>Cluster similar lectures</b><p><b>Spark MLlib's K-Means</b> groups lectures with similar vectors, surfacing overlapping content across different courses.</p></li>
+            <li><b>Rank by relevance</b><p>Lecture vectors are compared to a query vector using cosine similarity, ranking results by how closely they match.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="arch-col">
+        <div class="card arch-card">
+          <p class="arch-title">System architecture</p>
+          <svg class="arch-svg" viewBox="0 0 300 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Layered big data architecture diagram">
+            <defs>
+              <marker id="arch-arrow" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,10 L5,0 L10,10 z" fill="var(--muted)"></path>
+              </marker>
+            </defs>
+            <line x1="150" y1="378" x2="150" y2="352" class="arch-line" marker-end="url(#arch-arrow)"></line>
+            <line x1="150" y1="288" x2="150" y2="262" class="arch-line" marker-end="url(#arch-arrow)"></line>
+            <line x1="150" y1="198" x2="150" y2="172" class="arch-line" marker-end="url(#arch-arrow)"></line>
+            <line x1="150" y1="108" x2="150" y2="82" class="arch-line" marker-end="url(#arch-arrow)"></line>
+
+            <rect x="10" y="382" width="280" height="62" rx="10" class="arch-box l1"></rect>
+            <text x="150" y="406" text-anchor="middle" class="arch-name">Data Source Layer</text>
+            <text x="150" y="424" text-anchor="middle" class="arch-tool">MOOCCubeX: course, video, concept files</text>
+
+            <rect x="10" y="292" width="280" height="62" rx="10" class="arch-box l2"></rect>
+            <text x="150" y="316" text-anchor="middle" class="arch-name">Storage Layer</text>
+            <text x="150" y="334" text-anchor="middle" class="arch-tool">HDFS (Hadoop 3.3.6, pseudo-distributed)</text>
+
+            <rect x="10" y="202" width="280" height="62" rx="10" class="arch-box l3"></rect>
+            <text x="150" y="226" text-anchor="middle" class="arch-name">Processing Layer</text>
+            <text x="150" y="244" text-anchor="middle" class="arch-tool">Apache Spark 3.5.9 (PySpark)</text>
+
+            <rect x="10" y="112" width="280" height="62" rx="10" class="arch-box l4"></rect>
+            <text x="150" y="136" text-anchor="middle" class="arch-name">Analytics / ML Layer</text>
+            <text x="150" y="154" text-anchor="middle" class="arch-tool">jieba · multilingual embeddings · MLlib</text>
+
+            <rect x="10" y="22" width="280" height="62" rx="10" class="arch-box l5"></rect>
+            <text x="150" y="46" text-anchor="middle" class="arch-name inverted">Application Layer</text>
+            <text x="150" y="64" text-anchor="middle" class="arch-tool inverted">Ranking engine · query interface</text>
+          </svg>
+          <p class="arch-caption">Data flows bottom → top: raw files land in HDFS, Spark processes them, ML methods extract meaning, and the application layer serves ranked results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="literature">
+    <h2>Literature Survey</h2>
+    <p class="section-desc">Six papers directly relevant to EduInsight's dataset, techniques, and problem space.</p>
+    <div class="card">
+      <table class="littable">
+        <thead><tr><th>S.No.</th><th>Author &amp; Year</th><th>Study Purpose</th><th>Key Findings</th><th>Limitations</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="https://aclanthology.org/2020.acl-main.285/" target="_blank" rel="noopener">Yu, J. et al. (2020)</a> — MOOCCube, ACL 2020</td>
+            <td>Build a large-scale data repository for NLP/KG research in MOOCs</td>
+            <td>Enabled concept-level NLP research at unprecedented MOOC scale; concept graph improved prerequisite discovery</td>
+            <td>Chinese-platform-only; limited course-video linkage in the public release</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="https://lfs.aminer.cn/misc/moocdata/publications/mooccubex.pdf" target="_blank" rel="noopener">Yu, J. et al. (2021)</a> — MOOCCubeX, CIKM 2021</td>
+            <td>Extend MOOCCube into a repository for adaptive learning</td>
+            <td>Larger, denser concept graph supports finer-grained adaptive learning</td>
+            <td>This project's dataset — the course↔video ID bridge is missing from official docs; had to be found via GitHub issue tracker</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="https://arxiv.org/abs/2011.02694" target="_blank" rel="noopener">Alam, A. et al. (2020)</a> — arXiv:2011.02694</td>
+            <td>Propose a reference architecture for video big-data analytics in the cloud</td>
+            <td>Surveys distributed video-analytics architecture and identifies open research challenges</td>
+            <td>Conceptual/architectural survey — no working system implemented or evaluated on real data</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><a href="https://arxiv.org/abs/2203.11011" target="_blank" rel="noopener">Gong, J. et al. (2022)</a> — arXiv:2203.11011</td>
+            <td>Recommend MOOC concepts to individual users via reinforcement learning</td>
+            <td>Heterogeneous information network + graph attention models user-concept interaction on real XuetangX data</td>
+            <td>Recommends concepts from user history, not lectures ranked by content match to a topic; single-platform data</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><a href="https://arxiv.org/abs/2402.17236" target="_blank" rel="noopener">Xiong, Z. et al. (2024)</a> — arXiv:2402.17236</td>
+            <td>Survey personalized educational data mining: recommendation, diagnosis, knowledge tracing, analytics</td>
+            <td>Structured taxonomy, common datasets, and future directions across all four areas</td>
+            <td>A survey, not a system — synthesizes prior work rather than building or evaluating anything new</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><a href="https://aclanthology.org/D19-1410/" target="_blank" rel="noopener">Reimers, N. &amp; Gurevych, I. (2019)</a> — EMNLP-IJCNLP</td>
+            <td>Produce efficient, semantically meaningful sentence embeddings</td>
+            <td>Cut similarity search over 10,000 sentences from ~65 hours to ~5 seconds at comparable accuracy</td>
+            <td>Monolingual (English) — needs the multilingual-distillation follow-up this project's embedding model is built on</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="lit-note"><b>The gap these six papers leave open:</b> Papers 1–2 provide data but no recommendation system; Paper 3 proposes a video big-data architecture conceptually but never implements one; Paper 4 recommends concepts from user history, not lectures ranked by topic match; Paper 5 surveys the field but builds nothing; Paper 6 supplies the embedding technique but needs multilingual extension. EduInsight is an implemented system combining these pieces — genuine Hadoop/Spark processing, at MOOC scale, doing cross-course content ranking none of the six attempts together.</div>
+    </div>
+  </section>
+
+  <footer>
+    EduInsight — Hadoop-Based Large-Scale Lecture Analytics and Recommendation System · Team: Aryan Bhutani, Tanmay Sangwan, Tanmay Kandwal
+  </footer>
+</div>

@@ -1,8 +1,10 @@
 import json
+import os
 import re
 import sys
 import time
 
+from pyspark import StorageLevel
 from pyspark.sql import SparkSession, Row
 from pyspark.sql import functions as F
 from pyspark.sql.types import (ArrayType, DoubleType, IntegerType, StringType,
@@ -11,14 +13,15 @@ from pyspark.sql.types import (ArrayType, DoubleType, IntegerType, StringType,
 sys.stdout.reconfigure(encoding="utf-8")
 
 HDFS = "hdfs://localhost:9000"
-IN = HDFS + "/eduinsight/subset_cs"
-OUT = HDFS + "/eduinsight/processed"
-STATS_PATH = "/home/aryan/module2_stats.json"
+# EDUINSIGHT_SCOPE=subset (default, CS development subset) or full (whole MOOCCubeX corpus)
+FULL = os.environ.get("EDUINSIGHT_SCOPE", "subset") == "full"
+IN = HDFS + ("/eduinsight/full" if FULL else "/eduinsight/subset_cs")
+OUT = HDFS + ("/eduinsight/processed_full" if FULL else "/eduinsight/processed")
+STATS_PATH = "/home/aryan/module2_stats%s.json" % ("_full" if FULL else "")
 
-spark = (SparkSession.builder.appName("EduInsight-Module2-Preprocessing")
-         .master("local[*]")
-         .config("spark.driver.memory", "4g")
-         .config("spark.sql.shuffle.partitions", "8")
+spark = (SparkSession.builder.appName("EduInsight-Module2-Preprocessing" + ("-full" if FULL else ""))
+         .master(os.environ.get("EDUINSIGHT_MASTER", "local[*]"))
+         .config("spark.sql.shuffle.partitions", "64" if FULL else "8")
          .getOrCreate())
 sc = spark.sparkContext
 sc.setLogLevel("WARN")
@@ -75,12 +78,12 @@ t0 = time.time()
 stats = {}
 
 # ---------- 1. Tokenize + stopword-filter captions (distributed) ----------
-lines = sc.textFile(IN + "/video.json", minPartitions=8)
+lines = sc.textFile(IN + "/video.json", minPartitions=96 if FULL else 8)
 videos = spark.createDataFrame(lines.mapPartitions(process_partition), schema)
 videos.write.mode("overwrite").parquet(OUT + "/videos_tokenized")
 
 vt = spark.read.parquet(OUT + "/videos_tokenized")
-vt.cache()
+vt.persist(StorageLevel.MEMORY_AND_DISK)
 agg = vt.agg(F.count("*").alias("n"), F.sum("n_tokens_raw").alias("raw"),
              F.sum("n_tokens").alias("kept"), F.avg("n_tokens").alias("avg_kept"),
              F.sum("n_chars").alias("chars")).first()

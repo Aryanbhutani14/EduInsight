@@ -1,5 +1,6 @@
 #!/bin/bash
-# usage: wsl_run_module3.sh [check|embed]
+# usage: wsl_run_module3.sh check
+#        wsl_run_module3.sh embed [subset|full]   (default scope: subset)
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export HADOOP_HOME=$HOME/hadoop
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
@@ -19,6 +20,11 @@ if [ "$1" = "check" ]; then
   exit ${PIPESTATUS[0]}
 fi
 
+SCOPE=${2:-subset}
+export EDUINSIGHT_SCOPE=$SCOPE
+if [ "$SCOPE" = "full" ]; then MASTER="local[8]"; MEM="8g"; else MASTER="local[*]"; MEM="4g"; fi
+export EDUINSIGHT_MASTER=$MASTER
+
 if ! $JAVA_HOME/bin/jps | grep -q NameNode; then
   echo "HDFS not running - starting it in this session"
   sudo service ssh start
@@ -26,10 +32,13 @@ if ! $JAVA_HOME/bin/jps | grep -q NameNode; then
 fi
 $HADOOP_HOME/bin/hdfs dfsadmin -safemode wait
 
-$SPARK_HOME/bin/spark-submit --master "local[*]" ~/spark_module3_embed.py 2>/tmp/spark_m3_stderr.log
+echo "Module 3, scope=$SCOPE, master=$MASTER, driver memory=$MEM"
+$SPARK_HOME/bin/spark-submit --master "$MASTER" --driver-memory $MEM ~/spark_module3_embed.py 2>/tmp/spark_m3_stderr.log
 rc=$?
 if [ $rc -ne 0 ]; then
   echo "SPARK JOB FAILED (exit $rc). Last stderr lines:"
   grep -v -E "^\s+at |INFO " /tmp/spark_m3_stderr.log | tail -30
 fi
+SUFFIX=""; [ "$SCOPE" = "full" ] && SUFFIX="_full"
+cp /home/aryan/module3_stats$SUFFIX.json "$WIN_PROJECT/eda/" 2>/dev/null
 exit $rc

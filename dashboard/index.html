@@ -116,6 +116,7 @@
       <a href="proposal.html">Proposal &amp; Literature</a>
       <a href="pipeline.html">Pipeline &amp; Modules</a>
       <a href="subset.html">CS Subset &amp; EDA</a>
+      <a href="full.html">Full Corpus</a>
     </nav>
   </div>
 </div>
@@ -214,7 +215,7 @@
 
   <section id="samples">
     <h2>Raw data samples</h2>
-    <p class="section-desc">Real records pulled directly from the downloaded files — exactly what a professor should see to understand the data's actual shape.</p>
+    <p class="section-desc">Real records pulled directly from the downloaded files, to show the data's actual shape. The dataset itself is in Chinese (it comes from a Chinese MOOC platform), so these are the only places on the dashboard where raw Chinese appears, and every record carries an English translation in its comments.</p>
     <div class="card">
       <div class="tabs" role="tablist" id="tab-buttons"></div>
       <div id="tab-panels"></div>
@@ -257,21 +258,21 @@
   }
 
   renderBars('chart-fields', [
-    {label:'Computer Science & Tech', title:'计算机科学与技术', value:75},
-    {label:'Foreign Languages & Lit.', title:'外国语言文学', value:43},
-    {label:'Art Studies', title:'艺术学', value:38},
-    {label:'Chinese Language & Lit.', title:'中国语言文学', value:26},
-    {label:'Management Sci. & Eng.', title:'管理科学与工程', value:25},
-    {label:'History', title:'历史学', value:23},
-    {label:'Clinical Medicine', title:'临床医学', value:22},
-    {label:'Physics', title:'物理学', value:22},
-    {label:'Mathematics', title:'数学', value:22},
-    {label:'Applied Economics', title:'应用经济学', value:21},
-    {label:'Psychology', title:'心理学', value:20},
-    {label:'Business Admin.', title:'工商管理', value:20},
-    {label:'Biology', title:'生物学', value:20},
-    {label:'Political Science', title:'政治学', value:17},
-    {label:'Education', title:'教育学', value:16}
+    {label:'Computer Science & Tech', value:75},
+    {label:'Foreign Languages & Lit.', value:43},
+    {label:'Art Studies', value:38},
+    {label:'Chinese Language & Lit.', value:26},
+    {label:'Management Sci. & Eng.', value:25},
+    {label:'History', value:23},
+    {label:'Clinical Medicine', value:22},
+    {label:'Physics', value:22},
+    {label:'Mathematics', value:22},
+    {label:'Applied Economics', value:21},
+    {label:'Psychology', value:20},
+    {label:'Business Admin.', value:20},
+    {label:'Biology', value:20},
+    {label:'Political Science', value:17},
+    {label:'Education', value:16}
   ]);
   renderBars('chart-lang', [
     {label:'Chinese titles', value:3398, color:'var(--series-1)'},
@@ -292,7 +293,7 @@
       note:'One real course record. Field: <b>id, name, field[], prerequisites, about, resource[]</b> — each resource has a resource_id in the V_xxx / Ex_xxx space (bridged to video.json via video_id-ccid.txt).',
       code:'{\n  "id": "C_584313",\n  "name": "《资治通鉴》导读",        // "Zizhi Tongjian: A Guided Reading"\n  "field": ["历史学", "中国语言文学"], // ["History", "Chinese Language & Literature"]\n  "prerequisites": "",\n  "about": "通过老师导读...",        // "Guided by the instructor, students explore this classic text..."\n  "resource": [\n    {"titles": ["第一课 导论与三家分晋","导论","导论"], "resource_id": "V_849", "chapter": "1.1.1"},\n    {"titles": ["第一课 导论与三家分晋","智伯的覆亡",""], "resource_id": "V_850", "chapter": "1.2.1"}\n    // ... more resources\n  ]\n}' },
     { id:'video', name:'video.json',
-      note:'One real captioned lecture, from the CS course "数据结构(上)" (Data Structures, Pt.1). Fields: <b>ccid, name, start[], end[], text[]</b> — timestamped ASR captions.',
+      note:'One real captioned lecture, from the CS course "Data Structures, Part 1". Fields: <b>ccid, name, start[], end[], text[]</b> — timestamped ASR captions.',
       code:'{\n  "ccid": "AC1E9080F4785AB99C33DC5901307461",\n  "name": "01-A-1: 计算",     // "01-A-1: Computation"\n  "start": [4.8, 7.9, 13.1, ...],\n  "end":   [7.7, 11.7, 19.1, ...],\n  "text": [\n    "下面就进入这门课程的第一章第一节",   // "Now we move to Chapter 1, Section 1"\n    "我们首先来讨论所谓的计算",          // "First, let\'s discuss what is meant by computation"\n    "计算首先是我们这门课程的直接研究对象和内容"\n    // ... 25 segments total for this video\n  ]\n}' },
     { id:'concept', name:'concept.json',
       note:'A real concept record — one of the "noisy" short concepts flagged in the CS Subset EDA. Fields: <b>id (K_&lt;name&gt;_&lt;field&gt;), name, context[]</b>.',

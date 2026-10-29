@@ -1,0 +1,2187 @@
+{
+  "scope": "full",
+  "videos": 59512,
+  "k_sweep": [
+    {
+      "k": 10,
+      "silhouette": 0.1216,
+      "seconds": 14.6
+    },
+    {
+      "k": 15,
+      "silhouette": 0.1218,
+      "seconds": 11.3
+    },
+    {
+      "k": 20,
+      "silhouette": 0.1201,
+      "seconds": 29.5
+    },
+    {
+      "k": 30,
+      "silhouette": 0.1232,
+      "seconds": 21.7
+    },
+    {
+      "k": 40,
+      "silhouette": 0.1268,
+      "seconds": 30.7
+    },
+    {
+      "k": 60,
+      "silhouette": 0.131,
+      "seconds": 29.9
+    }
+  ],
+  "chosen_k": 60,
+  "chosen_k_rule": "highest silhouette among k >= 10",
+  "stability_ari_other_seeds": [
+    0.624,
+    0.582,
+    0.624
+  ],
+  "clusters": [
+    {
+      "cluster": 5,
+      "size": 2558,
+      "n_courses": 164,
+      "largest_course_share": 0.056,
+      "top_courses": [
+        [
+          "微积分——多元函数与重积分",
+          142
+        ],
+        [
+          "微积分——极限理论与一元函数",
+          131
+        ],
+        [
+          "线性代数(1)",
+          99
+        ]
+      ],
+      "terms": [
+        "等于",
+        "函数",
+        "写成",
+        "平方",
+        "乘以",
+        "表达式",
+        "方程",
+        "定理"
+      ]
+    },
+    {
+      "cluster": 57,
+      "size": 1740,
+      "n_courses": 130,
+      "largest_course_share": 0.099,
+      "top_courses": [
+        [
+          "力学",
+          173
+        ],
+        [
+          "Electricity & Magnetism",
+          119
+        ],
+        [
+          "核辐射物理及探测学",
+          111
+        ]
+      ],
+      "terms": [
+        "矢量",
+        "运动",
+        "等于",
+        "方向",
+        "能量",
+        "式子",
+        "方程",
+        "速度"
+      ]
+    },
+    {
+      "cluster": 30,
+      "size": 1626,
+      "n_courses": 215,
+      "largest_course_share": 0.047,
+      "top_courses": [
+        [
+          "工程制图",
+          77
+        ],
+        [
+          "混凝土建筑结构",
+          74
+        ],
+        [
+          "机械原理",
+          68
+        ]
+      ],
+      "terms": [
+        "位置",
+        "方向",
+        "平面",
+        "尺寸",
+        "长度",
+        "形状",
+        "距离",
+        "直线"
+      ]
+    },
+    {
+      "cluster": 1,
+      "size": 1598,
+      "n_courses": 111,
+      "largest_course_share": 0.111,
+      "top_courses": [
+        [
+          "Principles of Electric Circuits",
+          178
+        ],
+        [
+          "模拟电子技术基础(基础部分)",
+          98
+        ],
+        [
+          "模拟电子技术基础",
+          93
+        ]
+      ],
+      "terms": [
+        "电压",
+        "电流",
+        "电路",
+        "电阻",
+        "电源",
+        "电容",
+        "负载",
+        "输出"
+      ]
+    },
+    {
+      "cluster": 52,
+      "size": 1514,
+      "n_courses": 139,
+      "largest_course_share": 0.226,
+      "top_courses": [
+        [
+          "Computational Geometry",
+          342
+        ],
+        [
+          "Data Structures and Algorithm Design Part II",
+          220
+        ],
+        [
+          "Data Structures and Algorithm Design Part I",
+          183
+        ]
+      ],
+      "terms": [
+        "算法",
+        "节点",
+        "复杂度",
+        "此前",
+        "元素",
+        "对应",
+        "排序",
+        "位置"
+      ]
+    },
+    {
+      "cluster": 28,
+      "size": 1442,
+      "n_courses": 201,
+      "largest_course_share": 0.061,
+      "top_courses": [
+        [
+          "日常思考的科学(国际版)",
+          88
+        ],
+        [
+          "揭开潜意识心理的奥秘",
+          56
+        ],
+        [
+          "揭开潜意识心理的奥秘",
+          55
+        ]
+      ],
+      "terms": [
+        "心理",
+        "情绪",
+        "心理学",
+        "自我",
+        "行为",
+        "生活",
+        "焦虑",
+        "事情"
+      ]
+    },
+    {
+      "cluster": 34,
+      "size": 1439,
+      "n_courses": 146,
+      "largest_course_share": 0.082,
+      "top_courses": [
+        [
+          "中国近现代史纲要",
+          118
+        ],
+        [
+          "毛泽东思想和中国特色社会主义理论体系概论",
+          105
+        ],
+        [
+          "毛泽东思想和中国特色社会主义理论体系概论",
+          67
+        ]
+      ],
+      "terms": [
+        "人民",
+        "政治",
+        "社会主义",
+        "国家",
+        "中国共产党",
+        "革命",
+        "历史",
+        "建设"
+      ]
+    },
+    {
+      "cluster": 4,
+      "size": 1370,
+      "n_courses": 143,
+      "largest_course_share": 0.085,
+      "top_courses": [
+        [
+          "大学国文——北宋至现代文学赏析",
+          117
+        ],
+        [
+          "大学国文——先秦至唐文学赏析",
+          111
+        ],
+        [
+          "Introduction to Ci Poems in the Tang and Song Dynasty",
+          104
+        ]
+      ],
+      "terms": [
+        "这首",
+        "一首",
+        "诗人",
+        "作品",
+        "诗歌",
+        "作者",
+        "故事",
+        "描写"
+      ]
+    },
+    {
+      "cluster": 9,
+      "size": 1357,
+      "n_courses": 302,
+      "largest_course_share": 0.037,
+      "top_courses": [
+        [
+          "学前教育学",
+          50
+        ],
+        [
+          "e时代的教与学——慕课引发的混合式教学",
+          50
+        ],
+        [
+          "New course mode in e-era",
+          49
+        ]
+      ],
+      "terms": [
+        "教学",
+        "学生",
+        "教师",
+        "教育",
+        "学校",
+        "知识",
+        "培养",
+        "课堂"
+      ]
+    },
+    {
+      "cluster": 20,
+      "size": 1337,
+      "n_courses": 141,
+      "largest_course_share": 0.215,
+      "top_courses": [
+        [
+          "概率论——不确定性的科学(国际版)",
+          287
+        ],
+        [
+          "医学统计学（高级篇）",
+          91
+        ],
+        [
+          "概率论与数理统计",
+          71
+        ]
+      ],
+      "terms": [
+        "概率",
+        "样本",
+        "随机变量",
+        "方差",
+        "随机",
+        "估计",
+        "均值",
+        "计算"
+      ]
+    },
+    {
+      "cluster": 23,
+      "size": 1254,
+      "n_courses": 179,
+      "largest_course_share": 0.099,
+      "top_courses": [
+        [
+          "材料学概论",
+          124
+        ],
+        [
+          "催化剂设计与制备",
+          84
+        ],
+        [
+          "工程材料",
+          66
+        ]
+      ],
+      "terms": [
+        "表面",
+        "材料",
+        "工艺",
+        "温度",
+        "金属",
+        "化学",
+        "性能",
+        "溶液"
+      ]
+    },
+    {
+      "cluster": 7,
+      "size": 1252,
+      "n_courses": 150,
+      "largest_course_share": 0.061,
+      "top_courses": [
+        [
+          "PHP程序设计",
+          76
+        ],
+        [
+          "C语言程序设计（上）",
+          74
+        ],
+        [
+          "（疾风计划）程序设计基础",
+          59
+        ]
+      ],
+      "terms": [
+        "程序",
+        "输出",
+        "变量",
+        "语句",
+        "代码",
+        "字符",
+        "运算",
+        "函数"
+      ]
+    },
+    {
+      "cluster": 29,
+      "size": 1250,
+      "n_courses": 158,
+      "largest_course_share": 0.077,
+      "top_courses": [
+        [
+          "学做小程序——实战篇：树洞小程序",
+          96
+        ],
+        [
+          "信息化教学资源设计与制作——基于PPT数字教学资源开发",
+          80
+        ],
+        [
+          "足球运动与科学",
+          80
+        ]
+      ],
+      "terms": []
+    },
+    {
+      "cluster": 26,
+      "size": 1239,
+      "n_courses": 186,
+      "largest_course_share": 0.043,
+      "top_courses": [
+        [
+          "Traditional Customs and Chinese Arts",
+          53
+        ],
+        [
+          "中国城市发展之“前世·今生”",
+          42
+        ],
+        [
+          "巴蜀文化",
+          40
+        ]
+      ],
+      "terms": [
+        "文化",
+        "中国",
+        "dynasty",
+        "chinese",
+        "历史",
+        "民族",
+        "china",
+        "ancient"
+      ]
+    },
+    {
+      "cluster": 54,
+      "size": 1211,
+      "n_courses": 122,
+      "largest_course_share": 0.078,
+      "top_courses": [
+        [
+          "操作系统(RISC-V)",
+          95
+        ],
+        [
+          "计算机操作系统",
+          68
+        ],
+        [
+          "汇编语言程序设计",
+          55
+        ]
+      ],
+      "terms": [
+        "cpu",
+        "内存",
+        "操作系统",
+        "程序",
+        "数据",
+        "地址",
+        "执行",
+        "硬件"
+      ]
+    },
+    {
+      "cluster": 13,
+      "size": 1182,
+      "n_courses": 85,
+      "largest_course_share": 0.074,
+      "top_courses": [
+        [
+          "Soil Mechanics",
+          88
+        ],
+        [
+          "Physical Geology",
+          86
+        ],
+        [
+          "Geology and Engineering Geology (International)",
+          81
+        ]
+      ],
+      "terms": [
+        "地质",
+        "孔隙",
+        "土体",
+        "工程",
+        "岩石",
+        "压力",
+        "应力",
+        "强度"
+      ]
+    },
+    {
+      "cluster": 48,
+      "size": 1176,
+      "n_courses": 106,
+      "largest_course_share": 0.196,
+      "top_courses": [
+        [
+          "有机化学",
+          231
+        ],
+        [
+          "简明有机化学",
+          95
+        ],
+        [
+          "有机化学",
+          70
+        ]
+      ],
+      "terms": [
+        "化合物",
+        "反应",
+        "分子",
+        "生成",
+        "羟基",
+        "产物",
+        "氧化",
+        "离子"
+      ]
+    },
+    {
+      "cluster": 33,
+      "size": 1165,
+      "n_courses": 156,
+      "largest_course_share": 0.045,
+      "top_courses": [
+        [
+          "International Environmental Law",
+          53
+        ],
+        [
+          "Environmental Pollution Events and Emergency Response",
+          49
+        ],
+        [
+          "China’s Perspective on Climate Change",
+          49
+        ]
+      ],
+      "terms": [
+        "污染",
+        "排放",
+        "生态",
+        "污染物",
+        "environmental",
+        "生态系统",
+        "大气",
+        "环境"
+      ]
+    },
+    {
+      "cluster": 19,
+      "size": 1115,
+      "n_courses": 161,
+      "largest_course_share": 0.087,
+      "top_courses": [
+        [
+          "光学工程基础",
+          97
+        ],
+        [
+          "印刷色彩基础与实务（中国轻工业十三五数字化项目）",
+          77
+        ],
+        [
+          "大学物理——振动、波动与光学",
+          68
+        ]
+      ],
+      "terms": [
+        "光线",
+        "波长",
+        "反射",
+        "光源",
+        "光学",
+        "入射",
+        "成像",
+        "入射光"
+      ]
+    },
+    {
+      "cluster": 47,
+      "size": 1086,
+      "n_courses": 209,
+      "largest_course_share": 0.061,
+      "top_courses": [
+        [
+          "建设工程招投标与合同管理",
+          66
+        ],
+        [
+          "Project Management",
+          45
+        ],
+        [
+          "项目管理",
+          44
+        ]
+      ],
+      "terms": [
+        "项目",
+        "工程",
+        "设计",
+        "管理",
+        "方案",
+        "技术",
+        "开发",
+        "计划"
+      ]
+    },
+    {
+      "cluster": 21,
+      "size": 1079,
+      "n_courses": 222,
+      "largest_course_share": 0.077,
+      "top_courses": [
+        [
+          "暖通空调",
+          83
+        ],
+        [
+          "汽车发动机原理",
+          75
+        ],
+        [
+          "建筑室内热环境模拟及应用",
+          50
+        ]
+      ],
+      "terms": [
+        "空气",
+        "温度",
+        "燃烧",
+        "热量",
+        "设备",
+        "气体",
+        "室内",
+        "压力"
+      ]
+    },
+    {
+      "cluster": 18,
+      "size": 1063,
+      "n_courses": 187,
+      "largest_course_share": 0.048,
+      "top_courses": [
+        [
+          "学术英语",
+          51
+        ],
+        [
+          "大学英文写作（下）",
+          45
+        ],
+        [
+          "Academic English and Literacy",
+          41
+        ]
+      ],
+      "terms": [
+        "writing",
+        "topic",
+        "academic",
+        "read",
+        "write",
+        "paragraph",
+        "sentence",
+        "reading"
+      ]
+    },
+    {
+      "cluster": 42,
+      "size": 1048,
+      "n_courses": 141,
+      "largest_course_share": 0.052,
+      "top_courses": [
+        [
+          "动态测试与分析（下）",
+          54
+        ],
+        [
+          "数字电子技术基础",
+          51
+        ],
+        [
+          "Numerical Analysis",
+          48
+        ]
+      ],
+      "terms": [
+        "信号",
+        "频率",
+        "输出",
+        "输入",
+        "电路",
+        "变换",
+        "等于",
+        "函数"
+      ]
+    },
+    {
+      "cluster": 11,
+      "size": 1039,
+      "n_courses": 192,
+      "largest_course_share": 0.063,
+      "top_courses": [
+        [
+          "循证护理",
+          65
+        ],
+        [
+          "临床流行病学",
+          65
+        ],
+        [
+          "医学伦理学（自主模式）",
+          63
+        ]
+      ],
+      "terms": [
+        "临床",
+        "患者",
+        "治疗",
+        "疾病",
+        "医生",
+        "病人",
+        "医学",
+        "医院"
+      ]
+    },
+    {
+      "cluster": 31,
+      "size": 1034,
+      "n_courses": 161,
+      "largest_course_share": 0.094,
+      "top_courses": [
+        [
+          "知识产权法案例教学",
+          97
+        ],
+        [
+          "民法总则原理拓展",
+          91
+        ],
+        [
+          "知识产权法律及实务",
+          52
+        ]
+      ],
+      "terms": [
+        "法律",
+        "权利",
+        "法院",
+        "规定",
+        "应当",
+        "保护",
+        "案件",
+        "当事人"
+      ]
+    },
+    {
+      "cluster": 2,
+      "size": 993,
+      "n_courses": 140,
+      "largest_course_share": 0.089,
+      "top_courses": [
+        [
+          "燃烧理论",
+          88
+        ],
+        [
+          "工程热力学（上）",
+          62
+        ],
+        [
+          "工程热力学（下）",
+          59
+        ]
+      ],
+      "terms": [
+        "温度",
+        "热力学",
+        "热量",
+        "气体",
+        "定律",
+        "方程",
+        "压力",
+        "等于"
+      ]
+    },
+    {
+      "cluster": 50,
+      "size": 993,
+      "n_courses": 189,
+      "largest_course_share": 0.058,
+      "top_courses": [
+        [
+          "Plato, Socrates, and the Birth of Western Philosophy",
+          58
+        ],
+        [
+          "马克思主义基本原理概论",
+          35
+        ],
+        [
+          "马克思与当代欧陆思想",
+          27
+        ]
+      ],
+      "terms": [
+        "哲学",
+        "哲学家",
+        "人类",
+        "科学",
+        "思想",
+        "世界",
+        "事物",
+        "认识"
+      ]
+    },
+    {
+      "cluster": 35,
+      "size": 988,
+      "n_courses": 175,
+      "largest_course_share": 0.056,
+      "top_courses": [
+        [
+          "Sustainable Cities",
+          55
+        ],
+        [
+          "Global Tourism Development Trends（国际版）",
+          53
+        ],
+        [
+          "中国房地产发展之路",
+          48
+        ]
+      ],
+      "terms": [
+        "城市",
+        "economic",
+        "development",
+        "countries",
+        "cities",
+        "经济",
+        "urban",
+        "country"
+      ]
+    },
+    {
+      "cluster": 45,
+      "size": 977,
+      "n_courses": 104,
+      "largest_course_share": 0.131,
+      "top_courses": [
+        [
+          "文物精品与文化中国",
+          128
+        ],
+        [
+          "生活、艺术与时尚：中国服饰七千年",
+          107
+        ],
+        [
+          "外国工艺美术史",
+          77
+        ]
+      ],
+      "terms": [
+        "装饰",
+        "古代",
+        "出土",
+        "造型",
+        "建筑",
+        "时期",
+        "中国",
+        "当时"
+      ]
+    },
+    {
+      "cluster": 12,
+      "size": 973,
+      "n_courses": 198,
+      "largest_course_share": 0.055,
+      "top_courses": [
+        [
+          "大数据技术与应用",
+          54
+        ],
+        [
+          "计算机文化基础",
+          41
+        ],
+        [
+          "新城市科学",
+          31
+        ]
+      ],
+      "terms": [
+        "互联网",
+        "网络",
+        "用户",
+        "信息",
+        "数据",
+        "技术",
+        "智能",
+        "平台"
+      ]
+    },
+    {
+      "cluster": 32,
+      "size": 949,
+      "n_courses": 150,
+      "largest_course_share": 0.075,
+      "top_courses": [
+        [
+          "Accountant in Business",
+          71
+        ],
+        [
+          "管理学",
+          70
+        ],
+        [
+          "组织行为学——如何有效管理员工行为",
+          53
+        ]
+      ],
+      "terms": [
+        "员工",
+        "管理者",
+        "管理",
+        "组织",
+        "绩效",
+        "企业",
+        "领导",
+        "公司"
+      ]
+    },
+    {
+      "cluster": 43,
+      "size": 936,
+      "n_courses": 192,
+      "largest_course_share": 0.053,
+      "top_courses": [
+        [
+          "思想道德修养与法律基础",
+          50
+        ],
+        [
+          "思想道德修养与法律基础",
+          44
+        ],
+        [
+          "思想道德修养与法律基础",
+          38
+        ]
+      ],
+      "terms": [
+        "道德",
+        "社会",
+        "人生",
+        "精神",
+        "追求",
+        "思想",
+        "生活",
+        "个人"
+      ]
+    },
+    {
+      "cluster": 14,
+      "size": 922,
+      "n_courses": 124,
+      "largest_course_share": 0.052,
+      "top_courses": [
+        [
+          "美术鉴赏",
+          48
+        ],
+        [
+          "西方现代艺术赏析",
+          41
+        ],
+        [
+          "水彩画",
+          39
+        ]
+      ],
+      "terms": [
+        "艺术",
+        "色彩",
+        "作品",
+        "造型",
+        "绘画",
+        "画面",
+        "艺术家",
+        "创作"
+      ]
+    },
+    {
+      "cluster": 3,
+      "size": 903,
+      "n_courses": 89,
+      "largest_course_share": 0.197,
+      "top_courses": [
+        [
+          "经济学原理",
+          178
+        ],
+        [
+          "国际金融",
+          71
+        ],
+        [
+          "西方经济学",
+          57
+        ]
+      ],
+      "terms": [
+        "收入",
+        "经济",
+        "价格",
+        "经济学",
+        "消费",
+        "市场",
+        "均衡",
+        "商品"
+      ]
+    },
+    {
+      "cluster": 40,
+      "size": 902,
+      "n_courses": 124,
+      "largest_course_share": 0.064,
+      "top_courses": [
+        [
+          "Android应用开发基础",
+          58
+        ],
+        [
+          "数字化产品设计",
+          49
+        ],
+        [
+          "现代教育技术",
+          45
+        ]
+      ],
+      "terms": [
+        "点击",
+        "文件",
+        "按钮",
+        "设置",
+        "添加",
+        "显示",
+        "菜单",
+        "窗口"
+      ]
+    },
+    {
+      "cluster": 46,
+      "size": 896,
+      "n_courses": 139,
+      "largest_course_share": 0.049,
+      "top_courses": [
+        [
+          "基础笔译",
+          44
+        ],
+        [
+          "学术英语",
+          42
+        ],
+        [
+          "主题英语",
+          40
+        ]
+      ],
+      "terms": [
+        "句子",
+        "sentence",
+        "word",
+        "english",
+        "汉语",
+        "sentences",
+        "meaning",
+        "动词"
+      ]
+    },
+    {
+      "cluster": 53,
+      "size": 880,
+      "n_courses": 139,
+      "largest_course_share": 0.055,
+      "top_courses": [
+        [
+          "公共管理前沿——社会企业家精神",
+          48
+        ],
+        [
+          "创业启程",
+          44
+        ],
+        [
+          "商业计划书模块化制作与演示设计",
+          32
+        ]
+      ],
+      "terms": [
+        "创业",
+        "创业者",
+        "创新",
+        "企业",
+        "公司",
+        "团队",
+        "产品",
+        "市场"
+      ]
+    },
+    {
+      "cluster": 6,
+      "size": 858,
+      "n_courses": 102,
+      "largest_course_share": 0.098,
+      "top_courses": [
+        [
+          "基于Linux的C++",
+          84
+        ],
+        [
+          "C++编程训练营",
+          58
+        ],
+        [
+          "C++语言程序设计-91（2019秋）",
+          52
+        ]
+      ],
+      "terms": [
+        "c++",
+        "调用",
+        "程序",
+        "程序设计",
+        "代码",
+        "函数",
+        "语言",
+        "声明"
+      ]
+    },
+    {
+      "cluster": 37,
+      "size": 854,
+      "n_courses": 106,
+      "largest_course_share": 0.189,
+      "top_courses": [
+        [
+          "亚历山大大帝伟大吗？",
+          161
+        ],
+        [
+          "Chinese History From Warring States to the Tang Dynasty",
+          69
+        ],
+        [
+          "大唐兴衰",
+          53
+        ]
+      ],
+      "terms": [
+        "军队",
+        "儿子",
+        "当时",
+        "亚历山大",
+        "皇帝",
+        "后来",
+        "父亲",
+        "战争"
+      ]
+    },
+    {
+      "cluster": 8,
+      "size": 850,
+      "n_courses": 141,
+      "largest_course_share": 0.124,
+      "top_courses": [
+        [
+          "电子游戏与社会",
+          105
+        ],
+        [
+          "游戏分析与评测",
+          61
+        ],
+        [
+          "新闻摄影",
+          56
+        ]
+      ],
+      "terms": [
+        "游戏",
+        "玩家",
+        "画面",
+        "觉得",
+        "拍摄",
+        "电影",
+        "作品",
+        "真的"
+      ]
+    },
+    {
+      "cluster": 27,
+      "size": 828,
+      "n_courses": 181,
+      "largest_course_share": 0.054,
+      "top_courses": [
+        [
+          "中国古代礼义文明——礼制",
+          45
+        ],
+        [
+          "Conversational English Skills",
+          43
+        ],
+        [
+          "商务礼仪与沟通艺术",
+          38
+        ]
+      ],
+      "terms": [
+        "礼貌",
+        "礼仪",
+        "喜欢",
+        "朋友",
+        "不要",
+        "觉得",
+        "意思",
+        "说话"
+      ]
+    },
+    {
+      "cluster": 59,
+      "size": 821,
+      "n_courses": 132,
+      "largest_course_share": 0.061,
+      "top_courses": [
+        [
+          "市场营销学",
+          50
+        ],
+        [
+          "市场营销技能",
+          43
+        ],
+        [
+          "生活中的市场营销学",
+          39
+        ]
+      ],
+      "terms": [
+        "消费者",
+        "营销",
+        "顾客",
+        "产品",
+        "企业",
+        "市场",
+        "品牌",
+        "销售"
+      ]
+    },
+    {
+      "cluster": 24,
+      "size": 785,
+      "n_courses": 88,
+      "largest_course_share": 0.07,
+      "top_courses": [
+        [
+          "Diagnostics in Chinese Medicine",
+          55
+        ],
+        [
+          "Medical Nursing",
+          53
+        ],
+        [
+          "临床中成药应用",
+          51
+        ]
+      ],
+      "terms": [
+        "症状",
+        "感染",
+        "治疗",
+        "疾病",
+        "临床",
+        "病人",
+        "患者",
+        "临床表现"
+      ]
+    },
+    {
+      "cluster": 49,
+      "size": 739,
+      "n_courses": 89,
+      "largest_course_share": 0.111,
+      "top_courses": [
+        [
+          "明·园境赏析：明代11佳园",
+          82
+        ],
+        [
+          "Flower Arrangements in China and Japan",
+          66
+        ],
+        [
+          "花卉鉴赏",
+          53
+        ]
+      ],
+      "terms": [
+        "植物",
+        "园林",
+        "种植",
+        "生长",
+        "景观",
+        "花卉",
+        "开花",
+        "栽培"
+      ]
+    },
+    {
+      "cluster": 16,
+      "size": 691,
+      "n_courses": 115,
+      "largest_course_share": 0.101,
+      "top_courses": [
+        [
+          "系列课测试1-zm",
+          70
+        ],
+        [
+          "财务报表分析",
+          50
+        ],
+        [
+          "财务分析与决策",
+          41
+        ]
+      ],
+      "terms": [
+        "资产",
+        "投资",
+        "经营",
+        "收益",
+        "企业",
+        "公司",
+        "资金",
+        "利润"
+      ]
+    },
+    {
+      "cluster": 10,
+      "size": 689,
+      "n_courses": 88,
+      "largest_course_share": 0.087,
+      "top_courses": [
+        [
+          "Animal Anatomy",
+          60
+        ],
+        [
+          "局部解剖学（2018春）",
+          57
+        ],
+        [
+          "普通生物学",
+          54
+        ]
+      ],
+      "terms": [
+        "神经",
+        "血管",
+        "部位",
+        "器官",
+        "位于",
+        "结缔组织",
+        "纤维",
+        "细胞"
+      ]
+    },
+    {
+      "cluster": 44,
+      "size": 684,
+      "n_courses": 67,
+      "largest_course_share": 0.123,
+      "top_courses": [
+        [
+          "高山滑雪",
+          84
+        ],
+        [
+          "乒乓球入门与提高",
+          33
+        ],
+        [
+          "肌肉骨骼康复",
+          31
+        ]
+      ],
+      "terms": [
+        "动作",
+        "身体",
+        "练习",
+        "肌肉",
+        "姿势",
+        "重心",
+        "关节",
+        "向前"
+      ]
+    },
+    {
+      "cluster": 39,
+      "size": 668,
+      "n_courses": 102,
+      "largest_course_share": 0.115,
+      "top_courses": [
+        [
+          "生产计划与控制",
+          77
+        ],
+        [
+          "工业生产管理概论",
+          76
+        ],
+        [
+          "经济学原理",
+          68
+        ]
+      ],
+      "terms": [
+        "成本",
+        "生产",
+        "产品",
+        "总成本",
+        "价格",
+        "库存",
+        "企业",
+        "产量"
+      ]
+    },
+    {
+      "cluster": 36,
+      "size": 657,
+      "n_courses": 97,
+      "largest_course_share": 0.189,
+      "top_courses": [
+        [
+          "人类进化导论(国际版)",
+          124
+        ],
+        [
+          "植物检疫学",
+          51
+        ],
+        [
+          "医学寄生虫学",
+          43
+        ]
+      ],
+      "terms": [
+        "动物",
+        "生物",
+        "物种",
+        "进化",
+        "种群",
+        "繁殖",
+        "化石",
+        "人类"
+      ]
+    },
+    {
+      "cluster": 22,
+      "size": 633,
+      "n_courses": 112,
+      "largest_course_share": 0.153,
+      "top_courses": [
+        [
+          "网络技术与应用",
+          97
+        ],
+        [
+          "（疾风计划）计算机网络",
+          95
+        ],
+        [
+          "计算机网络技术",
+          40
+        ]
+      ],
+      "terms": [
+        "网络",
+        "传输",
+        "ip",
+        "协议",
+        "通信",
+        "发送",
+        "ip地址",
+        "路由器"
+      ]
+    },
+    {
+      "cluster": 55,
+      "size": 633,
+      "n_courses": 65,
+      "largest_course_share": 0.114,
+      "top_courses": [
+        [
+          "普通生物学",
+          72
+        ],
+        [
+          "临床科研实验技能",
+          55
+        ],
+        [
+          "Biochemistry and Molecular Biology",
+          49
+        ]
+      ],
+      "terms": [
+        "dna",
+        "细胞",
+        "rna",
+        "基因",
+        "蛋白",
+        "蛋白质",
+        "mrna",
+        "染色体"
+      ]
+    },
+    {
+      "cluster": 17,
+      "size": 632,
+      "n_courses": 87,
+      "largest_course_share": 0.1,
+      "top_courses": [
+        [
+          "文献检索",
+          63
+        ],
+        [
+          "（疾风计划）数据库系统原理与开发",
+          48
+        ],
+        [
+          "信息素养——学术研究的必修课（2019春）",
+          48
+        ]
+      ],
+      "terms": [
+        "数据库",
+        "检索",
+        "查询",
+        "点击",
+        "用户",
+        "页面",
+        "数据",
+        "信息"
+      ]
+    },
+    {
+      "cluster": 38,
+      "size": 627,
+      "n_courses": 76,
+      "largest_course_share": 0.124,
+      "top_courses": [
+        [
+          "Medical Nursing",
+          78
+        ],
+        [
+          "病理生理学",
+          37
+        ],
+        [
+          "运动生理学",
+          27
+        ]
+      ],
+      "terms": [
+        "心脏",
+        "患者",
+        "血管",
+        "血液",
+        "临床",
+        "症状",
+        "治疗",
+        "疾病"
+      ]
+    },
+    {
+      "cluster": 56,
+      "size": 603,
+      "n_courses": 93,
+      "largest_course_share": 0.237,
+      "top_courses": [
+        [
+          "食物与健康",
+          143
+        ],
+        [
+          "营养与健康(自主模式)",
+          51
+        ],
+        [
+          "系列课-开课中",
+          27
+        ]
+      ],
+      "terms": [
+        "食物",
+        "脂肪",
+        "食品",
+        "摄入",
+        "饮食",
+        "食用",
+        "蛋白质",
+        "营养"
+      ]
+    },
+    {
+      "cluster": 25,
+      "size": 565,
+      "n_courses": 72,
+      "largest_course_share": 0.131,
+      "top_courses": [
+        [
+          "医学免疫学原理",
+          74
+        ],
+        [
+          "病理学",
+          34
+        ],
+        [
+          "临床免疫学检验技术",
+          31
+        ]
+      ],
+      "terms": [
+        "免疫",
+        "细胞",
+        "抗原",
+        "抗体",
+        "肿瘤",
+        "特异性",
+        "感染",
+        "受体"
+      ]
+    },
+    {
+      "cluster": 0,
+      "size": 552,
+      "n_courses": 60,
+      "largest_course_share": 0.178,
+      "top_courses": [
+        [
+          "Music & Culture in English",
+          98
+        ],
+        [
+          "交响音乐赏析",
+          61
+        ],
+        [
+          "从音乐到影像",
+          48
+        ]
+      ],
+      "terms": [
+        "音乐",
+        "music",
+        "演奏",
+        "乐器",
+        "songs",
+        "旋律",
+        "musical",
+        "song"
+      ]
+    },
+    {
+      "cluster": 58,
+      "size": 491,
+      "n_courses": 45,
+      "largest_course_share": 0.177,
+      "top_courses": [
+        [
+          "投资学",
+          87
+        ],
+        [
+          "金融工程",
+          77
+        ],
+        [
+          "Financial Risk Management（金融风险管理）",
+          50
+        ]
+      ],
+      "terms": [
+        "利率",
+        "股票",
+        "资产",
+        "价格",
+        "无风险",
+        "收益率",
+        "到期",
+        "投资"
+      ]
+    },
+    {
+      "cluster": 51,
+      "size": 412,
+      "n_courses": 58,
+      "largest_course_share": 0.172,
+      "top_courses": [
+        [
+          "会计信息系统",
+          71
+        ],
+        [
+          "会计学",
+          41
+        ],
+        [
+          "Introduction to Bookkeeping（自主模式）",
+          41
+        ]
+      ],
+      "terms": [
+        "余额",
+        "贷方",
+        "借方",
+        "金额",
+        "记账",
+        "账户",
+        "会计",
+        "凭证"
+      ]
+    },
+    {
+      "cluster": 15,
+      "size": 386,
+      "n_courses": 97,
+      "largest_course_share": 0.228,
+      "top_courses": [
+        [
+          "互联网金融",
+          88
+        ],
+        [
+          "商业银行经营管理",
+          52
+        ],
+        [
+          "货币金融学",
+          35
+        ]
+      ],
+      "terms": [
+        "银行",
+        "商业银行",
+        "金融",
+        "贷款",
+        "资金",
+        "金融机构",
+        "存款",
+        "信用"
+      ]
+    },
+    {
+      "cluster": 41,
+      "size": 368,
+      "n_courses": 52,
+      "largest_course_share": 0.122,
+      "top_courses": [
+        [
+          "葡萄酒的世界：从葡萄到美酒（国际版）",
+          45
+        ],
+        [
+          "白酒品评与酒体设计",
+          42
+        ],
+        [
+          "悦调悦美-餐饮酒水知识",
+          40
+        ]
+      ],
+      "terms": [
+        "葡萄酒",
+        "香气",
+        "发酵",
+        "酿造",
+        "风味",
+        "香味",
+        "酿酒",
+        "口感"
+      ]
+    }
+  ],
+  "clusters_with_5plus_courses": 60,
+  "neighbour_rows": 595120,
+  "cross_course_pairs_in_top10": 279415,
+  "same_course_neighbour_share_pct": 41.4,
+  "redundancy_by_threshold": {
+    "0.8": {
+      "pairs": 207146,
+      "videos": 50338
+    },
+    "0.85": {
+      "pairs": 128794,
+      "videos": 39471
+    },
+    "0.9": {
+      "pairs": 43165,
+      "videos": 20918
+    },
+    "0.95": {
+      "pairs": 9801,
+      "videos": 5698
+    }
+  },
+  "jaccard_by_cosine_bin": [
+    {
+      "cosine_range": [
+        0.0,
+        0.8
+      ],
+      "pairs": 72269,
+      "mean_token_jaccard": 0.046
+    },
+    {
+      "cosine_range": [
+        0.8,
+        0.85
+      ],
+      "pairs": 78352,
+      "mean_token_jaccard": 0.078
+    },
+    {
+      "cosine_range": [
+        0.85,
+        0.9
+      ],
+      "pairs": 85629,
+      "mean_token_jaccard": 0.101
+    },
+    {
+      "cosine_range": [
+        0.9,
+        0.95
+      ],
+      "pairs": 33364,
+      "mean_token_jaccard": 0.127
+    },
+    {
+      "cosine_range": [
+        0.95,
+        1.0
+      ],
+      "pairs": 9801,
+      "mean_token_jaccard": 0.182
+    }
+  ],
+  "random_cross_course_mean_jaccard": 0.022,
+  "course_pair_overlap_ge_0.90": [
+    {
+      "courses": [
+        "(no course)",
+        "(no course)"
+      ],
+      "video_pairs": 831
+    },
+    {
+      "courses": [
+        "思想道德修养与法律基础",
+        "思想道德修养与法律基础"
+      ],
+      "video_pairs": 547
+    },
+    {
+      "courses": [
+        "中国近现代史纲要",
+        "中国近现代史纲要"
+      ],
+      "video_pairs": 518
+    },
+    {
+      "courses": [
+        "微积分",
+        "微积分——极限理论与一元函数"
+      ],
+      "video_pairs": 475
+    },
+    {
+      "courses": [
+        "Introduction to Ci Poems in the Tang and Song Dynasty",
+        "大学国文——北宋至现代文学赏析"
+      ],
+      "video_pairs": 454
+    },
+    {
+      "courses": [
+        "Introduction to Ci Poems in the Tang and Song Dynasty",
+        "大学国文——先秦至唐文学赏析"
+      ],
+      "video_pairs": 331
+    },
+    {
+      "courses": [
+        "有机化学",
+        "简明有机化学"
+      ],
+      "video_pairs": 329
+    },
+    {
+      "courses": [
+        "大学物理2 (电磁学、光学和量子物理)",
+        "大学物理（先修课）-电磁学"
+      ],
+      "video_pairs": 328
+    },
+    {
+      "courses": [
+        "(no course)",
+        "思想道德修养与法律基础"
+      ],
+      "video_pairs": 324
+    },
+    {
+      "courses": [
+        "大学国文——先秦至唐文学赏析",
+        "大学国文——北宋至现代文学赏析"
+      ],
+      "video_pairs": 309
+    }
+  ],
+  "top_cross_course_pairs": [
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "Video",
+        "course": "揭开潜意识心理的奥秘",
+        "text": "同学们好 今天我们开始上课 今天呢我们来谈论潜意识条件性情绪反应原理 那么要谈这个原理呢 我们首先来重新解释两个经典的心理学实验 首先呢是巴"
+      },
+      "b": {
+        "video": "Video",
+        "course": "揭开潜意识心理的奥秘",
+        "text": "同学们好 今天我们开始上课 今天呢我们来谈论潜意识条件性情绪反应原理 那么要谈这个原理呢 我们首先来重新解释两个经典的心理学实验 首先呢是巴"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "1. 陈某诉腾讯案",
+        "course": "知识产权法律及实务",
+        "text": "接下来我们讨论的第二个案例是 陈某某诉腾讯公司侵害作品信息网络传播权纠纷 该案入选了2016年“深圳法院十大知识产权典型案例” 这个案件的主"
+      },
+      "b": {
+        "video": "1. 陈某诉腾讯案",
+        "course": "知识产权法律及实务（清华认证)",
+        "text": "接下来我们讨论的第二个案例是 陈某某诉腾讯公司侵害作品信息网络传播权纠纷 该案入选了2016年“深圳法院十大知识产权典型案例” 这个案件的主"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "实例三：如何利用“流程”进行改良式创新？",
+        "course": "王新宇·打造问题解决的思维利器",
+        "text": "上节课呢 给大家讲到了流程性思考在 业务竞争力分析中的应用 我不知道大家有没有 去完成课后的作业 那么这节课 给大家讲一个好玩的东西 叫改良"
+      },
+      "b": {
+        "video": "如何利用“流程”进行改良式创新？",
+        "course": "王新宇·高效管理的系统思维",
+        "text": "上节课呢 给大家讲到了流程性思考在 业务竞争力分析中的应用 我不知道大家有没有 去完成课后的作业 那么这节课 给大家讲一个好玩的东西 叫改良"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "Video",
+        "course": "2015年清华大学研究生学位论文答辩（二）",
+        "text": "下面我们请答辩会的委员 和参加答辩会的其他同学 如果有问题的话可以提问 我们讨论一下 第一个你是高超声速边界层 可是你的论文题目里边 涵盖了"
+      },
+      "b": {
+        "video": "问答及答辩结果",
+        "course": "2015年清华大学研究生学位论文答辩（一）",
+        "text": "下面我们请答辩会的委员 和参加答辩会的其他同学 如果有问题的话可以提问 我们讨论一下 第一个你是高超声速边界层 可是你的论文题目里边 涵盖了"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "2.3.2 教学视频",
+        "course": "贸易实务英语",
+        "text": "Now let’s move on to inspection certificate This document contains man"
+      },
+      "b": {
+        "video": "2.3.2 教学视频",
+        "course": "(no course)",
+        "text": "Now let’s move on to inspection certificate This document contains man"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "Video",
+        "course": "2015年清华大学研究生学位论文答辩（二）",
+        "text": "下面我们请答辩会的委员 和参加答辩会的其他同学 如果有问题的话可以提问 我们讨论一下 第一个你是高超声速边界层 可是你的论文题目里边 涵盖了"
+      },
+      "b": {
+        "video": "问答及答辩结果",
+        "course": "2015年清华大学研究生学位论文答辩（一）",
+        "text": "下面我们请答辩会的委员 和参加答辩会的其他同学 如果有问题的话可以提问 我们讨论一下 第一个你是高超声速边界层 可是你的论文题目里边 涵盖了"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "Video",
+        "course": "2015年清华大学研究生学位论文答辩（二）",
+        "text": "下面我们请答辩会的委员 和参加答辩会的其他同学 如果有问题的话可以提问 我们讨论一下 第一个你是高超声速边界层 可是你的论文题目里边 涵盖了"
+      },
+      "b": {
+        "video": "问答及答辩结果",
+        "course": "2015年清华大学研究生学位论文答辩（一）",
+        "text": "下面我们请答辩会的委员 和参加答辩会的其他同学 如果有问题的话可以提问 我们讨论一下 第一个你是高超声速边界层 可是你的论文题目里边 涵盖了"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "第二节：专利保护期",
+        "course": "知识产权法律及实务（清华认证)",
+        "text": "上一节课 我们以发明专利为例 对专利证书进行了解读 由此了解到 专利申请日和专利授权公告日 具有不同的法律意义 申请日是专利权期限的起算点 "
+      },
+      "b": {
+        "video": "第二节：专利保护期",
+        "course": "知识产权法律及实务",
+        "text": "上一节课 我们以发明专利为例 对专利证书进行了解读 由此了解到 专利申请日和专利授权公告日 具有不同的法律意义 申请日是专利权期限的起算点 "
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "第四节：老字号商标共存问题",
+        "course": "知识产权法律及实务",
+        "text": "下面我们以北京稻香村与苏州稻香村的商标之争 讨论老字号商标的共存问题 北京稻香村食品公司和苏州稻香村食品工业公司 两家公司都有无可争辩的悠久"
+      },
+      "b": {
+        "video": "第四节：老字号商标共存问题",
+        "course": "知识产权法律及实务（清华认证)",
+        "text": "下面我们以北京稻香村与苏州稻香村的商标之争 讨论老字号商标的共存问题 北京稻香村食品公司和苏州稻香村食品工业公司 两家公司都有无可争辩的悠久"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "9.2 商业银行流动性头寸",
+        "course": "商业银行经营管理",
+        "text": "各位同学 大家好 欢迎来到 《商业银行经营管理》在线课程 在上一讲 我们说商业银行流动性 主要表现为资产流动性 和负债流动性 那在商业银行的"
+      },
+      "b": {
+        "video": "9.2 商业银行流动性头寸",
+        "course": "(no course)",
+        "text": "各位同学 大家好 欢迎来到 《商业银行经营管理》在线课程 在上一讲 我们说商业银行流动性 主要表现为资产流动性 和负债流动性 那在商业银行的"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "8.4 The Introduction to Threads",
+        "course": "Embedded Software Design",
+        "text": "Hello, everyone. In this class, we'll learn The Introduction to Thread"
+      },
+      "b": {
+        "video": "8.4 线程简介",
+        "course": "嵌入式软件设计",
+        "text": "Hello, everyone. In this class, we'll learn The Introduction to Thread"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "Video",
+        "course": "揭开潜意识心理的奥秘",
+        "text": "同学们 下面我们开始上课 在这一讲里 我们将从一个具体的个案 去介绍抑郁症的问题的这个表现 我们先来看 在我们介绍的所有个案当中 来访者的信"
+      },
+      "b": {
+        "video": "Video",
+        "course": "揭开潜意识心理的奥秘",
+        "text": "同学们 下面我们开始上课 在这一讲里 我们将从一个具体的个案 去介绍抑郁症的问题的这个表现 我们先来看 在我们介绍的所有个案当中 来访者的信"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "2-1物理层概述及信号分析",
+        "course": "（疾风计划）计算机网络",
+        "text": "各位好 你还记得物理层在哪里吗 在参考模型里边 物理层是最底层 最基础的一层 它没有下一层的支撑 它直接为数据链路层服务 物理层提供的主要功"
+      },
+      "b": {
+        "video": "2-1物理层概述及信号分析",
+        "course": "计算机网络",
+        "text": "各位好 你还记得物理层在哪里吗 在参考模型里边 物理层是最底层 最基础的一层 它没有下一层的支撑 它直接为数据链路层服务 物理层提供的主要功"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "Video",
+        "course": "(no course)",
+        "text": "大家好 我是童茜老师 今天要和大家说一说 位次排列的问题 大家也许会觉得 这谁不会呀 从小到大 在人与人的交往中 好像没有一天 离开过顺序的"
+      },
+      "b": {
+        "video": "讲礼，就要先搞清楚次序问题!",
+        "course": "A Beginner’s Guide to Etiquette",
+        "text": "大家好 我是童茜老师 今天要和大家说一说 位次排列的问题 大家也许会觉得 这谁不会呀 从小到大 在人与人的交往中 好像没有一天 离开过顺序的"
+      }
+    },
+    {
+      "cosine": 1.0,
+      "token_jaccard": 1.0,
+      "a": {
+        "video": "10.2.1 艺术基本形式引起美感的机理",
+        "course": "Modern Aesthetics：Mechanism and Laws",
+        "text": "同学们好 今天我们来讲 艺术基本形式引起美感的机理 艺术基本形式 是艺术作品创作的基本方法 为什么按照艺术基本形式 创造的作品能够引起人的美"
+      },
+      "b": {
+        "video": "视频",
+        "course": "(no course)",
+        "text": "同学们好 今天我们来讲 艺术基本形式引起美感的机理 艺术基本形式 是艺术作品创作的基本方法 为什么按照艺术基本形式 创造的作品能够引起人的美"
+      }
+    }
+  ],
+  "map_points": 8000,
+  "runtime_sec": 335.4
+}

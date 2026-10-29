@@ -113,11 +113,12 @@
       <a href="proposal.html">Proposal &amp; Literature</a>
       <a href="pipeline.html" class="active">Pipeline &amp; Modules</a>
       <a href="subset.html">CS Subset &amp; EDA</a>
+      <a href="full.html">Full Corpus</a>
     </nav>
   </div>
 </div>
 <div class="subbar"><div class="subbar-inner">
-  <a href="#architecture">Architecture</a><a href="#weeks">6-Week Plan</a><a href="#modules">Module Map</a>
+  <a href="#architecture">Architecture</a><a href="#stack">Hadoop &amp; Spark</a><a href="#engine">How search works</a><a href="#weeks">6-Week Plan</a><a href="#modules">Module Map</a>
 </div></div>
 
 <div class="wrap">
@@ -125,7 +126,7 @@
   <section class="hero" style="border-top:none;">
     <p class="eyebrow">EduInsight · Big Data Analytics Project</p>
     <h1>Project pipeline &amp; the 6-week build plan</h1>
-    <p class="sub">Six modules, one per stage of the pipeline, built sequentially so something demoable exists at the end of every week. Foundation work and Modules 1–4 (HDFS + Spark, distributed preprocessing, embeddings, clustering) are done — this plan continues from Module 5.</p>
+    <p class="sub">Six modules, one per stage of the pipeline, built sequentially so something demoable exists at the end of every week. Foundation work and Modules 1–5 (HDFS + Spark, distributed preprocessing, embeddings, clustering, ranking and evaluation) are done — this plan continues from Module 6.</p>
   </section>
 
   <section id="architecture">
@@ -146,9 +147,45 @@
       <div class="flow-arrow">→</div>
       <div class="flow-node"><div class="flow-num">07</div><div class="flow-title">Clustering &amp; similarity</div><span class="chip done">✓ Done</span></div>
       <div class="flow-arrow">→</div>
-      <div class="flow-node"><div class="flow-num">08</div><div class="flow-title">Ranking engine</div><span class="chip planned">Planned</span></div>
+      <div class="flow-node"><div class="flow-num">08</div><div class="flow-title">Ranking engine</div><span class="chip done">✓ Done</span></div>
       <div class="flow-arrow">→</div>
       <div class="flow-node"><div class="flow-num">09</div><div class="flow-title">Query demo</div><span class="chip planned">Planned</span></div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <h2>Where Hadoop and Spark are used</h2>
+    <p class="section-desc">Every heavy stage reads from and writes to HDFS, and is a Spark job. Only the final search box (one small lookup) runs outside Spark. Modules 2, 3 and 4 were also run on all 59,581 videos; see the <a href="full.html">Full Corpus</a> page.</p>
+    <div class="card">
+      <div style="overflow-x:auto;">
+      <table class="modtable">
+        <thead><tr><th>Stage</th><th>Hadoop (HDFS)</th><th>Spark</th><th>Script</th></tr></thead>
+        <tbody>
+          <tr><td>Ingestion</td><td>Stores the 7 source files: 949 MB for the full corpus, 69 MB for the CS subset</td><td>-</td><td class="mono">wsl_ingest_full.sh</td></tr>
+          <tr><td>Preprocessing</td><td>Reads captions, writes cleaned word lists as Parquet</td><td>Splits captions across parallel partitions, tokenizes in parallel, joins concepts to videos, computes TF-IDF with distributed aggregations</td><td class="mono">spark_module2_preprocess.py</td></tr>
+          <tr><td>Embeddings</td><td>Reads cleaned captions, writes passage and lecture vectors</td><td>Runs the GPU language model inside each Spark partition, then pools vectors per lecture with a group-by</td><td class="mono">spark_module3_embed.py</td></tr>
+          <tr><td>Clustering and similarity</td><td>Reads vectors, writes clusters and neighbour tables</td><td>MLlib K-means; a broadcast-and-partition job finds each lecture's 10 nearest neighbours</td><td class="mono">spark_module4_cluster.py</td></tr>
+          <tr><td>Ranking and evaluation</td><td>Reads vectors, writes score tables</td><td>Scores every test query against every passage in parallel; BM25 keyword search written with Spark DataFrames</td><td class="mono">spark_module5_rank.py</td></tr>
+          <tr><td>Search box</td><td>Vectors exported from HDFS to local files</td><td>Not used: one in-memory lookup that answers in about 76 ms</td><td class="mono">eduinsight_search.py</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="tl-demo" style="margin-top:14px;"><b>Honest scope:</b> HDFS runs on one machine (pseudo-distributed: one DataNode, replication 1) and Spark runs in local mode, using 8 to 20 parallel tasks on one laptop. Hadoop MapReduce and YARN are not used: HDFS does the storage and Spark does the processing, which is the standard modern setup. The same code would run on a real cluster by changing the master address and the HDFS address.</div>
+    </div>
+  </section>
+
+  <section id="engine">
+    <h2>How the search engine works</h2>
+    <p class="section-desc">In plain language, from raw captions to a ranked answer.</p>
+    <div class="card">
+      <ol class="tl-tasks" style="margin:0;">
+        <li><b>Offline, once (Hadoop and Spark):</b> each lecture's captions are cleaned and cut into about 12 short passages.</li>
+        <li><b>Offline, once (Spark with a GPU):</b> a multilingual language model turns every passage into a list of 768 numbers, a "meaning fingerprint". Passages with similar meaning get similar numbers, even across English and Chinese. These are saved in HDFS.</li>
+        <li><b>Online, per search:</b> the query becomes a fingerprint too and is compared with every passage; each lecture is scored by its best-matching passage. This gives ranking A.</li>
+        <li><b>Online, per search:</b> the query is also matched against about 27,000 known Chinese concept names to find the closest Chinese terms, and a classic keyword search (BM25, which scores by word frequency) runs on those terms. This gives ranking B.</li>
+        <li><b>Online, per search:</b> the two rankings are merged (each list gives a lecture 1 / (60 + rank) points) and the top lectures are returned with the passage that matched.</li>
+      </ol>
+      <div class="tl-demo" style="margin-top:12px;"><b>Why it sometimes fails:</b> the language model is a general one and can miss technical terms, and the English-to-Chinese concept matching sometimes picks a wrong word. The evaluation on the CS Subset &amp; EDA page measures how often.</div>
     </div>
   </section>
 
@@ -231,16 +268,17 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-marker todo"><div class="w">Week</div><div class="n">5</div></div>
+        <div class="tl-marker done"><div class="w">Done</div><div class="n">5</div></div>
         <div class="tl-card">
           <div class="tl-head"><div class="tl-title">Module 5 — Ranking &amp; Recommendation Engine</div><div class="tl-owner">Aryan</div></div>
           <ul class="tl-tasks">
-            <li>Embed a student query the same way as videos (e.g. "dynamic programming")</li>
-            <li>Rank videos by embedding similarity, boosted by concept overlap with the query</li>
-            <li>Output ranked results with measurable scores — never "best teacher," always "best content match"</li>
+            <li>Distributed Spark job scores 82 test queries (English and Chinese variants) against all 48,944 caption chunks, runs a BM25 keyword baseline, and writes the results to HDFS</li>
+            <li>Compared 7 ranking methods on 30 automatic queries and 22 hand-judged queries (237 judged results), including a held-out set fixed before any results were seen</li>
+            <li>Standalone search engine: English or Chinese query in, ranked lectures with scores and matching passages out (median 76 ms per query)</li>
+            <li>Ranks by content match only; never "best teacher"</li>
           </ul>
-          <div class="tl-deliverable">Deliverable: <b>ranking engine</b> — query in, scored ranked list out</div>
-          <div class="tl-demo"><b>Demo:</b> live query → top 5 ranked lectures with similarity % and concept-overlap count shown</div>
+          <div class="tl-deliverable">Deliverable: <b>ranking engine</b> (<span class="mono">scripts/eduinsight_search.py</span>) plus a measured evaluation, failures included</div>
+          <div class="tl-demo"><b>Verified:</b> about 3 of the top 5 results directly teach the topic and about 4 of 5 are at least related (held-out set). No method is reliably better than the others on 22 queries. Known failures: "dynamic programming", "recursion" and "deadlock" lectures exist but rank low; similarity scores are not a trustworthy confidence measure. Full results are on the CS Subset &amp; EDA page.</div>
         </div>
       </div>
 

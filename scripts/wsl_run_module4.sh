@@ -1,4 +1,6 @@
 #!/bin/bash
+# usage: wsl_run_module4.sh [subset|full]   (default: subset; needs Module 3 output for that scope in HDFS)
+SCOPE=${1:-subset}
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export HADOOP_HOME=$HOME/hadoop
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
@@ -8,6 +10,9 @@ export PYSPARK_PYTHON=python3
 export PYSPARK_DRIVER_PYTHON=python3
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin
 export PYTHONUNBUFFERED=1
+export EDUINSIGHT_SCOPE=$SCOPE
+if [ "$SCOPE" = "full" ]; then MASTER="local[8]"; MEM="8g"; else MASTER="local[*]"; MEM="4g"; fi
+export EDUINSIGHT_MASTER=$MASTER
 
 WIN_PROJECT="/mnt/c/Users/ARYAN BHUTANI/Desktop/BDA-Project"
 cp "$WIN_PROJECT/scripts/spark_module4_cluster.py" ~/spark_module4_cluster.py
@@ -19,11 +24,13 @@ if ! $JAVA_HOME/bin/jps | grep -q NameNode; then
 fi
 $HADOOP_HOME/bin/hdfs dfsadmin -safemode wait
 
-$SPARK_HOME/bin/spark-submit --master "local[*]" ~/spark_module4_cluster.py 2>/tmp/spark_m4_stderr.log
+echo "Module 4, scope=$SCOPE, master=$MASTER, driver memory=$MEM"
+$SPARK_HOME/bin/spark-submit --master "$MASTER" --driver-memory $MEM ~/spark_module4_cluster.py 2>/tmp/spark_m4_stderr.log
 rc=$?
 if [ $rc -ne 0 ]; then
   echo "SPARK JOB FAILED (exit $rc). Last stderr lines:"
   grep -v -E "^\s+at |INFO " /tmp/spark_m4_stderr.log | tail -30
 fi
-cp /home/aryan/module4_stats.json /home/aryan/module4_points.json "$WIN_PROJECT/eda/" 2>/dev/null
+SUFFIX=""; [ "$SCOPE" = "full" ] && SUFFIX="_full"
+cp /home/aryan/module4_stats$SUFFIX.json /home/aryan/module4_points$SUFFIX.json "$WIN_PROJECT/eda/" 2>/dev/null
 exit $rc
